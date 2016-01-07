@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_user_ordersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PublishipSQL;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.user_orders" Method="user_orders" IsComposable="true">
+    <Parameter Name="startDate" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="monthRange" Type="System.Int32" DbType="Int" />
+    <ElementType Name="user_ordersResult">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OfficeIndicator" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SubDeliveryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CurrentStatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SpecialInstructions" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Copies" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="delivery_to" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="delivery_addr1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="delivery_postcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="delivery_telno" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="current_status" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CargoUpdateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ConsigneeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrinterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HouseBLNUmber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomersRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DateOrderCreated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ETS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ETA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ETW" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JobClosed" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExWorksDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EstPallets" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstVolume" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CargoReady" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="WarehouseDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UnitPricePerCopy" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="document_folder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RemarksToCustomer" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ShippedOnBoard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="VesselLastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EWDLastUpdated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="PearsonDivCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HCCompositeRef" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HCInvoiceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OperationsControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OriginPortControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestinationPortControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="origin_port" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="destination_port" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="vessel_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="origin_place" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="destination_place" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ContainerSubID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContainerNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SSRNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SSRDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Impression" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PONumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalValue" Type="System.Decimal" DbType="Decimal(24,0)" CanBeNull="true" />
+      <Column Name="OtherRef" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="dtupdated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="printer_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="consignee_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderIx" Type="System.String" DbType="VarChar(120)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

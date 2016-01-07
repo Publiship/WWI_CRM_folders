@@ -1,0 +1,1003 @@
+/* Copyright (C) 2007 - 2011 YOOtheme GmbH, YOOtheme Proprietary Use License (http://www.yootheme.com/license) */
+
+/*
+ * This CSS file is for customization purpose only
+ */ 
+
+#header {
+	margin: 0px 10px 30px 10px;
+	padding: 0px 0px 0px 0px;
+	position: relative;
+	z-index: 10;
+    clear: both;
+}
+
+#headerbar { 
+	padding: 20px 0px 20px 140px;
+	min-height: 55px;
+	overflow: hidden;
+}
+
+#toolbar {
+	height: 25px;
+	padding: 0px 0px 0px 0px;
+	overflow: hidden;
+	line-height: 25px;
+	font-size: 10px;
+}
+
+#menubar { border-bottom: 5px solid #333435; z-index: 9999;}
+
+#menubar div.menubar-1 { 
+    z-index: 9999;
+    height: 54px;
+	background: #ffffff;
+	overflow: auto;
+	border: 1px solid #E1E1E2;
+	border-bottom: none;
+}
+
+#date {
+	padding: 0px 0px 0px 0px;
+	float: right;
+}
+
+#logo {
+	position: absolute;
+	left: -20px;
+	top: -40px;
+}
+
+#footer a.anchor {
+	position: absolute;
+	right: -3px;
+	top: 0px;
+	width: 20px;
+	height: 20px;
+	background: url(../images/color/blue/footer_anchor.png) 0 0 no-repeat;
+	display: block;
+	text-decoration: none;
+}
+
+#footer a.anchor:hover { background-position: 0 -23px; }
+
+.left {
+	position: relative;
+	/*left: -50%;*/
+	float: left;
+	overflow:hidden;
+    top: 0px;
+    left: 0px;
+}
+
+
+.right {
+	position: relative;
+	float: right;
+	overflow:hidden;
+    top: 8px;
+    left: 10px;
+}
+
+#logo 
+{
+    position: absolute;
+	left: -10px;
+	top: 30px;
+	/*position: absolute;
+	left: -30px;
+	top: -40px;
+    margin-right: 0px;*/
+}
+
+#logo a.logo-icon {
+	display: block;
+	width: 237px;
+	height: 73px;
+	background: url(../images/logo.gif) 0 0 no-repeat;
+}
+
+.style-black #logo a.logo-icon { background-image: url(../images/logo_black.png); }
+
+.iconbox { 
+	padding: 10px;
+	border: 1px solid #EDEEEF;
+	background: #ffffff;
+	overflow:hidden; 
+}
+
+.style-black .iconbox { 
+	background: #2C2B2A;
+	border: 1px solid #43413D;
+}
+
+div.top-separator,
+div.maintop-separator,
+div.mainbottom-separator,
+div.bottom-separator {
+	margin: 0px 10px 0px 10px;
+	height: 5px;
+	background: url(../images/separator.png) 0 0 repeat-x;
+	clear: both;
+}
+
+
+.style-black #logo a.logo-icon { background: url(../images/logo.gif); }
+
+.iconbox { 
+	padding: 10px;
+	border: 1px solid #EDEEEF;
+	background: #ffffff;
+	overflow:hidden; 
+}
+
+.style-black .iconbox { 
+	background: #2C2B2A;
+	border: 1px solid #43413D;
+}
+
+/**********/
+/* date box from Joomla theme*/
+.date {
+	margin-right: 10px;
+	width: 34px;
+	height: 34px;
+	background: #333435;
+	float: left;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.date .month { 
+	margin: 3px 3px 0px 3px;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	line-height: 9px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.date .day {
+	margin-top: 1px;
+	font-size: 18px;
+	font-weight: normal;
+	line-height: 18px;
+	letter-spacing: 1px;
+}
+
+.date + .title { 
+	margin: 0 0 15px 0;
+	font-size: 30px;
+	line-height: 34px;
+}
+
+/*************/
+/* for input forms centered to screen */
+/*************/
+.h1image
+{
+    float: left;
+    margin: 0 5px 0 0; 
+}
+
+.msglabel
+{
+    float: right;
+    margin: 0 5px 0 0; 
+}
+
+.formcenter 
+{
+    width: 600px; 
+    margin: 10px Auto; 
+    text-align: left;    
+}
+
+/* keeps cells aligned correctly */
+.formfooter {
+    width: 570px; /* 580 - 10px for left & right borders */
+    height: 5px;
+    clear: both;
+    padding: 5px;
+    border: 5px;
+}
+
+.formcenter580note
+{
+    width: 580px;
+    margin: 0px Auto 10px;
+    padding: 10px;
+    color: #323232;
+	background: #E4EBF1;
+	border-left: 1px solid #E4EBF1;
+	border-right: 1px solid #E4EBF1;
+	border-top: 1px solid #D4D9DE;
+	border-bottom: 1px solid #D4D9DE;
+	text-align:justify;
+}
+
+.formcenter580
+{
+    width: 587px;
+    margin: 0px  Auto 10px;
+    padding: 10px;
+   	/*border: 1px solid #D4D9DE;*/
+	text-align:justify;
+}
+
+.form640
+{
+    width: 640px;
+    padding: 5px;    
+}
+
+.cell580_100 
+{
+    height: 28px;
+    width: 570px; /* 580 - 10px for left & right borders */
+    clear: both;
+    padding: 5px;
+    border: 5px;
+}
+
+.cell580_80
+{
+   height: 28px;
+   width: 454px; /*(580/100 X 80) - 10 */
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell580_50
+{
+   height:28px;
+   width: 280px; 
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell580_60
+{
+   height:28px;
+   width: 330px; 
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell580_50auto
+{
+   height:Auto;
+   width: 280px; 
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+
+.cell580_40
+{
+   height: 28px;
+   width: 222px; 
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell580_25
+{
+    height: 28px;
+    width: 135px; 
+    float: right;
+    padding: 5px;
+    border: 5px;
+}
+
+
+.cell580_20
+{
+    height: 28px;
+    width: 106px; 
+    float: right;
+    padding: 5px;
+    border: 5px;
+}
+
+.cell580_15
+{
+   height: 28px;
+   width: 77px; /*(580/100 X 80) - 10 */
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell580_5
+{
+   height: 28px;
+   width: 19px; /*(580/100 X 80) - 10 */
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+
+.cell100
+{
+   height: 28px;
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell100right
+{
+   height: 28px;
+   float: right; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell100_150
+{
+   height: 28px;
+   width: 150px; 
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+.cell100_200
+{
+   height: 28px;
+   width: 200px; 
+   float: left; 
+   padding: 5px;
+   border: 5px;  
+}
+
+
+div.top-panel,
+div.maintop-panel,
+div.mainbottom-panel,
+div.bottom-panel 
+{
+	margin:  5px 10px 10px 10px;
+	height: 44px;
+	clear: both;
+}
+
+div.top-panel-shaded,
+div.maintop-panel-shaded,
+div.mainbottom-panel-shaded,
+div.bottom-panel-shaded 
+{
+	margin: 5px 10px 10px 10px;
+	height: 44px;
+	clear: both;
+	background: #E4EBF1;
+	border-left: 1px solid #D4D9DE;
+	border-right: 1px solid #D4D9DE;
+	border-top: 1px solid #D4D9DE;
+	border-bottom: 1px solid #D4D9DE;
+}
+
+div.panel-padded
+{
+    margin: 5px 10px 10px 10px;
+    clear: both;    
+}
+
+.positcenter
+{
+    margin: 5px Auto;
+    padding: 5px;
+    min-width: 200px
+}
+
+.formcentershaded
+{
+    margin: 10px Auto;
+    background: #E4EBF1;
+    padding: 10px;
+   	background: #fff;
+}
+
+.formcenter650
+{
+    width: 650px;
+    margin: 0px  Auto 10px;
+    padding: 10px;
+   	background: #fff;
+	/*border: 1px solid #D4D9DE;*/
+	text-align:justify;
+}
+
+.cell650_80
+{
+    height: 28px;
+    width: 520px; 
+    float: left;
+    padding: 5px;
+    border: 5px;
+}
+
+.cell650_40
+{
+    height: 28px;
+    width: 260px; 
+    float: left;
+    padding: 5px;
+    border: 5px;
+}
+
+.cell650_20
+{
+    height: 28px;
+    width: 130px; 
+    float: right;
+    padding: 5px;
+    border: 5px;
+}
+
+.cell650_10
+{
+    height: 28px;
+    width: 65px; 
+    float: right;
+    padding: 5px;
+    border: 5px;
+}
+/***********/
+
+/**** for popup controls ****/
+.ppcontroloutline
+{
+    padding: 10px; 
+    border: 30px solid #fff;
+}
+
+.ppcontrolimg
+{
+   float: right; 
+   margin: -35px -35px 0 0;
+   width: 30px;
+   height: 30px;
+   /*background: url(../Images/typography/fancy_close.png);*/
+}
+/***********/
+
+	
+/*form styling*/
+.info2 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large; 
+	background: #d7e8fd;
+	border-bottom: 1px solid #6a8ccb;
+}
+/*DL, DT, DD TAGS LIST DATA*/
+.dl1 {
+    margin-bottom:20px;
+}
+ 
+.dl1 dt 
+{
+    background:#fff;
+    clear: both;
+    color:#333435;
+    float:left;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:small;
+    margin-right:10px;
+    padding: 5px 5px 5px 5px;
+    width:135px;
+}
+
+.dl1 dd 
+{
+    min-height: 1.6em;
+    margin:2px 0;
+    padding:5px 0;
+}
+
+.dl2 {
+    margin-bottom:20px;
+}
+ 
+.dl2 dt {
+    background:#fff;
+    clear: both;
+    color:#333435;
+    float:left;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:small;
+    margin-right:10px;
+    padding: 5px 5px 5px 5px;
+    width:120px;
+}
+
+.dl2 dd 
+{
+    min-height: 1.6em;
+    margin:2px 0;
+    padding:5px 0;
+}
+
+.dl3 {
+    margin-bottom:20px;
+}
+ 
+.dl3 dt {
+    background:#fff;
+    clear: both;
+    color:#333435;
+    float:left;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:small;
+    margin-right:10px;
+    padding: 5px 5px 5px 5px;
+    width:55px;
+}
+
+.dl3 dd 
+{
+    min-height: 1.6em;
+    margin:2px 0;
+    padding:5px 0;
+}
+
+
+.dl4 {
+    margin-bottom:20px;
+}
+ 
+.dl4 dt 
+{
+    background:#fff;
+    clear: both;
+    color:#333435;
+    float:left;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:small;
+    margin-right:10px;
+    padding: 5px 5px 5px 5px;
+    width:185px;
+}
+
+.dl4 dd 
+{
+    min-height: 1.6em;
+    margin:2px 0;
+    padding:5px 0;
+}
+
+.dl5 {
+    margin-bottom:20px;
+}
+ 
+.dl5 dt 
+{
+    background:#fff;
+    clear: both;
+    color:#333435;
+    float:left;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:normal;
+    font-size:small;
+    margin-right:10px;
+    padding: 5px 2px 5px 2px;
+    width:90px;
+    min-height: 1.8em; /* to make sure it stays aligned if it's empty */
+}
+
+.dl5 dd 
+{
+    min-height: 1.8em;
+    margin: 2px 0;
+    padding: 5px 0;
+}
+
+
+/**********************************************************************
+/********************* new CSS
+/**********************************************************************/
+.container960
+{
+   width: 960px; 
+   padding: 0px 0px 0px 0px;
+}
+
+.container760
+{
+   width: 760px; 
+   padding: 0px 0px 0px 0px;
+}
+
+.pad_bottom
+{
+    padding-bottom: 10px;    
+}
+
+.center
+{
+ margin: 0px Auto; 
+}
+
+.border_left
+{
+    border-left: 1px solid #C0C0C0;    
+}
+
+.border_right
+{
+    border-right: 1px solid #C0C0C0;    
+}
+
+.outline_bottom
+{
+    /*color: #323232;*/
+	/*background:  #f0f0f6;*/
+    border-bottom: 1px solid #C0C0C0; /*#f0f0f6;*/    
+}
+
+.outline
+{
+    /*color: #323232;*/
+    border: 1px solid #C0C0C0;    
+}
+
+/*form styling*/
+.bg_blue 
+{
+	background: #d5e6fc;
+}
+
+.hdivider
+{
+    clear: both; 
+    margin: 5px Auto 10px Auto; 
+    padding: 5px; 
+    border-top: solid 1px #C0C0C0; 
+    border-bottom: solid 1px #ffffff;
+}
+
+.toolbar_wrap
+{
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    width: 100%; 
+    margin-top: 5px; 
+    margin-right: Auto; 
+    margin-bottom: 5px;    
+}
+
+.toolbar_left
+{
+    float: left; 
+    margin: 2px 2px 2px 0px;    
+}
+
+.toolbar_right
+{
+    float: right; 
+    margin: 2px;    
+}
+
+.grid_wrap
+{
+    float: left; 
+    width: 100%; 
+    margin-bottom: 15px;    
+}
+
+div.row {
+  clear: both;
+  margin-bottom: 2px;
+}
+
+.minheight45
+{
+  /**** this should set the height in all browsers ****/
+  min-height: 45px;
+  height: auto !important;
+  height: 45px;
+  /*******/    
+}
+
+.minheight35
+{
+  /**** this should set the height in all browsers ****/
+  min-height: 35px;
+  height: auto !important;
+  height: 35px;
+  /*******/    
+}
+
+div.row span.left {
+  float: left;
+  text-align: left;
+  padding: 0px 0px 5px 0px;
+}
+
+div.row span.left35 {
+  float: left;
+  width: 25px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
+}
+
+div.row span.left80 {
+  float: left;
+  width: 70px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
+}
+
+div.row span.left120 {
+  float: left;
+  width: 110px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
+}
+
+div.row span.left195 {
+  float: left;
+  width: 185px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
+}
+
+div.row span.left250 {
+  float: left;
+  width: 250px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
+}
+
+div.row span.left470 {
+  float: left;
+  width: 460px;
+  text-align: left;
+  padding: 5px 5px 5px 5px;
+}
+
+div.row span.right {
+  float: right;
+  text-align: right;
+  padding: 0px 0px 5px 0px;
+} 
+
+div.row span.right35 {
+  float: right;
+  width: 25px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+} 
+
+div.row span.right80 {
+  float: right;
+  width: 70px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+} 
+
+div.row span.right120 {
+  float: right;
+  width: 110px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+} 
+
+div.row span.right195 {
+  float: right;
+  width: 185px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+} 
+
+div.row span.right470 {
+  float: right;
+  width: 460px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+ } 
+
+div.row span.pad
+{
+    padding-top: 7px;
+    margin-top: 5px;    
+}
+
+div.row span.pad4
+{
+    padding: 7px 3px 3px 3px;
+    margin-top: 5px;    
+}
+/**********************************************************************/
+/********************new custom do not delete******************************/
+.basebgcolor
+{
+    background-color: #dddddd;     
+    /*  allows base div to contain floating elements so base color covers whole form. the float elements in 960/640 grids 
+        esentially remove the grid elements from normal flow and so background colors etc. do not display correctly    
+    overflow: hidden;*/
+}
+
+.baseborder
+{
+    border-top: solid 1px #c2c2c2;
+   
+}
+
+.viewTable
+{
+    empty-cells: show;
+    cellspacing: 0px;
+    width: 100%;
+    border-collapse:collapse; 
+    border-top: solid 1px #8ba0bc; 
+    border-bottom: solid 1px #8ba0bc; 
+    border-left: solid 1px #8ba0bc; 
+    border-right: 1px solid #8ba0bc;
+}
+
+.viewTableNoBorder
+{
+    empty-cells: show;
+    cellspacing: 0px;
+    width: 100%;
+    border-collapse:collapse; 
+}
+
+.fixed_layout
+{
+    table-layout:fixed; 
+}
+
+viewTable,td
+{   
+    vertical-align: top;
+}
+
+.row_divider
+{
+    border-bottom: solid 1px #dfe9f5;
+}
+
+.row_divider_2
+{
+    border-bottom: solid 1px #8ba0bc;
+}
+
+.caption6
+{
+    width:6em; 
+    background-color: #e0ecfa;
+}
+
+.caption8
+{
+    min-width: 8em;
+    width:8em; 
+    background-color: #e0ecfa;
+}
+
+.caption10
+{
+    width:10em; 
+    background-color: #e0ecfa;
+}
+
+.caption10_nocolor
+{
+    width:10em; 
+}
+
+.caption12
+{
+    width:12em; 
+    background-color: #e0ecfa;
+}
+
+.caption16
+{
+    width:16em; 
+    background-color: #e0ecfa;
+}
+
+.divleft
+{
+    float: left;
+    padding-right: 8px; 
+        
+}
+
+.divcenter
+{
+    margin: 0px Auto;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.divright
+{
+    float: right;
+    padding-left: 8px;
+}
+
+/*
+ * highlighted div and span tags
+ */
+
+span.note,
+span.info,
+span.alert,
+span.download,
+span.tip { display: block; }
+
+div.note, span.note {
+	color: #323232;
+	margin: 10px 0px 10px 0px;
+	padding: 5px 10px 5px 10px;
+	background: #E4EBF1;
+	border-top: 1px solid #D4D9DE;
+	border-bottom: 1px solid #D4D9DE;
+	text-align:justify;
+}
+
+div.info, span.info,
+div.alert, span.alert,
+div.download, span.download,
+div.tip, span.tip {
+	color: #323232;
+	margin: 10px 0px 10px 0px;
+	padding: 8px 10px 8px 40px;
+}
+
+div.info, span.info {
+	background: #E4EBF1 url(../images/typography/box_info.png) 8px 5px no-repeat;
+	border-top: 1px solid #D4D9DE;
+	border-bottom: 1px solid #D4D9DE;
+}
+
+div.alert, span.alert {
+	background: #FFE6DF url(../images/typography/box_alert.png) 8px 5px no-repeat;
+	border-top: 1px solid #FFD9CF;
+	border-bottom: 1px solid #FFD9CF;
+}
+
+.orderSheet
+{
+    empty-cells: show;
+    cellspacing: 0px;
+    border-collapse: collapse;
+    width: 100%;
+    border-top: solid 1px #8ba0bc; 
+    border-bottom: solid 1px #8ba0bc; 
+    border-left: solid 1px #8ba0bc; 
+    border-right: 1px solid #8ba0bc;
+}
+
+.orderSheet tr td
+{
+    border-bottom: solid 1px #8ba0bc; 
+}
+
+.lowzindex
+{
+    z-index: -1;
+}

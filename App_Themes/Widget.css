@@ -1,0 +1,63 @@
+﻿.widgetPanel
+{
+	background: #F9F9FA;
+	border: solid 1px #D3D6DA;
+	padding: 12px 15px 9px;
+	width: 930px;
+	margin: 0 Auto;
+	margin-bottom: 5px;
+	height: 44px;
+	-moz-box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+    -webkit-box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+    box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);	
+	
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.widgetPanel img 
+{
+	margin-right: 11px;
+}
+
+.widgetPanel .disabled
+{
+	-moz-opacity: 0.2;
+	filter:alpha(opacity=20);
+	opacity: 0.2;
+	
+	cursor: default !important;
+}
+
+.shadowPanel
+{
+	background: #F9F9FA;
+	border: solid 1px #D3D6DA;
+	padding: 12px 0px 9px;
+	width: 760px;
+	margin: 0 Auto;
+	margin-bottom: 5px;
+	min-height: 32px;
+	-moz-box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+    -webkit-box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);
+    box-shadow:inset 0px 1px 4px rgba(0, 0, 0, 0.117188);	
+	
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.shadowPanel img 
+{
+	margin-right: 11px;
+}
+
+.shadowPanel .disabled
+{
+	-moz-opacity: 0.2;
+	filter:alpha(opacity=20);
+	opacity: 0.2;
+	
+	cursor: default !important;
+}

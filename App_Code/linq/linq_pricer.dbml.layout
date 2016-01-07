@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10" name="linq_pricer">
+  <DataContextMoniker Name="/linq_pricerDataContext" />
+  <nestedChildShapes>
+    <classShape Id="173269e9-20eb-4034-89b2-c9a9d085ab12" absoluteBounds="5.625, 1.25, 2, 1.4248478190104168">
+      <DataClassMoniker Name="/linq_pricerDataContext/pricer_input_type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5dd24725-2f84-44c1-99ec-75f555ad03dc" absoluteBounds="5.64, 1.71, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dc0d83ba-b720-4c5a-bca7-12961a9e02f7" absoluteBounds="8.75, 0.75, 2, 5.8622257486979157">
+      <DataClassMoniker Name="/linq_pricerDataContext/costing_summary" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e38dca09-9d61-4352-b3b8-222b3f6074c2" absoluteBounds="8.765, 1.21, 1.9700000000000002, 5.3022257486979161" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd127d50-37d2-42f4-826b-5043495650fe" absoluteBounds="6, 3.375, 2, 4.8761417643229157">
+      <DataClassMoniker Name="/linq_pricerDataContext/shipment_size" />
+      <nestedChildShapes>
+        <elementListCompartment Id="58d0be4b-ea2c-4645-b3c9-2be550ffc61a" absoluteBounds="6.015, 3.835, 1.9700000000000002, 4.3161417643229161" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea306f33-3304-4a3a-bcc1-38b8d8644534" absoluteBounds="1.25, 0.75, 2, 8.9848250325520826">
+      <DataClassMoniker Name="/linq_pricerDataContext/price_value" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3aae84ce-2696-441c-8080-7b55012f194a" absoluteBounds="1.2650000000000001, 1.21, 1.9700000000000002, 8.4248250325520821" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.25 : 3.02492390950521); (8.75 : 3.02492390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linq_pricerDataContext/price_value/price_value_costing_summary" />
+      <nodes>
+        <classShapeMoniker Id="ea306f33-3304-4a3a-bcc1-38b8d8644534" />
+        <classShapeMoniker Id="dc0d83ba-b720-4c5a-bca7-12961a9e02f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 5.81307088216146); (6 : 5.81307088216146)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linq_pricerDataContext/price_value/price_value_shipment_size" />
+      <nodes>
+        <classShapeMoniker Id="ea306f33-3304-4a3a-bcc1-38b8d8644534" />
+        <classShapeMoniker Id="dd127d50-37d2-42f4-826b-5043495650fe" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 1.96242390950521); (5.625 : 1.96242390950521)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linq_pricerDataContext/price_value/price_value_pricer_input_type" />
+      <nodes>
+        <classShapeMoniker Id="ea306f33-3304-4a3a-bcc1-38b8d8644534" />
+        <classShapeMoniker Id="173269e9-20eb-4034-89b2-c9a9d085ab12" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

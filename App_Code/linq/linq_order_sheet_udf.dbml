@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_order_sheet_udfDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PublishipSQL;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.order_sheet" Method="order_sheet" IsComposable="true">
+    <Parameter Name="ordernumber" Type="System.Int32" DbType="Int" />
+    <ElementType Name="order_sheetResult">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HouseBLNUmber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomersRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DateOrderCreated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ETS" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ETA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="JobClosed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExWorksDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EstCartons" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstPallets" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstVolume" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CargoReady" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="WarehouseDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="UnitPricePerCopy" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="RemarksToCustomer" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ShippedOnBoard" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="VesselLastUpdated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EWDLastUpdated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="PearsonDivCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HCCompositeRef" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HCInvoiceAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="OperationsControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OriginPortControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestinationPortControllerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Est20" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Est40" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstLCLWt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EstLCLVol" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="HotJob" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ClientsTerms" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginTrucking" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrignTHC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginDocs" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Freight" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestTHC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestPalletisation" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomsClearance" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DeliveryCharges" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Palletise" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PublishipOrder" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExpressBL" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="OfficeIndicator" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginPort" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DestinationPort" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="VesselName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginPlace" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="FinalDestination" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="OriginCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CustomerAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CustomerAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="CustomerPostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CustomerCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConsigneeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConsigneeAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ConsigneeAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ConsigneeAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ConsigneePostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConsigneeTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ConsigneeCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PrinterName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PrinterAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PrinterAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PrinterAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="PrinterPostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PrinterTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PrinterCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NotifyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NotifyAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="NotifyAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="NotifyAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="NotifyAddress4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NotifyTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NotifyCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginAgentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginAgentAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OriginAgentAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OriginAgentAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OriginAgentPostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginAgentTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="OriginAgentCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestAgentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestAgentAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DestAgentAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DestAgentAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="DestAgentpostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestAgentTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DestAgentCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpsController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClearingAgentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClearingAgentAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ClearingAgentAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ClearingAgentAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="ClearingAgentAddress4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClearingAgentTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ClearingAgentCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OnCarriageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OnCarriageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OnCarriageAddress1" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OnCarriageAddress2" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OnCarriageAddress3" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="OnCarriageAddress4" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OnCarriageTelNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="OnCarriageCountry" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

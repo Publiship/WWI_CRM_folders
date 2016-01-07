@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ddlitems>
+  <ddlitem>
+    <name>Ex-Works to CIF</name>
+    <value>1</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Ex-Works to DDU Uncleared</name>
+    <value>2</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Ex-Works to DDU Customs Cleared</name>
+    <value>3</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Ex-Works to DDP</name>
+    <value>4</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FCA to CIF</name>
+    <value>5</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FCA to DDU Uncleared</name>
+    <value>6</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FCA to DDU Customs Cleared</name>
+    <value>7</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FCA to DDP</name>
+    <value>8</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FOB to CIF</name>
+    <value>9</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FOB to DDU Uncleared</name>
+    <value>10</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FOB to DDU Customs Cleared</name>
+    <value>11</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FOB to DDP</name>
+    <value>12</value>
+    <ddls>dxcboClientsTerms</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboOriginTrucking</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboOriginTrucking</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboOriginTrucking</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboOriginTrucking</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboOrignTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboOrignTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboOrignTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboOrignTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboOriginDocs</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboOriginDocs</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboOriginDocs</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboOriginDocs</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboFreight</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboFreight</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboFreight</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboFreight</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboDestTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboDestTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboDestTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboDestTHC</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboDestPalletisation</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboDestPalletisation</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboDestPalletisation</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboDestPalletisation</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Not Required</name>
+    <value>5</value>
+    <ddls>dxcboDestPalletisation</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboCustomsClearance</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboCustomsClearance</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboCustomsClearance</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboCustomsClearance</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Printer</name>
+    <value>1</value>
+    <ddls>dxcboDeliveryCharges</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Publiship Client</name>
+    <value>2</value>
+    <ddls>dxcboDeliveryCharges</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Check</name>
+    <value>3</value>
+    <ddls>dxcboDeliveryCharges</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Consignee</name>
+    <value>4</value>
+    <ddls>dxcboDeliveryCharges</ddls>
+  </ddlitem>
+</ddlitems>

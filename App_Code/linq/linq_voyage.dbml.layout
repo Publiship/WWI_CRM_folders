@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linq_voyage">
+  <DataContextMoniker Name="/linq_voyageDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0118589d-b58f-4508-96c0-56b5cdfb8e3c" absoluteBounds="3.125, 3.125, 2, 1.9178898111979166">
+      <DataClassMoniker Name="/linq_voyageDataContext/VoyageTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="641353bf-d643-4687-b3cc-670e3f262291" absoluteBounds="3.14, 3.585, 1.9700000000000002, 1.3578898111979165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

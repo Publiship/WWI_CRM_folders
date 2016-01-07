@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="CLDespatchAdvice-BIC.xsl"?> <PrintersDespatchAdvice version="0.9">
+<Header>
+  <DespatchAdviceNumber>62328</DespatchAdviceNumber> 
+  <IssueDateTime>string2014-01-30T13:07:45+00:00</IssueDateTime> 
+<ReferenceCoded>
+  <ReferenceTypeCode>BuyersReference</ReferenceTypeCode> 
+  <ReferenceNumber>686</ReferenceNumber> 
+  </ReferenceCoded>
+  <PurposeCode>Original</PurposeCode> 
+<DateCoded>
+  <Date>20140130</Date> 
+  <DateQualifierCode>Shipped</DateQualifierCode> 
+  </DateCoded>
+<BuyerParty>
+<PartyName>
+  <NameLine>Pearson Education</NameLine> 
+  </PartyName>
+<PostalAddress>
+  <AddressLine>Edinburgh Gate</AddressLine> 
+  <AddressLine>Harlow</AddressLine> 
+  <AddressLine>UK</AddressLine> 
+  <PostalCode>CM20 2JE</PostalCode> 
+  </PostalAddress>
+  </BuyerParty>
+<SellerParty>
+<PartyName>
+  <NameLine>CTPS</NameLine> 
+  </PartyName>
+<PostalAddress>
+  <AddressLine>Dalang</AddressLine> 
+  <AddressLine>Gosport</AddressLine> 
+  <AddressLine>Guangdong Province</AddressLine>
+   <AddressLine>China</AddressLine> 
+  <PostalCode>523 771</PostalCode> 
+  </PostalAddress>
+  </SellerParty>
+<ShipToParty>
+<PartyID>
+  <PartyIDType>EAN</PartyIDType> 
+  <Identifier>PEAR011</Identifier> 
+  </PartyID>
+<PartyName>
+  <NameLine>Pearson Distribution Centre</NameLine> 
+  </PartyName>
+<PostalAddress>
+  <AddressLine>Unit 1</AddressLine> 
+  <AddressLine>Castle Mound Way</AddressLine> 
+  <AddressLine>Rugby</AddressLine> 
+  <AddressLine>Warwickshire</AddressLine>
+   <AddressLine>UK</AddressLine> 
+  <PostalCode>CV23 0WB</PostalCode> 
+  </PostalAddress>
+  </ShipToParty>
+<Delivery>
+<Carrier>
+<CarrierNameCoded>
+  <CarrierNameCodeType>Shipper</CarrierNameCodeType>
+  <CarrierNameCode>PUBLISHIP</CarrierNameCode>
+  </CarrierNameCoded>
+  </Carrier>
+  <TrailerNumber>U61</TrailerNumber> 
+  </Delivery>
+</Header>
+<ItemDetail>
+  <LineNumber>1</LineNumber> 
+<ProductID>
+  <ProductIDType>ISBN</ProductIDType> 
+  <Identifier>9781447923626</Identifier> 
+  </ProductID>
+<ProductID>
+  <ProductIDType>EAN13</ProductIDType> 
+  <Identifier>9781447923626</Identifier> 
+  </ProductID>
+<ItemDescription>
+  <TitleDetail>Essentials of Business Law</TitleDetail> 
+  <BindingDescription>UNKNOWN</BindingDescription> 
+<Measure>
+  <MeasureTypeCode>Height</MeasureTypeCode> 
+  <MeasurementValue>33</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>Width</MeasureTypeCode> 
+  <MeasurementValue>25</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>Depth</MeasureTypeCode> 
+  <MeasurementValue>25</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>UnitNetWeight</MeasureTypeCode> 
+  <MeasurementValue>200</MeasurementValue> 
+  </Measure>
+  </ItemDescription>
+  <Impression>3</Impression> 
+  <Quantity>25</Quantity> 
+<ReferenceCoded>
+  <ReferenceTypeCode>BuyersOrderNumber</ReferenceTypeCode> 
+  <ReferenceNumber>6200002875</ReferenceNumber> 
+  </ReferenceCoded>
+<ReferenceCoded>
+  <ReferenceTypeCode>PrintersJobNumber</ReferenceTypeCode> 
+  <ReferenceNumber>124372</ReferenceNumber> 
+  </ReferenceCoded>
+<PalletDetail>
+  <NumberOfPallets>2</NumberOfPallets> 
+<PalletIdentifierList>
+  <IDValue>00050558694623280019</IDValue> 
+  <IDValue>00050558694623280022</IDValue> 
+  </PalletIdentifierList>
+  <BooksPerPallet>9</BooksPerPallet> 
+<ParcelDetail>
+  <NumberOfParcels>1</NumberOfParcels> 
+  <BooksPerParcel>9</BooksPerParcel> 
+<Measure>
+  <MeasureTypeCode>Height</MeasureTypeCode> 
+  <MeasurementValue>305</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>Width</MeasureTypeCode> 
+  <MeasurementValue>30</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>Depth</MeasureTypeCode> 
+  <MeasurementValue>230</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>UnitGrossWeight</MeasureTypeCode> 
+  <MeasurementValue>1875</MeasurementValue> 
+  </Measure>
+  <ParcelsPerLayer>1</ParcelsPerLayer> 
+   <NumberOfOdds></NumberOfOdds>
+  </ParcelDetail>
+  </PalletDetail>
+<PalletDetail>
+  <NumberOfPallets>1</NumberOfPallets> 
+<PalletIdentifierList>
+  <IDValue>00050558694623280035</IDValue> 
+  </PalletIdentifierList>
+  <BooksPerPallet>7</BooksPerPallet> 
+<ParcelDetail>
+  <NumberOfParcels>1</NumberOfParcels> 
+  <BooksPerParcel>7</BooksPerParcel> 
+<Measure>
+  <MeasureTypeCode>Height</MeasureTypeCode> 
+  <MeasurementValue>235</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>Width</MeasureTypeCode> 
+  <MeasurementValue>30</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>Depth</MeasureTypeCode> 
+  <MeasurementValue>180</MeasurementValue> 
+  </Measure>
+<Measure>
+  <MeasureTypeCode>UnitGrossWeight</MeasureTypeCode> 
+  <MeasurementValue>1450</MeasurementValue> 
+  </Measure>
+  <ParcelsPerLayer>1</ParcelsPerLayer>
+  </ParcelDetail>
+  </PalletDetail>
+  </ItemDetail>
+<ItemDetail>
+        <LineNumber>1</LineNumber>
+        <ProductID>
+            <ProductIDType>ISBN</ProductIDType>
+            <Identifier>9781447923626</Identifier>
+        </ProductID>
+        <ProductID>
+            <ProductIDType>EAN13</ProductIDType>
+            <Identifier>9781447923626</Identifier>
+        </ProductID>
+        <ItemDescription>
+            <TitleDetail>Essentials of Business Law</TitleDetail>
+            <BindingDescription>UNKNOWN</BindingDescription>
+            <Measure>
+                <MeasureTypeCode>Height</MeasureTypeCode>
+                <MeasurementValue>33</MeasurementValue>
+            </Measure>
+            <Measure>
+                <MeasureTypeCode>Width</MeasureTypeCode>
+                <MeasurementValue>25</MeasurementValue>
+            </Measure>
+            <Measure>
+                <MeasureTypeCode>Depth</MeasureTypeCode>
+                <MeasurementValue>25</MeasurementValue>
+            </Measure>
+            <Measure>
+                <MeasureTypeCode>UnitNetWeight</MeasureTypeCode>
+                <MeasurementValue>200</MeasurementValue>
+            </Measure>
+        </ItemDescription>
+        <Impression>3</Impression>
+        <Quantity>25</Quantity>
+        <ReferenceCoded>
+            <ReferenceTypeCode>BuyersOrderNumber</ReferenceTypeCode>
+            <ReferenceNumber>6200002875</ReferenceNumber>
+        </ReferenceCoded>
+        <ReferenceCoded>
+            <ReferenceTypeCode>PrintersJobNumber</ReferenceTypeCode>
+            <ReferenceNumber>124372</ReferenceNumber>
+        </ReferenceCoded>
+        <PalletDetail>
+            <NumberOfPallets>2</NumberOfPallets>
+            <PalletIdentifierList>
+                <IDValue>00050558694623280019</IDValue>
+                <IDValue>00050558694623280022</IDValue>
+            </PalletIdentifierList>
+            <BooksPerPallet>9</BooksPerPallet>
+            <ParcelDetail>
+                <NumberOfParcels>1</NumberOfParcels>
+                <BooksPerParcel>9</BooksPerParcel>
+                <Measure>
+                    <MeasureTypeCode>Height</MeasureTypeCode>
+                    <MeasurementValue>305</MeasurementValue>
+                </Measure>
+                <Measure>
+                    <MeasureTypeCode>Width</MeasureTypeCode>
+                    <MeasurementValue>30</MeasurementValue>
+                </Measure>
+                <Measure>
+                    <MeasureTypeCode>Depth</MeasureTypeCode>
+                    <MeasurementValue>230</MeasurementValue>
+                </Measure>
+                <Measure>
+                    <MeasureTypeCode>UnitGrossWeight</MeasureTypeCode>
+                    <MeasurementValue>1875</MeasurementValue>
+                </Measure>
+                <ParcelsPerLayer>1</ParcelsPerLayer>
+                <NumberOfOdds></NumberOfOdds>
+            </ParcelDetail>
+        </PalletDetail>
+        <PalletDetail>
+            <NumberOfPallets>1</NumberOfPallets>
+            <PalletIdentifierList>
+                <IDValue>string00050558694623280035</IDValue>
+            </PalletIdentifierList>
+            <BooksPerPallet>7</BooksPerPallet>
+            <ParcelDetail>
+                <NumberOfParcels>1</NumberOfParcels>
+                <BooksPerParcel>7</BooksPerParcel>
+                <Measure>
+                    <MeasureTypeCode>Height</MeasureTypeCode>
+                    <MeasurementValue>235</MeasurementValue>
+                </Measure>
+                <Measure>
+                    <MeasureTypeCode>Width</MeasureTypeCode>
+                    <MeasurementValue>30</MeasurementValue>
+                </Measure>
+                <Measure>
+                    <MeasureTypeCode>Depth</MeasureTypeCode>
+                    <MeasurementValue>180</MeasurementValue>
+                </Measure>
+                <Measure>
+                    <MeasureTypeCode>UnitGrossWeight</MeasureTypeCode>
+                    <MeasurementValue>1450</MeasurementValue>
+                </Measure>
+                <ParcelsPerLayer>1</ParcelsPerLayer>
+            </ParcelDetail>
+        </PalletDetail>
+    </ItemDetail>
+<Summary>
+  <NumberOfLines>1</NumberOfLines> 
+  <NumberOfUnits>25</NumberOfUnits> 
+  <NumberOfPallets>3</NumberOfPallets> 
+  </Summary>
+</PrintersDespatchAdvice>

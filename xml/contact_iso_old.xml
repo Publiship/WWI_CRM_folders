@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<contactlist>
+    <contact>
+        <id>3746</id>
+        <default>tracking//dashboard.aspx</default>
+        <deliveryids>
+            <deliveryid>
+                <value>406</value>
+            </deliveryid>
+        </deliveryids>
+    </contact>
+    <contact>
+        <id>3692</id>
+        <default>tracking//dashboard.aspx</default>
+        <deliveryids>
+            <deliveryid>
+                <value>406</value>
+            </deliveryid>
+        </deliveryids>
+    </contact>
+</contactlist>

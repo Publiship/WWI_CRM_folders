@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Publiship_Pricer" Class="linq_pricerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.gbdns.net;Initial Catalog=Publiship_Pricer;Persist Security Info=False;User ID=pricer_u;Pooling=False;Min Pool Size=5;Network Library=dbmssocn;Packet Size=4096" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Publiship_PricerConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.pricer_input_type" Member="pricer_input_types">
+    <Type Name="pricer_input_type">
+      <Column Name="in_type_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="in_dimensions_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="in_description" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="in_ts" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+      <Association Name="price_value_pricer_input_type" Member="price_value" ThisKey="in_dimensions_id" OtherKey="in_dimensions" Type="price_value" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.costing_summary" Member="costing_summaries">
+    <Type Name="costing_summary">
+      <Column Name="costing_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="quote_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="summary_type" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="pre_part" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_full" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_thc20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_thc40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_thclcl" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_docs" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_origin" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_haul20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pre_haul40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="freight_lcl" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="freight_20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="freight_40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="freight_40hq" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_dest_lcl" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_pier_etc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_dest_20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_dest_40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_docs" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_customs" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_part" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_full" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_haul20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_haul40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_shunt20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_shunt40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_pallets" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="on_other" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cs_timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="price_value_costing_summary" Member="price_value" ThisKey="quote_Id" OtherKey="quote_Id" Type="price_value" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.shipment_size" Member="shipment_sizes">
+    <Type Name="shipment_size">
+      <Column Name="shipment_size_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="quote_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="calc_copiescarton" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="tot_cartons" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_cartons" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_full" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_full_wt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_full_cu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_layers" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_layer_count" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_total_wt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_total_cu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pal_ratio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_hgt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_len" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_wid" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_wt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="par_count" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_remaining" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="residue_cu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="residue_wt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_total_wt" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_total_cu" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ctn_ratio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="sz_timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="price_value_shipment_size" Member="price_value" ThisKey="quote_id" OtherKey="quote_Id" Type="price_value" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.price_values" Member="price_values">
+    <Type Name="price_value">
+      <Column Name="quote_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="request_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="request_user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="request_company_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="request_ip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="book_title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="in_dimensions" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="in_currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="in_pallet" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="in_length" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_width" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_depth" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_weight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_extent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_papergsm" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_hardback" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="copies_carton" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="origin_name" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="country_name" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="final_name" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="tot_copies" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price_loose" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_pallet" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_ex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_loose_gbp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_pallet_gbp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_total_gbp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_client" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ship_via" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="pallet_type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="loose_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lcl_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lcl_v" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_v20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_v40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_v40hc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_loose_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="lcl_vloose" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_vloose20" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_vloose40" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_vloose40hc" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="po_log_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="client_visible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="out_length" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="out_width" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="out_depth" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="out_weight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="copy_from_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pv_timestamp" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+      <Association Name="price_value_costing_summary" Member="costing_summaries" ThisKey="quote_Id" OtherKey="quote_Id" Type="costing_summary" />
+      <Association Name="price_value_shipment_size" Member="shipment_sizes" ThisKey="quote_Id" OtherKey="quote_id" Type="shipment_size" />
+      <Association Name="price_value_pricer_input_type" Member="pricer_input_types" ThisKey="in_dimensions" OtherKey="in_dimensions_id" Type="pricer_input_type" />
+    </Type>
+  </Table>
+</Database>

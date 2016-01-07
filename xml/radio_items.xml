@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<radioitems>
+  <radioitem radio="courier_original" name="Originals" value="1">
+  </radioitem>
+  <radioitem radio="courier_original" name="Copies" value="2">
+    </radioitem>
+  <radioitem radio="courier_original" name="Sent by Email" value="3">
+    </radioitem>
+  <radioitem radio="courier_original" name="Sent by Fax" value="4">
+    </radioitem>
+</radioitems>

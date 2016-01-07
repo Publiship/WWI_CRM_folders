@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linq_query_log">
+  <DataContextMoniker Name="/linq_query_logDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1207cdf9-a23d-47c4-8ac1-7b9118677d7e" absoluteBounds="3, 2.75, 2, 2.24658447265625">
+      <DataClassMoniker Name="/linq_query_logDataContext/db_query_log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="09a8ce77-7f72-4a00-92c3-9061e7004caa" absoluteBounds="3.0149999999999997, 3.21, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

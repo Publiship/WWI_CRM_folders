@@ -1,0 +1,320 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WWI_m1.master" AutoEventWireup="true" CodeFile="new_orders.aspx.cs" Inherits="new_orders" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxGridView.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTabControl" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHiddenField" tagprefix="dx1" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1.Linq, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Data.Linq" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.ASPxGridView.v11.1.Export, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView.Export" tagprefix="dx" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderM1" Runat="Server">
+    
+    <script type="text/javascript">
+        // <![CDATA[
+        function onDateRangeChanged() {
+            if (!gridOrders.InCallback()) {
+                gridOrders.PerformCallback(' ');
+            }
+        }
+        
+        function TextBoxKeyUp(s, e) {
+            if (editorsValues[s.name] != s.GetValue())
+                StartEdit();
+        }
+        
+       function OnMenuItemClick(s, e) {
+            switch (e.item.name) {
+                case "cmdOrdersByUser":
+                    if (!gridOrders.InCallback()) {
+                        hfOrder.Set("myorders", -1)
+                        gridOrders.PerformCallback(' ');
+                        lblSearch.SetText('My orders');
+                    }
+                    break;
+                case "cmdOrdersAll":
+                    if (!gridOrders.InCallback()) {
+                        hfOrder.Remove("myorders");
+                        gridOrders.PerformCallback(' ');
+                        lblSearch.SetText('All orders');
+                    }
+                    break;
+                //case "cmdNew": //just use url on menu item
+                //    gridOrders.PerformCallback('new_order');
+                //    break;
+                case "miDelete":
+                    //if (confirm('Are you sure to delete this record?'))
+                    //   grid.DeleteRow(grid.GetTopVisibleIndex());
+                    //break;
+                case "miRefresh":
+                case "miCancel": grid.Refresh(); break;
+            }
+        }
+
+        //call web method so we can open new window
+        //aspxridview.settingsbehaviour.allowfocusedrow=true MUST be set or can't get row index
+        function onCustomButtonClick(s, e) {
+            switch(e.buttonID){
+                case 'cmdView':
+                    s.GetRowValues(s.GetFocusedRowIndex(), 'OrderID;OrderNumber', onGetViewValues);
+                    break;
+                case 'cmdEdit':
+                    s.GetRowValues(s.GetFocusedRowIndex(), 'OrderID;OrderNumber', onGetEditValues);
+                    break;
+                case 'cmdOrderSheet':
+                    s.GetRowValues(s.GetFocusedRowIndex(), 'OrderID;OrderNumber', onGetOrderSheetValues);
+                    break;
+                case 'cmdTemplate':
+                    s.GetRowValues(s.GetFocusedRowIndex(), 'OrderID;OrderNumber', onGetTemplateValues);
+                    break;
+                case 'cmdClone':
+                    s.GetRowValues(s.GetFocusedRowIndex(), 'OrderID;OrderNumber', onGetCloneValues);
+                    break;
+            }//end switch
+        }
+
+        function onGetViewValues(values) {
+            //alert(values[0]);
+            //alert(values[1]);
+            //can pass values as iList<string> or concatenated using values.toString() method
+            PageMethods.get_secure_url(values, 'cmdView', onMethodComplete);
+        }
+
+        function onGetEditValues(values) {
+            //alert(values[0]);
+            //alert(values[1]);
+            //can pass values as iList<string> or concatenated using values.toString() method
+            PageMethods.get_secure_url(values, 'cmdEdit', onMethodComplete);
+        }
+
+        function onGetOrderSheetValues(values) {
+            //alert(values[0]);
+            //alert(values[1]);
+            //can pass values as iList<string> or concatenated using values.toString() method
+            PageMethods.get_secure_url(values, 'cmdOrderSheet', onMethodComplete);
+        }
+
+        function onGetTemplateValues(values) {
+            //alert(values[0]);
+            //alert(values[1]);
+            //can pass values as iList<string> or concatenated using values.toString() method
+            PageMethods.get_secure_url(values, 'cmdTemplate', onMethodComplete);
+        }
+
+        function onGetCloneValues(values) {
+            //alert(values[0]);
+            //alert(values[1]);
+            //can pass values as iList<string> or concatenated using values.toString() method
+            PageMethods.get_secure_url(values, 'cmdClone', onMethodComplete);
+        }
+        
+        function onMethodComplete(result, userContext, methodName) {
+            if (result != "") {
+                window.open(result, "_blank");
+            }
+            else {
+                alert('PageMethods.get_secure_url() returned null');
+            }
+        }
+        // ]]>
+    </script>    
+
+    <div class="container_16">
+    
+        <!-- messages -->
+        <div class="grid_16 pad_bottom">
+           <dx:ASPxPanel ID="dxpnlErr" ClientInstanceName="pnlErr" ClientVisible ="false" 
+                    runat="server">
+                <PanelCollection>
+                    <dx:PanelContent ID="pnlErr">
+                        <div class="alert"> 
+                            <dx:ASPxLabel ID="dxlblErr" ClientInstanceName="lblErr" runat="server" Text="" 
+                                CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                                CssPostfix="Office2010Blue">
+                            </dx:ASPxLabel> 
+                        </div>
+                    </dx:PanelContent> 
+                </PanelCollection> 
+            </dx:ASPxPanel>
+            <dx:ASPxPanel ID="dxpnlMsg" ClientInstanceName="pnlMsg" ClientVisible ="false" 
+                    runat="server">
+                <PanelCollection>
+                 <dx:PanelContent ID="pnlMsg">
+                        <div class="info"> 
+                            <dx:ASPxLabel ID="dxlblInfo" ClientInstanceName="lblInfo" runat="server" 
+                                Text="" CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                                CssPostfix="Office2010Blue">
+                            </dx:ASPxLabel> 
+                        </div>
+                    </dx:PanelContent> 
+                </PanelCollection> 
+            </dx:ASPxPanel> 
+        </div> 
+        <div class="clear"></div>
+       
+        <!-- Using tables for layout. Semantically not a good choice but other options e.g. definition lists
+             do not render properly in older versions of internet explorer < IE7. Also multi-column combos do not
+             render correctly when placed in definition lists in < IE7  -->
+        <div class="grid_10 pad_bottom">
+            <div class="divleft">
+                <dx:ASPxLabel ID="dxlblOrderDetails" runat="server" 
+                             ClientInstanceName="lblOrderDetails" 
+                             CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                             CssPostfix="Office2010Blue" Font-Size="X-Large" 
+                    Text="New orders received for">
+                         </dx:ASPxLabel>
+            </div> 
+            <div class="divleft">
+            <dx:ASPxLabel ID="dxlblSearch" runat="server" ClientInstanceName="lblSearch" 
+                             CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                             CssPostfix="Office2010Blue" Font-Size="X-Large">
+                         </dx:ASPxLabel>
+            </div> 
+        </div>
+        <!-- images and text -->
+        <div class="grid_6">
+         </div>              
+        <div class="clear"></div>
+        
+        <!-- search options -->
+        <div class="clear"></div>
+        <!-- individual form menus -->
+        <div class="grid_16 pad_bottom">
+        <!-- search grid -->
+            <dx:ASPxGridView ID="dxgridOrders" ClientInstanceName="gridOrders" 
+                runat="server" AutoGenerateColumns="False" 
+                CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                CssPostfix="Office2010Blue" width="100%" 
+                oncustomcallback="dxgridOrders_CustomCallback" 
+                onafterperformcallback="dxgridOrders_AfterPerformCallback" 
+                KeyFieldName="OrderIx" DataSourceID="linqOrders">
+                <SettingsBehavior AllowGroup="False" ColumnResizeMode="Control" />
+                    <ClientSideEvents CustomButtonClick="onCustomButtonClick" />
+                <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                    CssPostfix="Office2010Blue">
+                    <Header ImageSpacing="5px" SortingImageSpacing="5px">
+                    </Header>
+                    <LoadingPanel ImageSpacing="5px">
+                    </LoadingPanel>
+                </Styles>
+                <SettingsPager PageSize="50">
+                </SettingsPager>
+                <Columns>
+                        <dx:GridViewDataTextColumn Caption="orderid" FieldName="OrderID" 
+                             Name="col_orderid" ReadOnly="True" ShowInCustomizationForm="False" 
+                             UnboundType="Integer" Visible="False" VisibleIndex="-1" Width="0px">
+                             <Settings AllowAutoFilter="False" AllowDragDrop="False" AllowGroup="False" 
+                                 AllowHeaderFilter="False" AllowSort="False" ShowFilterRowMenu="False" 
+                                     ShowInFilterControl="False" />
+                         </dx:GridViewDataTextColumn>
+                         <dx:GridViewDataTextColumn Caption="Index Key" FieldName="OrderIx" 
+                             Name="col_orderix" ReadOnly="True" VisibleIndex="38" Visible="False"  
+                             Width="0px" ShowInCustomizationForm="False">
+                             <Settings ShowFilterRowMenu="False" AllowAutoFilter="False" 
+                                 AllowAutoFilterTextInputTimer="False" AllowDragDrop="False" AllowGroup="False" 
+                                 AllowHeaderFilter="False" AllowSort="False" ShowInFilterControl="False" />
+                         </dx:GridViewDataTextColumn>
+		                <dx:GridViewDataTextColumn FieldName="OrderNumber" VisibleIndex="3" 
+                            Caption="OrderNumber" ReadOnly="True" Width="90px" 
+                          Name="col_ordernumber">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="origin_port" VisibleIndex="6" 
+                            Caption="Origin Port" ReadOnly="True" Width="100px" Name="col_origin" 
+                                 ExportWidth="80">
+                            <Settings ShowFilterRowMenu="True" AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="destination_port" VisibleIndex="7" 
+                            Caption="Destination Port" ReadOnly="True" Width="120px" Name="col_dest" 
+                               ExportWidth="80">
+                            <Settings ShowFilterRowMenu="True" 
+                                AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="destination_place" VisibleIndex="8" 
+                            Caption="Final Destination" Width="190px" Name="col_final" 
+                                 ExportWidth="90">
+                            <Settings ShowFilterRowMenu="True" AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+				<dx:GridViewDataTextColumn FieldName="ExWorksDate" VisibleIndex="9" 
+                            Caption="Ex-Works date" ReadOnly="True" Width="110px" Name="col_exworks" 
+                                 ExportWidth="75">
+                            <Settings ShowFilterRowMenu="True" AutoFilterCondition="Contains" />
+                            <PropertiesTextEdit DisplayFormatString="{0:d}">
+                            </PropertiesTextEdit>
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="CompanyName" VisibleIndex="5" 
+                            Caption="Customer" ReadOnly="True" Width="150px" 
+                             Name="col_company" ExportWidth="75">
+                            <Settings ShowFilterRowMenu="True" AutoFilterCondition="Contains" />
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn FieldName="printer_name" VisibleIndex="4" 
+                            Caption="Printer" ReadOnly="True" Width="150px" Name="col_printer" 
+                                 ExportWidth="90">
+                        </dx:GridViewDataTextColumn>
+                </Columns> 
+                <ImagesFilterControl>
+                    <LoadingPanel Url="~/App_Themes/Office2010Blue/GridView/Loading.gif">
+                    </LoadingPanel>
+                </ImagesFilterControl>
+                <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                    <LoadingPanelOnStatusBar Url="~/App_Themes/Office2010Blue/GridView/Loading.gif">
+                    </LoadingPanelOnStatusBar>
+                    <LoadingPanel Url="~/App_Themes/Office2010Blue/GridView/Loading.gif">
+                    </LoadingPanel>
+                </Images>
+                <StylesPager>
+                    <PageNumber ForeColor="#3E4846">
+                    </PageNumber>
+                    <Summary ForeColor="#1E395B">
+                    </Summary>
+                </StylesPager>
+                <Settings 
+                    ShowHorizontalScrollBar="True" GridLines="Horizontal" />
+                <StylesEditors ButtonEditCellSpacing="0">
+                    <ProgressBar Height="21px">
+                    </ProgressBar>
+                </StylesEditors>
+            </dx:ASPxGridView>
+        </div> 
+        <div class="clear"></div>
+        <!-- options? -->
+        <div class="clear"></div>
+        
+        <div class="clear"></div>
+        
+      
+    </div><!-- end container -->
+    
+    <dx1:ASPxHiddenField ID="dxhfOrder" ClientInstanceName="hfOrder" runat="server">
+    </dx1:ASPxHiddenField>
+    
+
+    <dx:LinqServerModeDataSource ID="linqOrders" runat="server" 
+        ContextTypeName="linq.linq_view_orders_udfDataContext" 
+        TableName="view_orders_by_age" />
+    
+
+    <dx:ASPxGridViewExporter ID="dxGridViewExporter" runat="server" 
+        GridViewID="dxgridOrders" PaperKind="A4">
+    </dx:ASPxGridViewExporter>
+    
+
+</asp:Content>
+

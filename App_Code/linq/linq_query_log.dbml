@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_query_logDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PublishipSQL;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.db_query_log" Member="db_query_logs">
+    <Type Name="db_query_log">
+      <Column Name="qry_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="qry_desc" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="qry_text" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" />
+      <Column Name="by_employeeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="by_contactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="log_ip" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="log_qry_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="qry_source" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="log_qry_ts" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,430 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Linq.Dynamic;
+using System.Linq.Expressions;
+using System.Resources;
+using System.Web;
+using System.Web.Services;
+using System.Web.Script.Serialization;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DAL.Logistics;
+using SubSonic;
+using DevExpress.Web.ASPxEditors;
+using DevExpress.Web.ASPxGridView;
+
+public partial class new_orders : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        if (isLoggedIn())
+        {
+            if (!Page.IsPostBack)
+            {
+                bind_commands("Search"); //search commands
+                //default open to orders for logged in user
+                this.dxhfOrder.Add("myorders", -1);
+                this.dxlblSearch.Text = "My orders";
+                //store option in hidden field
+                this.dxhfOrder.Add("req", wwi_security.EncryptString("Search", "publiship"));
+            }
+        }
+        else
+        {
+            Response.Redirect("../user_accounts/signin.aspx?" + "rp=" + wwi_security.EncryptString("shipment_orders/order_search", "publiship"));
+        }
+
+        //filtering linq datasource
+        this.linqOrders.Selecting += new EventHandler<DevExpress.Data.Linq.LinqServerModeDataSourceSelectEventArgs>(linqOrders_Selecting);
+    }
+
+    #region datagrid
+    /// <summary>
+    /// called on page load
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void linqOrders_Selecting(object sender, DevExpress.Data.Linq.LinqServerModeDataSourceSelectEventArgs e)
+    {
+        try
+        {
+            //required params for new orders table valued user derfined function
+            DateTime? _exworks = null;
+            int? _loworder = 0;
+            int? _highorder = 0;
+            string _agentid = "";
+            int? _filecover = 0;
+
+            //default filter everything after 01/01/2007
+            string _f = "";
+            string _query = ""; //"(ExWorksDate >= DateTime.Parse(\"01/01/2007\"))";
+
+            //for building parametized query
+            ParameterCollection _params = new ParameterCollection();
+
+            //get users office location
+            string _office = Page.Session["user"] != null ? ((UserClass)Page.Session["user"]).OfficeId.ToString() : ""; //use id=125 for testing
+
+            //params for uk office
+            //(order numbers > 1000000) and (FileCoverPrintedOrigin=0) and (AgentAOriginID=1018) and (ExWorksDate >#25/09/2011#)
+            //or
+            // (order numbers > 1000000) and (FilecoverPrintedDest=0) and (AgentAtDestinationId=1018) and (ExWorksDate >#25/09/2011#)
+            //using a table-valued function to retrieve data, so add in extras param order numbers < 0 so we can use same function for all offices
+            _exworks = wwi_func.vdatetime("25/09/2011");
+            _loworder  = 0;
+            _highorder = 1000000;
+            _agentid = "1018";
+
+            //params for hong kong office
+            //(order numbers <1000000 Or >2000000) and (FileCoverPrintedOrigin=0) and (AgentAtOriginID=9503 Or 5745)
+            _exworks = wwi_func.vdatetime("25/09/2011");
+            _loworder = 1000000;
+            _highorder = 2000000;
+            _agentid = "9503_OR_5745";
+
+            string _cs = System.Configuration.ConfigurationManager.ConnectionStrings["PublishipSQLConnectionString"].ToString();  
+            using (SqlConnection _cn = new SqlConnection(_cs))
+            {
+                SqlCommand _sql = new SqlCommand();
+                _sql.CommandType = CommandType.Text;
+                _sql.CommandText = "";
+                _sql.ExecuteReader();
+                _cn.Close();
+            }
+
+            //params for singapore office DOES NOT MATCH ACCESS QUERY
+            //(order numbers <2000000 Or >3000000) and (FileCoverPrintedOrigin=0) and (AgentAtOriginID =3495 Or 8083 Or 17461 Or 12841) and (ExWorksDate >=#01/01/2008#) 
+
+            //params for italy office
+            //(order numbers <5000000 Or >6000000) and (FileCoverPrintedOrigin=0) and (AgentAtDestinationID=9335 Or 14358) and (ExWorksDate >=#25/04/2007#) 
+
+            //params for us office
+            //(order numbers <3000000 Or >400000) and (FilecoverPrintedDest=0) and (AgentAtDestinationId=7878 Or 7896) and (ExWorksDate>=>#25/09/2011#)
+            //or
+            //(order numbers <3000000 Or >400000) and (FileCoverPrintedOrigin=0) and (AgentAOriginID=7878 Or 7896) and (ExWorksDate>=>#25/09/2011#)
+           
+            //params for thailand office
+            //(order numbers <6000000 Or >7000000) and (FileCoverPrintedOrigin=0) and (AgentAtOriginID=3939) and (ExWorksDate >=>=#01/01/2009#) 
+
+            //params for new zealand office
+            //(order numbers <7000000 Or >8000000) and (FilecoverPrintedDest=0) and (AgentAtDestinationId=12347 Or 12780) and (DateOrderCreated>#01/11/2011#)
+            //or
+            //(order numbers <7000000 Or >8000000)  and (FileCoverPrintedOrigin=0) and (AgentAOriginID=12347 Or 12780) and  (DateOrderCreated>#01/11/2011#)
+           
+         
+            if (_params.Count > 0)
+            {
+                foreach (Parameter p in _params)
+                {
+                    string _pname = p.Name.ToString();
+                    string _op = "AND";
+                    string _compare = "==";
+                    string[] _check = _pname.Split("_".ToCharArray());
+                    _pname = _check[0].ToString();
+                    if (_check.Length > 1 && _check[1].ToString().Trim() != "") { _op = _check[1].ToString(); }
+                    if (_check.Length > 2 && _check[2].ToString().Trim() != "") { _compare = _check[2].ToString(); }
+
+                    string _a = _f != "" ? " " + _op + " " : "";
+                    _f += _a + "(" + _pname + _compare + p.DefaultValue.ToString() + ")";
+                }
+
+                if (_query != "") { _query = "(" + _f + ") AND " + _query; } else { _query = _f; }
+            }
+
+            //need this!
+            e.KeyExpression = "OrderIx";
+
+            //make sure you have: using System.Linq; using System.Linq.Dynamic; using System.Linq.Expressions; or you will get the error
+            //The type arguments for method 'System.Linq.Enumerable.Where<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource,int,bool>)' cannot be inferred from the usage.
+            if (!string.IsNullOrEmpty(_query))
+            {
+                //var _nquery = new linq_view_orders_udfDataContext().view_orders_by_age(_minDate, _months);
+                //var _nquery = new linq.linq_new_orders_udfDataContext().new_orders(_exworks, _loworder, _highorder, _filecover, _agentid).Where(_query); //c => c.CompanyID == 7
+                //e.QueryableSource = _nquery;
+            }
+            else
+            {
+                //var _nquery = new linq.linq_new_orders_udfDataContext().new_orders(_exworks, _loworder, _highorder, _filecover, _agentid);
+                //e.QueryableSource = _nquery;
+            }
+        }
+        catch (Exception ex)
+        {
+            string _ex = ex.Message.ToString();
+            this.dxlblErr.Text = _ex;
+            this.dxpnlErr.Visible = true;
+        }
+    }
+
+
+    #endregion
+
+    #region web methods (must include using System.Web.Services;)
+    [WebMethod]
+    public static string get_secure_url(IList<string> keyids, string commandmethod)
+    {
+        //page to redirect build as required
+        string _page = "";
+
+        //orderids = OrderID, OrderNumber passed as string seperated by semi-colon
+        //string[] _ids = keyids.Split(",".ToCharArray());
+
+        if (keyids.Count >= 2)
+        {
+            //get order number off grid
+            //string[] _fields = { "OrderNumber", "OrderID" };
+            //pass order no, id as encryped data
+            string _orderid = wwi_security.EncryptString(keyids[0], "publiship");
+            string _orderno = wwi_security.EncryptString(keyids[1], "publiship");
+
+            //track requesting page so we can return to it
+            //can't use 'this' in a static method
+            //string _req = this.dxhfOrder.Get("req").ToString(); //populated on page load   //wwi_security.EncryptString("Search", "publiship");
+            string _req = wwi_security.EncryptString("Search", "publiship");
+
+            //commandid is taken from custom button name
+            switch (commandmethod)
+            {
+                case "cmdView":
+                    {
+                        //send orderid and orderno as related tables are linked by orderno not orderid
+                        _page = string.Format("../shipment_orders/order.aspx?mode={0}&pid={1}&req={2}&pno={3}", "ReadOnly", _orderid, _req, _orderno);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page);  //Response.Redirect(_page); 
+                        break;
+                    }
+                case "cmdEdit":
+                    {
+                        //send orderid and orderno as related tables are linked by orderno not orderid
+                        _page = string.Format("../shipment_orders/order.aspx?mode={0}&pid={1}&req={2}&pno={3}", "Edit", _orderid, _req, _orderno);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                        break;
+                    }
+                case "cmdViewFilter": //deprecated we no longer use seperate order_view.aspx so just use cmdView
+                    {
+                        _page = string.Format("../shipment_orders/order_view.aspx?mode={0}&pid={1}&req={2}", "ReadOnly", _orderid, _req);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                        break;
+                    }
+                case "cmdEditFilter": //deprecated
+                    {
+                        _page = string.Format("../shipment_orders/order_edit.aspx?mode={0}&pid={1}&req={2}", "Edit", _orderid, _req);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                        break;
+                    }
+                case "cmdOrderSheet": //order sheet 
+                    {
+                        _page = string.Format("../shipment_orders/order_sheet.aspx?pno={0}", _orderno);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                        //**** this code does not work 
+                        //string _err = itextsharp_out.advance_labels(120600005);
+                        //_page = string.Format("~/Order_View.aspx?pno={0}", _orderno);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page);  //Response.Redirect(_page); 
+                        //****
+                        //string _err = itextsharp_out.order_sheet(wwi_func.vint(_orderno));
+                        //if (_err != "") {
+                        //    this.dxlblErr.Text = _err;
+                        //    this.dxpnlErr.Visible = true; }
+                        break;
+                    }
+                case "cmdTemplate": //make template out of selected order passed as source 'src' set mode to readonly until user saves template
+                    {
+                        _page = string.Format("../system_templates/order_template.aspx?src={0}&mode={1}", _orderid, "ReadOnly");
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                        break;
+                    }
+                case "cmdClone": //make identical copy of selected order
+                    {
+                        _page = string.Format("../shipment_orders/clone_order.aspx?pid={0}&pno={1}", _orderid, _orderno);
+                        //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }//end switch
+        }
+        return _page;
+    }
+    //end web method
+
+    #endregion
+
+    #region call backs
+    /// <summary>
+    /// fires when e.g. called from javascript
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxgridOrders_CustomCallback(object sender, ASPxGridViewCustomCallbackEventArgs e)
+    {
+        //if(e.Parameters == "new_order"){
+        //    Response.Redirect("~/Order_Edit?mode=New");
+        //}
+        //else
+        //{
+        this.dxgridOrders.DataBind();
+        //}
+    }
+
+    /// <summary>
+    /// this event is not being used, we are using client side asynchronous callbacks and webmethod get_secure_url so we can open page in new window
+    /// custom command buttons vierw/edit/delete (maybe?)
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxgridOrders_CustomButtonCallback(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCustomButtonCallbackEventArgs e)
+    {
+        ASPxGridView _grid = (ASPxGridView)sender;
+        //get order number off grid
+        //string[] _fields = { "OrderNumber", "OrderID" };
+        //pass order no, id as encryped data
+        string _orderno = wwi_security.EncryptString(_grid.GetRowValues(e.VisibleIndex, "OrderNumber").ToString(), "publiship");
+        string _orderid = wwi_security.EncryptString(_grid.GetRowValues(e.VisibleIndex, "OrderID").ToString(), "publiship");
+
+        //track requesting page so we can return to it
+        string _req = this.dxhfOrder.Get("req").ToString(); //populated on page load   //wwi_security.EncryptString("Search", "publiship");
+
+        //page to redirect build as required
+        string _page = "";
+
+        switch (e.ButtonID.ToString())
+        {
+            case "cmdView":
+                {
+                    //send orderid and orderno as related tables are linked by orderno not orderid
+                    _page = string.Format("../shipment_orders/order.aspx?mode={0}&pid={1}&req={2}&pno={3}", "ReadOnly", _orderid, _req, _orderno);
+                    DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page);  //Response.Redirect(_page); 
+                    break;
+                }
+            case "cmdEdit":
+                {
+                    //send orderid and orderno as related tables are linked by orderno not orderid
+                    _page = string.Format("../shipment_orders/order.aspx?mode={0}&pid={1}&req={2}&pno={3}", "Edit", _orderid, _req, _orderno);
+                    DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                    break;
+                }
+            case "cmdViewFilter": //deprecated we no longer use seperate order_view.aspx so just use cmdView
+                {
+                    _page = string.Format("../shipment_orders/order_view.aspx?mode={0}&pid={1}&req={2}", "ReadOnly", _orderid, _req);
+                    DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                    break;
+                }
+            case "cmdEditFilter": //deprecated
+                {
+                    _page = string.Format("../shipment_orders/order_edit.aspx?mode={0}&pid={1}&req={2}", "Edit", _orderid, _req);
+                    DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                    break;
+                }
+            case "cmdOrderSheet": //order sheet 
+                {
+                    _page = string.Format("../shipment_orders/order_sheet.aspx?pno={0}", _orderno);
+                    //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                    //**** this code does not work 
+                    //string _err = itextsharp_out.advance_labels(120600005);
+                    //_page = string.Format("~/Order_View.aspx?pno={0}", _orderno);
+                    //DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page);  //Response.Redirect(_page); 
+                    //****
+                    //string _err = itextsharp_out.order_sheet(wwi_func.vint(_orderno));
+                    //if (_err != "") {
+                    //    this.dxlblErr.Text = _err;
+                    //    this.dxpnlErr.Visible = true; }
+                    break;
+                }
+            case "cmdTemplate": //make template out of selected order
+                {
+                    _page = string.Format("../system_templates/order_template.aspx?pid={0}&mode={1}", _orderid, "Insert");
+                    DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                    break;
+                }
+            case "cmdClone": //make identical copy of selected order
+                {
+                    _page = string.Format("../shipment_orders/clone_order.aspx?pid={0}&pno={1}", _orderid, _orderno);
+                    DevExpress.Web.ASPxClasses.ASPxWebControl.RedirectOnCallback(_page); //Response.Redirect(_page); 
+                    break;
+                }
+            default:
+                {
+                    break;
+                }
+        }//end switch
+
+    }
+    //end custom buttons
+    protected void dxgridOrders_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
+    {
+        string _fx = this.dxgridOrders.FilterExpression.ToString();
+        if (!string.IsNullOrEmpty(_fx)) { this.dxlblSearch.Text = _fx; }
+
+
+    }
+    #endregion
+
+    #region form binding
+
+    /// <summary>
+    /// command menu 
+    /// </summary>
+    protected void bind_commands(string mode)
+    {
+        string _path = AppDomain.CurrentDomain.BaseDirectory;
+        _path += "xml\\order_commands.xml";
+
+        XmlDataSource _xml = new XmlDataSource();
+        _xml.DataFile = _path;
+        _xml.XPath = "//item[@Filter='" + mode + "']"; //you need this or tab will not databind!
+        _xml.DataBind();
+        //Run time population of GridViewDataComboBoxColumn column with data
+
+        //DevExpress.Web.ASPxMenu.ASPxMenu _mnu = (DevExpress.Web.ASPxMenu.ASPxMenu)this.FindControl("dxmnuCommand");
+        //if (_mnu != null)
+        //{
+        //    _mnu.DataSource = _xml;
+        //    _mnu.DataBind();
+        //}
+        //this.dxmnuToolbar.DataSource = _xml;
+        //this.dxmnuToolbar.DataBind();
+
+    }
+    #endregion
+
+    
+    #region functions
+    protected static bool isLoggedIn()
+    {
+        // TODO: Your custom logic here
+        return HttpContext.Current.Session["user"] != null;
+    }
+    #endregion
+
+    #region order sheet output
+
+    protected void order_sheet(string orderno)
+    {
+        string _err = "";
+
+        //output to pdf
+        if (orderno != null)
+        {
+
+
+            _err = itextsharp_out.order_sheet(wwi_func.vint(orderno));
+            if (_err != "")
+            {
+                this.dxlblErr.Text = _err;
+                this.dxpnlErr.Visible = true;
+
+            }//end if
+        }
+    }
+
+    #endregion
+
+}

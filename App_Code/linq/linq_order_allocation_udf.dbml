@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_order_allocation_udfDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PublishipSQL;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.order_allocation" Method="order_allocation" IsComposable="true">
+    <Parameter Name="ordernumber" Type="System.Int32" DbType="Int" />
+    <ElementType Name="order_allocationResult">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PortID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DestinationPortID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PackageTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NumberOfPackages" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActualVolume" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="OrignPort" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DestinationPort" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="PackageType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

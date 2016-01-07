@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<officelookups>
+    <office>
+        <name>UK Order</name>
+        <value>1</value>
+    </office>
+    <office>
+        <name>Hong Kong Order</name>
+        <value>2</value>
+    </office>
+    <office>
+        <name>Singapore Order</name>
+        <value>3</value>
+    </office>
+    <office>
+        <name>Australia Order</name>
+        <value>4</value>
+    </office>
+    <office>
+        <name>Italy Order</name>
+        <value>5</value>
+    </office>
+    <office>
+        <name>US Order</name>
+        <value>6</value>
+    </office>
+    <office>
+        <name>Netherlands Order</name>
+        <value>7</value>
+    </office>
+    <office>
+        <name>Germany Order</name>
+        <value>9</value>
+    </office>
+    <office>
+        <name>Thailand Order</name>
+        <value>10</value>
+    </office>
+    <office>
+        <name>Brazil Order</name>
+        <value>13</value>
+    </office>
+</officelookups>

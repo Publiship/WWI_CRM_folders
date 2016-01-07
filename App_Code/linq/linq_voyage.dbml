@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_voyageDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PublishipSQL;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.VoyageTable" Member="VoyageTables">
+    <Type Name="VoyageTable">
+      <Column Name="VoyageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VoyageNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VesselID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Joined" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TS" Type="System.Data.Linq.Binary" DbType="rowversion" CanBeNull="true" IsVersion="true" />
+    </Type>
+  </Table>
+</Database>

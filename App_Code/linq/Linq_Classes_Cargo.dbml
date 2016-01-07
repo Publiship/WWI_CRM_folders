@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PUblishipSQL" Class="Linq_Classes_CargoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PUblishipSQL;Persist Security Info=False;User ID=publiship_u;Pooling=False;Min Pool Size=5;Packet Size=4096" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.view_cargo_updates" Member="view_cargo_updates">
+    <Type Name="view_cargo_update">
+      <Column Name="cargoupdateid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="orderid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pre_cargoready" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="pre_estpallets" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pre_estweight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pre_estvolume" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="post_cargoready" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="post_estpallets" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="post_estweight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="post_estvolume" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="dtupdated" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactInitials" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="EMail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MainEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OrderNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HouseBLNUmber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomersRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="companyid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="updguid" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

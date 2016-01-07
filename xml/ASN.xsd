@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xs:schema  attributeFormDefault="unqualified"   elementFormDefault="qualified"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="PrintersDespatchAdvice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Header">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="DespatchAdviceNumber" type="xs:unsignedShort" />
+                            <xs:element name="IssueDateTime" type="xs:string" />
+                            <xs:element name="ReferenceCoded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ReferenceTypeCode" type="xs:string" />
+                                        <xs:element name="ReferenceNumber" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="PurposeCode" type="xs:string" />
+                            <xs:element name="DateCoded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Date" type="xs:unsignedInt" />
+                                        <xs:element name="DateQualifierCode" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="BuyerParty">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="PartyName">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="NameLine" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PostalAddress">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="AddressLine" type="xs:string" />
+                                                    <xs:element name="PostalCode" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="SellerParty">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="PartyName">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="NameLine" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PostalAddress">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="AddressLine" type="xs:string" />
+                                                    <xs:element name="PostalCode" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ShipToParty">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="PartyID">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="PartyIDType" type="xs:string" />
+                                                    <xs:element name="Identifier" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PartyName">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="NameLine" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="PostalAddress">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="AddressLine" type="xs:string" />
+                                                    <xs:element name="PostalCode" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Delivery">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Carrier">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CarrierNameCoded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="CarrierNameCodeType" type="xs:string" />
+                                                                <xs:element name="CarrierNameCode" type="xs:string" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="TrailerNumber" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" name="ItemDetail">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="LineNumber" type="xs:unsignedLong" />
+                            <xs:element maxOccurs="unbounded" name="ProductID">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ProductIDType" type="xs:string" />
+                                        <xs:element name="Identifier" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="ItemDescription">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="TitleDetail" type="xs:string" />
+                                        <xs:element name="BindingDescription" type="xs:string" />
+                                        <xs:element maxOccurs="unbounded" name="Measure">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="MeasureTypeCode" type="xs:string" />
+                                                    <xs:element name="MeasurementValue" type="xs:unsignedByte" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Impression" type="xs:unsignedByte" />
+                            <xs:element name="Quantity" type="xs:unsignedByte" />
+                            <xs:element maxOccurs="unbounded" name="ReferenceCoded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ReferenceTypeCode" type="xs:string" />
+                                        <xs:element name="ReferenceNumber" type="xs:unsignedLong" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element maxOccurs="unbounded" name="PalletDetail">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="NumberOfPallets" type="xs:unsignedLong" />
+                                        <xs:element name="PalletIdentifierList">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="IDValue" type="xs:unsignedLong" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="BooksPerPallet" type="xs:unsignedByte" />
+                                        <xs:element name="ParcelDetail">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="NumberOfParcels" type="xs:unsignedLong" />
+                                                    <xs:element name="BooksPerParcel" type="xs:unsignedLong" />
+                                                    <xs:element maxOccurs="unbounded" name="Measure">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="MeasureTypeCode" type="xs:string" />
+                                                                <xs:element name="MeasurementValue" type="xs:unsignedShort" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="ParcelsPerLayer" type="xs:unsignedByte" />
+                                                    <xs:element minOccurs="0" name="NumberOfOdds" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Summary">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="NumberOfLines" type="xs:unsignedByte" />
+                            <xs:element name="NumberOfUnits" type="xs:unsignedByte" />
+                            <xs:element name="NumberOfPallets" type="xs:unsignedByte" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:decimal" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

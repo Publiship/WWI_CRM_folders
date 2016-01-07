@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ddlitems>
+  <ddlitem>
+    <name>all dashboard widgets</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>system widgets</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>data widgets</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>bar charts</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>counters</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>Clock</name>
+    <value>1</value>
+  </ddlitem>
+  <ddlitem>
+    <name>Calendar</name>
+    <value>1</value>
+  </ddlitem>
+  <ddlitem>
+    <name>Recent orders</name>
+    <value>1</value>
+  </ddlitem>
+  <ddlitem>
+    <name>Recent searches</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>Recent prices</name>
+    <value>0</value>
+  </ddlitem>
+  <ddlitem>
+    <name>ETA this week</name>
+    <value>1</value>
+  </ddlitem>
+  <ddlitem>
+    <name>ETA this month</name>
+    <value>1</value>
+  </ddlitem>
+  <ddlitem>
+    <name>Open orders</name>
+    <value>1</value>
+  </ddlitem>
+ </ddlitems>

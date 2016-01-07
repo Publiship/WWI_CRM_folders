@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.publiship.com/services" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.publiship.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.publiship.com/services">
+      <s:element name="GetUserAuth">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserAuthResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserAuthResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserAuthSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserAuth" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAuthSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAuthHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAuthHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAuthHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAuthHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service_SecuritySoap">
+    <wsdl:operation name="GetUserAuth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will authenticate a user from encrypted user name and password combination</wsdl:documentation>
+      <wsdl:input message="tns:GetUserAuthSoapIn" />
+      <wsdl:output message="tns:GetUserAuthSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service_SecurityHttpGet">
+    <wsdl:operation name="GetUserAuth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will authenticate a user from encrypted user name and password combination</wsdl:documentation>
+      <wsdl:input message="tns:GetUserAuthHttpGetIn" />
+      <wsdl:output message="tns:GetUserAuthHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service_SecurityHttpPost">
+    <wsdl:operation name="GetUserAuth">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will authenticate a user from encrypted user name and password combination</wsdl:documentation>
+      <wsdl:input message="tns:GetUserAuthHttpPostIn" />
+      <wsdl:output message="tns:GetUserAuthHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service_SecuritySoap" type="tns:Service_SecuritySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserAuth">
+      <soap:operation soapAction="http://www.publiship.com/services/GetUserAuth" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_SecuritySoap12" type="tns:Service_SecuritySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserAuth">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetUserAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_SecurityHttpGet" type="tns:Service_SecurityHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetUserAuth">
+      <http:operation location="/GetUserAuth" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_SecurityHttpPost" type="tns:Service_SecurityHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetUserAuth">
+      <http:operation location="/GetUserAuth" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service_Security">
+    <wsdl:port name="Service_SecuritySoap" binding="tns:Service_SecuritySoap">
+      <soap:address location="http://localhost:1276/WWI_CRM/services/Service_Security.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_SecuritySoap12" binding="tns:Service_SecuritySoap12">
+      <soap12:address location="http://localhost:1276/WWI_CRM/services/Service_Security.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_SecurityHttpGet" binding="tns:Service_SecurityHttpGet">
+      <http:address location="http://localhost:1276/WWI_CRM/services/Service_Security.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_SecurityHttpPost" binding="tns:Service_SecurityHttpPost">
+      <http:address location="http://localhost:1276/WWI_CRM/services/Service_Security.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

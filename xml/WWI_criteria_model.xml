@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<OPERATORS>
+  <OPERATOR ID="Equal" CAPTION="is equal to" EXPR="{0} = {1}" LINQ="{0}=='{1}'" FORMAT="{0} [[is equal to]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>String,WideString,Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="NotEqual" CAPTION="is not equal to" EXPR="{0} &lt;&gt; {1}" LINQ="{0}!='{1}'" FORMAT="{0} [[is not equal to]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>String,WideString,Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="LessThan" CAPTION="is less than" EXPR="{0} &lt; {1}" LINQ="{0}&lt;{1}" FORMAT="{0} [[is less than]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="LessOrEqual" CAPTION="is less than or equal to" EXPR="{0} &lt;= {1}" LINQ="{0}&lt;={1}" FORMAT="{0} [[is less than or equal to]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="GreaterThan" CAPTION="is greater than" EXPR="{0} &gt; {1}" LINQ="{0} &gt; {1}" FORMAT="{0} [[is greater than]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="GreaterOrEqual" CAPTION="is greater than or equal to" EXPR="{0} &gt;= {1}" LINQ="{0} &gt;= {1}" FORMAT="{0} [[is greater than or equal to]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="IsNull" CAPTION="is null" EXPR="{0} IS NULL" LINQ="{0} == NULL" FORMAT="{0} [[is null]] " CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>String,WideString,Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="IsNotNull" CAPTION="is not null" EXPR="{0} IS NOT NULL" LINQ="{0} ! NULL" FORMAT="{0} [[is not null]]" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>String,WideString,Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="Between" CAPTION="is between" EXPR="{0} BETWEEN {1} AND {2}" LINQ="('{1}' &lt;= {0}) AND ({0} &lt;= '{2}')" FORMAT="{0} [[is between]] {1} and {2}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="NotBetween" CAPTION="is not between" EXPR="NOT ({0} BETWEEN {1} AND {2})" LINQ="!('{1}' &lt;= {0}) AND ({0} &lt;= '{2}')" FORMAT="{0} [[is not between]] {1} and {2}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Common operators" cond="False" tables="">
+    <TYPES>Byte,Word,Int,Int64,Bool,Float,Currency,BCD,Autoinc,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+  </OPERATOR>
+  <OPERATOR ID="StartsWith" CAPTION="starts with" EXPR="{0} LIKE {1}" LINQ="{0}.StartsWith('{1}')" FORMAT="{0} [[starts with]] {1}" CONSTFMT="{const}{ws}" KIND="Scalar" CASEINS="False" GROUP="String operators" cond="False" tables="">
+    <TYPES>String,WideString,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="EDIT" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="NotStartsWith" CAPTION="does not start with" EXPR="NOT ({0} LIKE {1})" LINQ="!{0}.StartsWith('{1}')" FORMAT="{0} [[does not start with]] {1}" CONSTFMT="{const}{ws}" KIND="Scalar" CASEINS="False" GROUP="String operators" cond="False" tables="">
+    <TYPES>String,WideString,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="EDIT" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="Contains" CAPTION="contains" EXPR="{0} LIKE {1}" LINQ="{0}.Contains('{1}')" FORMAT="{0} [[contains]] {1}" CONSTFMT="{ws}{const}{ws}" KIND="Scalar" CASEINS="False" GROUP="String operators" cond="False" tables="">
+    <TYPES>String,WideString,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="EDIT" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="NotContains" CAPTION="does not contain" EXPR="NOT ({0} LIKE {1})" LINQ="!{0}.Contains('{1}')" FORMAT="{0} [[does not contain]] {1}" CONSTFMT="{ws}{const}{ws}" KIND="Scalar" CASEINS="False" GROUP="String operators" cond="False" tables="">
+    <TYPES>String,WideString,Memo,FixedChar</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="EDIT" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DateEqualPrecise" CAPTION="is" EXPR="{0} = {1}" LINQ="{0}==DateTime.Parse('{1}')" FORMAT="{0} [[is]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DateNotEqualPrecise" CAPTION="is not" EXPR="{0} &lt;&gt; {1}" LINQ="{0}!=DateTime.Parse('{1}')" FORMAT="{0} [[is not]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DateBeforePrecise" CAPTION="is before" EXPR="{0} &lt; {1}" LINQ="{0} &lt; DateTime.Parse('{1}')" FORMAT="{0} [[is before]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DateAfterPrecise" CAPTION="is after" EXPR="{0} &gt;= {1}" LINQ="{0} &gt;= DateTime.Parse('{1}')" FORMAT="{0} [[is after]] {1}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DatePeriodPrecise" CAPTION="is between" EXPR="{0} BETWEEN {1} AND {2}" LINQ="(DateTime.Parse('{1}') &lt;= {0}) AND ({0} &lt;= DateTime.Parse('{2}'))" FORMAT="{0} [[is between]] {1} and {2}" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DatePeriodNext" CAPTION="is in the next" EXPR="{0} BETWEEN {1} AND {2}" LINQ="(DateTime.Parse('{Datetime.Now}') &lt;= {0}) AND ({0} &lt;= DateTime.Parse('{2}'))" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+  <OPERATOR ID="DatePeriodPrevious" CAPTION="is in the previous" EXPR="{0} BETWEEN {1} AND {2}" LINQ="(DateTime.Parse('{2}') &lt;= {0}) AND ({0} &lt;= DateTime.Parse('{Datetime.Now}'))" CONSTFMT="{const}" KIND="Scalar" CASEINS="False" GROUP="Date/time operators" cond="False" tables="">
+    <TYPES>Date,Time,DateTime</TYPES>
+    <EXPRS DefType="Unknown" />
+    <EDITORS>
+      <DEFAULT TYPE="DATETIME" />
+    </EDITORS>
+  </OPERATOR>
+ </OPERATORS>

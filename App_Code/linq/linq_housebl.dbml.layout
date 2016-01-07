@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linq_housebl">
+  <DataContextMoniker Name="/linq_houseblDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9a709fcd-761c-4838-aa08-cb5c2d2c96d6" absoluteBounds="6, 2.125, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/linq_houseblDataContext/HouseBLTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ce47afc-1260-4d2f-8a29-03dd2af68883" absoluteBounds="6.015, 2.585, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

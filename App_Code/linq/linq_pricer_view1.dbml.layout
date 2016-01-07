@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linq_pricer_view1">
+  <DataContextMoniker Name="/linq_pricer_view1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="4e4b6d6f-ea3c-401b-b5f9-4f9e98f28bba" absoluteBounds="3.875, 0.75, 2, 7.5056990559895826">
+      <DataClassMoniker Name="/linq_pricer_view1DataContext/view_price_client" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7178667b-3d03-4d28-b7d0-06901b74af13" absoluteBounds="3.8899999999999997, 1.21, 1.9700000000000002, 6.945699055989583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

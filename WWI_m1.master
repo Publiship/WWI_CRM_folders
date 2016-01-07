@@ -1,0 +1,379 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="WWI_m1.master.cs"  Inherits="WWI_m1"  %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxObjectContainer" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxGridView.v11.1.Export, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView.Export" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxGridView.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+<%@ Register assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" namespace="System.Web.UI.WebControls" tagprefix="asp" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPager" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHiddenField" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxCallback" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1.Linq, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Data.Linq" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxNavBar" tagprefix="dx" %>
+
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTimer" tagprefix="dx" %>
+
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxSiteMapControl" tagprefix="dx" %>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+				
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="publiship, logistics, publishers" />
+    <meta name="title" content="Publiship Logbook" />
+    <meta name="author" content="Administrator" />
+    <meta name="description" content="Logistics for the publishing industry" />
+
+    <title>Publiship Logbook</title>
+    <link href="http://www.publiship-online.dtemp.net/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="App_Themes/3columnfluid.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/custom.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/dropdown_one.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/menus.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/typography.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/widget.css" type="text/css" />
+    <link rel="stylesheet" href="App_Themes/960gs_flex.css" type="text/css" />
+    
+     <style type="text/css">
+        #ContentPlaceHolderM1 * { z-index: -1;}
+    </style>
+    
+    <script type="text/javascript">
+        function onSignoutClicked(s, e) {
+            //client side replacing server side event so we can confirm log out
+            //autopostback and causesvalidation have been set to false on this button
+            e.processOnServer = window.confirm('Are you sure you want to sign out?');
+            //var r = window.confirm('Are you sure you want to sign out?');
+            //if (r == true) {
+            //    window.open('../default.aspx?logout=true', "_self"); 
+            //}
+        }
+        
+        function closeloginWindow(lin) {
+          popWindows.HideWindow(popWindows.GetWindowByName('loginform'));
+
+          if (lin == 0) {
+              clilogin.SetVisible(true);
+              clilogout.SetVisible(false);
+          }
+          else {
+
+              clilogout.SetVisible(true);
+              clilogin.SetVisible(false);
+          }
+
+          callBackContent.PerformCallback();
+          //window.location.reload();
+        }
+      
+        function cancelloginWindow() {
+             popWindows.HideWindow(popWindows.GetWindowByName('loginform'));
+         }
+     
+        function closefilterWindow() {
+             popWindows.HideWindow(popWindows.GetWindowByName('filterform'));
+         }
+     
+        function btlogin_Click(s, e) {
+             var window = popWindows.GetWindowByName('loginform');
+             popWindows.SetWindowContentUrl(window, '');
+             popWindows.SetWindowContentUrl(window, 'Popupcontrol/Sys_Login.aspx');
+             popWindows.ShowWindow(popWindows.GetWindowByName('loginform'));
+         }
+
+
+         function setMenu() {
+             cbmenu.PerformCallback();
+         }
+     </script>
+    <style type="text/css">
+        .menubar-1
+        {
+            margin-bottom: 1px;
+        }
+    </style>
+</head>
+
+<body id="page">
+<form id="form1" runat="server"> 
+<asp:ScriptManager ID="scm_master" runat="server" EnablePageMethods="True">
+    <Services>
+                    <asp:ServiceReference path="~/services/Service_Pricer.asmx" />
+                </Services>
+                <Scripts>
+                    <asp:ScriptReference Path="~/scripts/wwiservice.js" />
+                </Scripts>
+</asp:ScriptManager> 
+<div id="maincontainer">
+
+<div id="topsection">
+    <div class="innertube">
+        <div id="header">
+            <div id="toolbar">
+                <div class="left">Welcome to Publiship Logbook</div>
+                 <!-- <div class="right">
+                     <ul class="menu">
+                        <li class="level1"><a href="http://www.publiship.com/index.php?option=com_content&amp;view=article&amp;id=85&amp;Itemid=233" class="level1"><span class="bg">
+                            About Publiship</span></a></li>
+                        <li class="level1 last"><a href="http://www.publiship-online.com/default.aspx" class="level1 last"><span class="bg">
+                            Shipment tracking</span></a></li>
+                            
+                    </ul> 		
+                </div> --> 
+                 <div id="date">
+                    <div class="mod"> 
+                        <dx:ASPxLabel ID="dxlbldate" runat="server" Text="" 
+                            Font-Names="Arial,Helvetica,sans-serif" Font-Size="X-Small"></dx:ASPxLabel>
+                    </div>
+				 </div> 
+                  <!-- end date -->
+			</div>
+			<!-- end toolbar -->
+			
+				<div id="headerbar">
+				    	
+                        <div class="mod"> 
+                            <div class="right">
+						        
+						        <table>
+                                <tr>
+                                    <td>
+                                        <dx:ASPxLabel ID="lblResult" runat="server" ClientInstanceName="lblResult"
+                                            Text="You are not signed in" ForeColor="#666666" 
+                                              Font-Bold="False" Font-Names="Tahoma" Font-Size="Small" 
+                                              CssFilePath="~/App_Themes/fluid_blue.css" CssPostfix="lbls">
+                                            </dx:ASPxLabel>
+                                    </td>
+                                    <td>
+                                        <dx:ASPxButton ID="btnLogin" runat="server" 
+                                            Text="Sign in" Height="18px" Width="42px" 
+                                            ClientSideEvents-Click="" ClientInstanceName="clilogin" 
+                                               TabIndex="100" BackColor="White" EnableDefaultAppearance="False" 
+                                                HorizontalAlign="Center" VerticalAlign="Top" 
+                                                 Cursor="pointer" 
+                                            ToolTip="Click here to log in" Font-Names="Tahoma" Font-Size="Small" 
+                                            onclick="btnLogin_Click" UseSubmitBehavior="False">
+                                            <Border BorderStyle="Solid" BorderColor="White" BorderWidth="1px" />
+                                            </dx:ASPxButton>
+                                    </td> 
+                                    <td>
+                                        <dx:ASPxButton ID="btnLogout" runat="server" 
+                                            Text="Sign out" Height="18px" Width="50px" 
+                                            ClientSideEvents-Click="" ClientInstanceName="clilogout" 
+                                               TabIndex="102" BackColor="White" EnableDefaultAppearance="False" 
+                                                HorizontalAlign="Center" VerticalAlign="Top" 
+                                                 Cursor="pointer" UseSubmitBehavior="False" Font-Names="Tahoma" 
+                                            Font-Size="Small" AutoPostBack="False" CausesValidation="False" 
+                                            onclick="btnLogout_Click">
+                                            <Border BorderStyle="Solid" BorderColor="White" BorderWidth="1px" />
+                                            <ClientSideEvents Click="onSignoutClicked" />
+                                            </dx:ASPxButton>
+                                    </td>
+                                </tr>
+                            </table> 
+                            <!-- end log in section --> 
+						    </div> 				
+						</div> 				
+				</div>
+				<!-- end header bar -->
+								
+				<div id="menubar">
+					<!-- <div class="menubar-1"> --> 
+					    <!-- <div id="menu">
+					    <ul class="menu dropdown"> 
+					       <li class="menu first"><a href="Ord_View_Tracking.aspx"><span class="bg">Test 1</span></a></li>  
+					       <li class="menu"><a href="Ord_View_Tracking.aspx"><span class="bg">Test 2</span></a></li>  
+					    </ul>
+					    </div> -->
+                        <dx:ASPxCallbackPanel ID="dxcbmenu" ClientInstanceName="cbmenu" runat="server" 
+                            oncallback="dxcbmenu_Callback" ShowLoadingPanel="False">
+                        <PanelCollection>
+                        <dx:PanelContent> 
+                          <dx:ASPxMenu ID="dxmenumain" ClientInstanceName="menumain" runat="server" 
+                                width="100%"   
+                            AllowSelectItem="True" BackColor="White" DataSourceID="dxsitemapdata" 
+                            ForeColor="#333435" HorizontalAlign="Left" 
+                            ItemAutoWidth="False" NavigateUrlField="NavigateUrl" SeparatorWidth="0px"  
+                            TextField="Text" NameField="Name" ItemSpacing="0px" 
+                            AppearAfter="100" Border-BorderWidth="0px" Opacity="100" 
+                                RenderIFrameForPopupElements="True" 
+                                OnItemDataBound="dxmenumain_ItemDataBound">
+                                <Paddings Padding="0px" />
+                                   <ItemStyle Font-Size="18px" ForeColor="#333435" Height="55px" 
+                                    HorizontalAlign="Center" VerticalAlign="Middle" Font-Underline="false"  >
+                               <SelectedStyle BackColor="#ffffff" ForeColor="#0076E8"  >
+                                </SelectedStyle>
+                                <HoverStyle BackColor="#333435" ForeColor="#ffffff" >
+                                </HoverStyle>
+                                </ItemStyle>
+                                <SubMenuItemStyle  BackColor="White" Font-Underline="false"  >
+                                    <HoverStyle ForeColor="#0076E8"  >
+                                    </HoverStyle>
+                                </SubMenuItemStyle>
+                              <Border BorderWidth="0px"></Border>
+                            </dx:ASPxMenu>
+                             </dx:PanelContent>
+                            </PanelCollection>
+                          </dx:ASPxCallbackPanel>
+					<!-- </div> -->
+				</div>
+				
+			    <!-- end main menu -->
+				<div id="logo">
+					  <a class="logo-icon" href="http://www.publiship-online.com/default.aspx" title="Home"></a>
+				</div> 		
+			
+        </div>
+        <!-- end header -->
+    </div>
+    <!-- end header inner tube -->
+</div>
+<!-- end top section -->
+<div id="contentwrapper">
+<div id="contentcolumn">
+<div class="innertube">
+			  
+            <dx:ASPxCallbackPanel ID="callBack1" runat="server" 
+                         ClientInstanceName="callBackContent" oncallback="callBack1_Callback" 
+                         CssFilePath="~/App_Themes/Aqua/{0}/styles.css" CssPostfix="Aqua" 
+                         LoadingPanelImagePosition="Top" >
+                        <LoadingPanelImage Url="~/App_Themes/Aqua/Web/Loading.gif">
+                        </LoadingPanelImage>
+                        <PanelCollection>
+                            <dx:PanelContent>
+                                    <asp:ContentPlaceHolder id="ContentPlaceHolderM1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </dx:PanelContent> 
+                            </PanelCollection> 
+                        </dx:ASPxCallbackPanel>
+          <!-- end call back/ place holder -->
+          
+<!-- <div class="bottom-separator"></div> -->
+
+</div>
+<!-- end content innertube -->
+</div>
+<!-- end contentcolumn -->
+</div>
+<!-- end content wrapper -->
+<div id="leftcolumn">
+<div class="innertube">
+</div>
+<!-- end left innertube -->
+</div>
+<!-- end left column -->
+<div id="rightcolumn">
+<div class="innertube">
+</div>
+<!-- end right innertube -->
+</div>
+<!-- end right column -->
+<!-- 03.02.15 footer removed as it interferes with input forms at some screen dimensions -->
+<!--<div id="footer">
+    <a class="anchor" href="#page"></a>
+    <ul class="menu">
+        <li class="level1 item1 first"><a href="http://www.publiship.com/index.php?option=com_content&amp;view=article&amp;id=85&amp;Itemid=233" class="level1 item1 first"><span class="bg">
+            About Publiship</span></a></li>
+        <li class="level1 item2 last"><a href="http://www.publiship-online.com/default.aspx" class="level1 item2 last"><span class="bg">
+            Shipment tracking</span></a></li>
+    </ul> 
+    Copyright © 2010 <a href="http://www.publiship.com" target="_blank">
+    Publiship</a><br/>
+    Validates to <a href="http://validator.w3.org/check?uri=http://www.yootheme.com/demo/themes/joomla/2010/pure&amp;doctype=HTML5" target="_blank">
+    XHTML 1.0</a> and <a href="http://jigsaw.w3.org/css-validator/validator?uri=http://www.yootheme.com/demo/themes/joomla/2010/pure&amp;profile=css3" target="_blank">
+    CSS 3</a>												
+</div>-->
+<!-- end footer -->
+</div>
+<!-- end maincontainer -->
+<div>
+  <dx:ASPxPopupControl ID="popWindows" runat="server" AppearAfter="1000" CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+        CssPostfix="Office2010Blue" Modal="True" 
+        SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css" 
+        PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"
+        ClientInstanceName="popWindows" EnableHierarchyRecreation="True" 
+        CloseAction="CloseButton" HeaderText="" Height="100px" Width="414px" 
+        PopupAction="None" EnableHotTrack="False">
+        <LoadingPanelImage Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+        </LoadingPanelImage>
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="PopupControlContentControl1" runat="server">
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+        <LoadingPanelStyle ImageSpacing="5px">
+        </LoadingPanelStyle>
+        <Windows>
+            <dx:PopupWindow CloseAction="CloseButton" Name="loginform" 
+                ContentUrl="~/Popupcontrol/Sys_Login.aspx" HeaderText="LogIn to Publiship" 
+                Height="380px" Modal="True" PopupAction="None" Width="380px" 
+                PopupElementID="btnLogin" 
+                >
+                <FooterStyle>
+                <Border BorderStyle="None" />
+                </FooterStyle>
+                <ContentCollection>
+                    <dx:PopupControlContentControl ID="PopupControlContentControl2" runat="server">
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:PopupWindow>
+            
+             <dx:PopupWindow CloseAction="CloseButton" Name="reminderform" 
+                ContentUrl="~/Popupcontrol/Sys_Login_Remind.aspx" HeaderText="User name/password verification" 
+                Height="475px" Modal="True" PopupAction="None" Width="425px">
+                <ContentCollection>
+                    <dx:PopupControlContentControl ID="PopupControlContentControl3" runat="server">
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:PopupWindow>
+        </Windows>
+     </dx:ASPxPopupControl>
+ </div>    
+     <!-- end pop up -->
+
+
+<!-- end timer -->
+
+<dx:ASPxSiteMapDataSource ID="dxsitemapdata" runat="server" 
+    EnableViewState="False" />
+
+</form>
+</body>    
+
+</html>

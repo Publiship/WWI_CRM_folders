@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.publiship.com/services" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.publiship.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.publiship.com/services">
+      <s:element name="getOrigin">
+        <s:complexType />
+      </s:element>
+      <s:element name="getOriginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOriginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDestination">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDestinationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDestinationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFinal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getFinalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getFinalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getOriginSoapIn">
+    <wsdl:part name="parameters" element="tns:getOrigin" />
+  </wsdl:message>
+  <wsdl:message name="getOriginSoapOut">
+    <wsdl:part name="parameters" element="tns:getOriginResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDestinationSoapIn">
+    <wsdl:part name="parameters" element="tns:getDestination" />
+  </wsdl:message>
+  <wsdl:message name="getDestinationSoapOut">
+    <wsdl:part name="parameters" element="tns:getDestinationResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFinalSoapIn">
+    <wsdl:part name="parameters" element="tns:getFinal" />
+  </wsdl:message>
+  <wsdl:message name="getFinalSoapOut">
+    <wsdl:part name="parameters" element="tns:getFinalResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOriginHttpGetIn" />
+  <wsdl:message name="getOriginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getDestinationHttpGetIn">
+    <wsdl:part name="Origin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDestinationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getFinalHttpGetIn">
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="CountryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getFinalHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getOriginHttpPostIn" />
+  <wsdl:message name="getOriginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getDestinationHttpPostIn">
+    <wsdl:part name="Origin" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDestinationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getFinalHttpPostIn">
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="CountryName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getFinalHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service_FeedsSoap">
+    <wsdl:operation name="getOrigin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of countries upon request it does not require parameters</wsdl:documentation>
+      <wsdl:input message="tns:getOriginSoapIn" />
+      <wsdl:output message="tns:getOriginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of destinations based on the origin name</wsdl:documentation>
+      <wsdl:input message="tns:getDestinationSoapIn" />
+      <wsdl:output message="tns:getDestinationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of destinations based on the origin name and destination name</wsdl:documentation>
+      <wsdl:input message="tns:getFinalSoapIn" />
+      <wsdl:output message="tns:getFinalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service_FeedsHttpGet">
+    <wsdl:operation name="getOrigin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of countries upon request it does not require parameters</wsdl:documentation>
+      <wsdl:input message="tns:getOriginHttpGetIn" />
+      <wsdl:output message="tns:getOriginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of destinations based on the origin name</wsdl:documentation>
+      <wsdl:input message="tns:getDestinationHttpGetIn" />
+      <wsdl:output message="tns:getDestinationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of destinations based on the origin name and destination name</wsdl:documentation>
+      <wsdl:input message="tns:getFinalHttpGetIn" />
+      <wsdl:output message="tns:getFinalHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service_FeedsHttpPost">
+    <wsdl:operation name="getOrigin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of countries upon request it does not require parameters</wsdl:documentation>
+      <wsdl:input message="tns:getOriginHttpPostIn" />
+      <wsdl:output message="tns:getOriginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of destinations based on the origin name</wsdl:documentation>
+      <wsdl:input message="tns:getDestinationHttpPostIn" />
+      <wsdl:output message="tns:getDestinationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a json scripted list of destinations based on the origin name and destination name</wsdl:documentation>
+      <wsdl:input message="tns:getFinalHttpPostIn" />
+      <wsdl:output message="tns:getFinalHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service_FeedsSoap" type="tns:Service_FeedsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getOrigin">
+      <soap:operation soapAction="http://www.publiship.com/services/getOrigin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <soap:operation soapAction="http://www.publiship.com/services/getDestination" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <soap:operation soapAction="http://www.publiship.com/services/getFinal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_FeedsSoap12" type="tns:Service_FeedsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getOrigin">
+      <soap12:operation soapAction="http://www.publiship.com/services/getOrigin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <soap12:operation soapAction="http://www.publiship.com/services/getDestination" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <soap12:operation soapAction="http://www.publiship.com/services/getFinal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_FeedsHttpGet" type="tns:Service_FeedsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getOrigin">
+      <http:operation location="/getOrigin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <http:operation location="/getDestination" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <http:operation location="/getFinal" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_FeedsHttpPost" type="tns:Service_FeedsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getOrigin">
+      <http:operation location="/getOrigin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDestination">
+      <http:operation location="/getDestination" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFinal">
+      <http:operation location="/getFinal" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service_Feeds">
+    <wsdl:port name="Service_FeedsSoap" binding="tns:Service_FeedsSoap">
+      <soap:address location="http://localhost:2615/WWI_CRM/services/Service_Feeds.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_FeedsSoap12" binding="tns:Service_FeedsSoap12">
+      <soap12:address location="http://localhost:2615/WWI_CRM/services/Service_Feeds.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_FeedsHttpGet" binding="tns:Service_FeedsHttpGet">
+      <http:address location="http://localhost:2615/WWI_CRM/services/Service_Feeds.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_FeedsHttpPost" binding="tns:Service_FeedsHttpPost">
+      <http:address location="http://localhost:2615/WWI_CRM/services/Service_Feeds.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

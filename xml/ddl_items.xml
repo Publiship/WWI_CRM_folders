@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ddlitems>
+  <ddlitem>
+    <name>Aus Dollars (cents)</name>
+    <value>AUD</value>
+    <ddls>currency</ddls>
+   </ddlitem>
+  <ddlitem>
+    <name>Euros (cents)</name>
+    <value>EUR</value>
+    <ddls>currency</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Sterling (pence)</name>
+    <value>GBP</value>
+    <ddls>currency</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>US Dollars (cents)</name>
+    <value>USD</value>
+    <ddls>currency</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>EuroPallet</name>
+    <value>EuroPallet</value>
+    <ddls>pallet</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>HarperCollins</name>
+    <value>HarperCollins</value>
+    <ddls>pallet</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>Standard</name>
+    <value>Standard</value>
+    <ddls>pallet</ddls>
+  </ddlitem>
+    <ddlitem>
+        <name>WHSmith</name>
+        <value>WHSmith</value>
+        <ddls>pallet</ddls>
+    </ddlitem>
+  <ddlitem>
+    <name>0</name>
+    <value>0</value>
+    <ddls>prioritycode_deprecated</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>1</name>
+    <value>1</value>
+    <ddls>prioritycode_deprecated</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>2</name>
+    <value>2</value>
+    <ddls>prioritycode_deprecated</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>3</name>
+    <value>3</value>
+    <ddls>prioritycode_deprecated</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>4</name>
+    <value>4</value>
+    <ddls>prioritycode_deprecated</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>5</name>
+    <value>5</value>
+    <ddls>prioritycode_deprecated</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>WP</name>
+    <value>6</value>
+    <ddls>prioritycode</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>KP</name>
+    <value>7</value>
+    <ddls>prioritycode</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>PP</name>
+    <value>8</value>
+    <ddls>prioritycode</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>A</name>
+    <value>9</value>
+    <ddls>prioritycode</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>D</name>
+    <value>10</value>
+    <ddls>prioritycode</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>LCL</name>
+    <value>-1</value>
+    <ddls>FCLLCL</ddls>
+  </ddlitem>
+  <ddlitem>
+    <name>FCL</name>
+    <value>0</value>
+    <ddls>FCLLCL</ddls>
+  </ddlitem>
+   <ddlitem>
+     <name>Shipments in last 12 months</name>
+     <value>1</value>
+     <ddls>trackingdate</ddls>
+   </ddlitem>
+   <ddlitem>
+        <name>Shipments between 1-2 years old</name>
+        <value>2</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 2-3 years old</name>
+        <value>3</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 3-4 years old </name>
+        <value>4</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 4-5 years old</name>
+        <value>5</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 5-6 years old</name>
+        <value>6</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 6-7 years old</name>
+        <value>7</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 7-8 years old</name>
+        <value>8</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 8-9 years old</name>
+        <value>9</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Shipments between 9-10 years old</name>
+        <value>10</value>
+        <ddls>trackingdate</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>CY</name>
+        <value>1</value>
+        <ddls>containerterms</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>CFS</name>
+        <value>2</value>
+        <ddls>containerterms</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Supervisor</name>
+        <value>1</value>
+        <ddls>contact_permission</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Controller</name>
+        <value>2</value>
+        <ddls>contact_permission</ddls>
+    </ddlitem>
+    <ddlitem>
+        <name>Overseas agent</name>
+        <value>3</value>
+        <ddls>contact_permission</ddls>
+    </ddlitem>
+</ddlitems>

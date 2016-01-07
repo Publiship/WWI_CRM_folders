@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+    <item Name="cmdOrdersByUser" ImageUrl="~/Images/icons/metro/user.png" BeginGroup="False" NavigateUrl="" Text="My orders" Filter="Search"/>
+    <item Name="cmdOrdersAll" ImageUrl="~/Images/icons/metro/empty_filter.png" BeginGroup="False" NavigateUrl="" Text="All orders" Filter="Search"/>
+    <item Name="cmdOrdersByOffice" ImageUrl="~/Images/icons/metro/organization.png" BeginGroup="False" NavigateUrl="" Text="Office orders" Filter="Search"/>
+    <item Name="cmdNew" ImageUrl="~/Images/icons/metro/new.png" BeginGroup="True" NavigateUrl="order.aspx?mode=Insert" Text="New order" Filter="Search"/>
+    <item Name="cmdNew" ImageUrl="../Images/icons/metro/new.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=Insert" Text="New" Filter="GenericSearchForm"/>
+    <item Name="cmdSave" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Create clone" Filter="Clone"/>
+    <item Name="cmdCancel" ImageUrl="../Images/icons/metro/cancel.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Cancel" Filter="Clone"/>
+    <item Name="cmdCreate" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Create template" Filter="Template"/>
+    <item Name="cmdOrder" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Create order" Filter="Template"/>
+    <item Name="cmdEdit" ImageUrl="../Images/icons/metro/edit.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=Edit&amp;pno={1}" Text="Edit" Filter="GenericFormView"/>
+    <item Name="cmdSave" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Save" Filter="GenericFormView"/>
+    <item Name="cmdCancel" ImageUrl="../Images/icons/metro/cancel.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Cancel" Filter="GenericFormView"/>
+    <item Name="cmdUpdate" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Update" Filter="GenericFormView"/>
+    <item Name="cmdClose" ImageUrl="../Images/icons/metro/close.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Close" Filter="GenericFormView"/>
+    <item Name="jsNew" ImageUrl="../Images/icons/metro/new.png" BeginGroup="False" NavigateUrl="" Text="New Courier" Filter="Courier"/>
+    <item Name="jsAdd" ImageUrl="../Images/icons/metro/new.png" BeginGroup="False" NavigateUrl="" Text="Add title to order" Filter="Titles_Deprecated"/>
+    <item Name="jsNew" ImageUrl="../Images/icons/metro/book.png" BeginGroup="False" NavigateUrl="" Text="Add title" Filter="Titles"/>
+    <item Name="cmdAllocateOrder" ImageUrl="../Images/icons/metro/new.png" BeginGroup="False" NavigateUrl="" Text="Add order to container" Filter="Container"/>
+    <item Name="cmdMarkLoaded" ImageUrl="../Images/icons/metro/fork_truck.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Mark loaded on board" Filter="MarkLoaded"/>
+    <item Name="cmdEdit" ImageUrl="../Images/icons/metro/edit.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=Edit&amp;pno={1}" Text="Edit" Filter="MarkLoaded"/>
+    <item Name="cmdUpdate" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Save" Filter="MarkLoaded"/>
+    <item Name="cmdCancel" ImageUrl="../Images/icons/metro/cancel.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Cancel" Filter="MarkLoaded"/>
+    <item Name="cmdClose" ImageUrl="../Images/icons/metro/close.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Close" Filter="MarkLoaded"/>
+    <item Name="cmdMoveContainer" ImageUrl="../Images/icons/metro/cargo_ship.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Move container and orders" Filter="MoveContainer"/>
+    <item Name="cmdEdit" ImageUrl="../Images/icons/metro/edit.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=Edit&amp;pno={1}" Text="Edit" Filter="MoveContainer"/>
+    <item Name="cmdUpdate" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Save" Filter="MoveContainer"/>
+    <item Name="cmdCancel" ImageUrl="../Images/icons/metro/cancel.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Cancel" Filter="MoveContainer"/>
+    <item Name="cmdClose" ImageUrl="../Images/icons/metro/close.png" BeginGroup="False" NavigateUrl="{0}.aspx?mode=ReadOnly&amp;pno={1}" Text="Close" Filter="MoveContainer"/>
+    <item Name="jsCreate1" ImageUrl="../Images/icons/metro/new.png" BeginGroup="False" NavigateUrl="" Text="Next: Add titles" Filter="CreateOrder"/>
+    <item Name="jsCreate2" ImageUrl="../Images/icons/metro/new.png" BeginGroup="False" NavigateUrl="" Text="Next: Add deliveries" Filter="CreateOrder"/>
+    <item Name="jsCreate3" ImageUrl="../Images/icons/metro/save.png" BeginGroup="False" NavigateUrl="" Text="Save order" Filter="CreateOrder"/>
+</items>
+

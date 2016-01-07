@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_view_order_templatesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=217.205.163.162,1433;Initial Catalog=PUblishipSQL;Persist Security Info=False;User ID=sa;Pooling=False;Min Pool Size=5;Network Library=dbmssocn;Packet Size=4096" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.view_order_template" Member="view_order_templates">
+    <Type Name="view_order_template">
+      <Column Name="OrderTemplateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TemplateName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OfficeIndicator" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PublishipOrder" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CustomersRef" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="OrderController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OpsController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginPlace" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="OriginPort" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DestinationPort" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="FinalDestination" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ClientName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PrinterName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConsigneeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginAgentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NotifyName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OriginController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestAgentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DestController" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClearingAgentName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OnCarriageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+    <item Name="jsNewItem" ImageUrl="../Images/icons/metro/book.png" BeginGroup="False" NavigateUrl="" Text="Add title" Filter="Items"/>
+</items>
+

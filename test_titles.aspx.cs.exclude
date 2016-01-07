@@ -1,0 +1,154 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DAL.Logistics;
+using SubSonic;
+using DevExpress.Web;
+using DevExpress.Web.ASPxEditors;
+using DevExpress.Web.ASPxGridView;
+
+public partial class test_titles : System.Web.UI.Page
+{
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        bind_order_titles(); 
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!Page.IsPostBack)
+        {
+            
+            //ItemTableCollection _test = new ItemTableCollection();
+            //ItemTable _title = new ItemTable();
+            //_title.Title = "Test title";
+            //_title.TitleID = 1;
+            //_title.Isbn = "ISBN123456789";
+            //_title.Copies = 1250;
+            //_test.Add(_title);
+            //Session["Items"] = _test;
+           
+        }
+        
+        
+    }
+    protected void bind_order_titles()
+    {
+        //get order number from querystrings
+        Int32 _orderno = 144816;
+
+        //query item table
+        SubSonic.Query _q = new SubSonic.Query(DAL.Logistics.Tables.ItemTable, "WWIProv").WHERE("OrderNumber", Comparison.Equals, _orderno);
+        DataSet _ds = _q.ExecuteDataSet();
+        this.dxgridTitles.KeyFieldName = "TitleID";
+        this.dxgridTitles.DataSource = _ds;
+        this.dxgridTitles.DataBind();
+    }
+
+    #region grid binding events
+    /// <summary>
+    /// fires when edit row get current value of combobox and populate on combobox databound or we will lose initial text
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxgridTitles_StartRowEditing(object sender, DevExpress.Web.Data.ASPxStartRowEditingEventArgs e)
+    {
+        ASPxGridView _grid = (ASPxGridView)sender;
+        string[] _fields = { "Title" };
+        string _title = _grid.GetRowValuesByKeyValue(e.EditingKeyValue, _fields).ToString();
+        Session["Title"] = _title;
+
+    }
+    protected void dxcbotitle_DataBound(object sender, EventArgs e)
+    {
+        ASPxComboBox _combo = (ASPxComboBox)sender;
+        if (Session["Title"] != null) { _combo.Text = Session["Title"].ToString(); Session["Title"] = null; }
+    }
+    #endregion
+
+    #region dll incremental filtering
+    /// <summary>
+    /// applies to the Title column editform template
+    /// incremental filtering and partial loading of name and address book for speed
+    /// both ItemsRequestedByFilterCondition and ItemRequestedByValue must be set up for this to work
+    /// company name is only available to publiship users
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="e"></param>
+    protected void dxcbotitle_ItemsRequestedByFilterCondition(object source, DevExpress.Web.ASPxEditors.ListEditItemsRequestedByFilterConditionEventArgs e)
+    {
+        //ASPxComboBox _combo = (ASPxComboBox)source;
+        ASPxComboBox _combo = ((ASPxComboBox)this.dxgridTitles.FindEditRowCellTemplateControl(
+               this.dxgridTitles.Columns["colTitle"] as GridViewDataComboBoxColumn, "dxcbotitle"));
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "ItemTable.TitleID, ItemTable.Title" };
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).Paged(e.BeginIndex + 1, e.EndIndex +1, "CompanyID").WhereExpression("CompanyName").Like(string.Format("%{0}%", e.Filter.ToString())).And("Customer").IsEqualTo(true) ;
+        SubSonic.SqlQuery _query = new SubSonic.SqlQuery();
+        _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.ItemTable).Paged(e.BeginIndex + 1, e.EndIndex + 1, "TitleID").WhereExpression("Title").StartsWith(string.Format("{0}%", e.Filter.ToString()));
+
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "TitleID";
+        _combo.ValueType = typeof(Int32);
+        _combo.TextField = "Title";
+        _combo.DataBind();
+    }
+
+
+    protected void dxcbotitle_ItemRequestedByValue(object source, DevExpress.Web.ASPxEditors.ListEditItemRequestedByValueEventArgs e)
+    {
+        ASPxComboBox _combo = ((ASPxComboBox)this.dxgridTitles.FindEditRowCellTemplateControl(
+               this.dxgridTitles.Columns["colTitle"] as GridViewDataComboBoxColumn, "dxcbotitle"));
+
+        Int32 _id = 0;
+        if (e.Value != null) { _id = wwi_func.vint(e.Value.ToString()); }
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "ItemTable.TitleID, ItemTable.Title" };
+        SubSonic.SqlQuery _query = new SubSonic.SqlQuery();
+        _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.ItemTable).WhereExpression("TitleID").IsEqualTo(_id);
+
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "TitleID";
+        _combo.ValueType = typeof(Int32);
+        _combo.TextField = "Title";
+        _combo.DataBind();
+
+    }
+    //end incremental filtering of title
+    #endregion
+
+    protected void dxgridTitles_RowCommand(object sender, ASPxGridViewRowCommandEventArgs e)
+    {
+        string _cmd = e.CommandArgs.ToString();
+        string _ix = e.KeyValue.ToString(); 
+    }
+    protected void dxgridTitles_DataBinding(object sender, EventArgs e)
+    {
+        this.dxgridTitles.KeyFieldName = "TitleID";
+        this.dxgridTitles.DataSource = db4o_itemtable.SelectByOrderNumber(0);
+        //this.dxgridTitles.DataBind(); 
+    }
+    protected void dxgridTitles_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+    {
+
+    }
+    protected void dxgridTitles_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+    {
+
+    }
+    protected void dxgridTitles_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+    {
+
+    }
+    protected void dxgridTitles_AfterPerformCallback(object sender, ASPxGridViewAfterPerformCallbackEventArgs e)
+    {
+        bind_order_titles();
+    }
+}

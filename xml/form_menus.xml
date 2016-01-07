@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menuitems>
+  <menuitem Name="orderdetails" ID="details" NavigateUrl="../shipment_orders/order.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Order details" ToolTip="Order details" AppliesTo="Order"/>
+  <menuitem Name="titles" ID="titles" NavigateUrl="../shipment_orders/order_titles.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Titles and copies" ToolTip="Titles and copies" AppliesTo="Order"/>
+  <menuitem Name="shipment" ID="shipment" NavigateUrl="../shipment_orders/order_vessel.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Vessel &amp; shipment size" ToolTip="Vessel &amp; shipment size" AppliesTo="Order"/>
+  <menuitem Name="addresses" ID="addresses" NavigateUrl="../shipment_orders/order_addresses.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Addresses" ToolTip="Addresses" AppliesTo="Order"/>
+  <menuitem Name="deliveries" ID="deliveries" NavigateUrl="../shipment_orders/order_deliveries.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Delivery details" ToolTip="Delivery details" AppliesTo="Order"/>
+  <menuitem Name="charges" ID="charges" NavigateUrl="../shipment_orders/order_charge_allocation.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Charge allocations" ToolTip="Charge allocations" AppliesTo="Order"/>
+  <menuitem Name="courier" ID="courier" NavigateUrl="../shipment_orders/order_courier.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Courier details" ToolTip="Courier details" AppliesTo="Order"/>
+  <menuitem Name="orderdetails" ID="details" NavigateUrl="../shipment_orders/order.aspx?pid={0}&amp;pno={1}" Target="_self" Text="Order details" ToolTip="Order details" AppliesTo="InsertOrder"/>
+</menuitems>

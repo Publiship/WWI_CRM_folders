@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linq_pricer_feeds">
+  <DataContextMoniker Name="/linq_pricer_feedsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9d36f13e-7876-47bd-ab56-d8020905b617" absoluteBounds="2.25, 1.5, 2, 1.0961531575520833">
+      <DataClassMoniker Name="/linq_pricer_feedsDataContext/pricer_origin_point" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d44d7cc3-090a-484c-9717-9e80b2e2c52c" absoluteBounds="2.265, 1.96, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3cf69f1-1640-446f-8d7b-5877e2a9d9bb" absoluteBounds="4.875, 1.5, 2, 1.4248478190104168">
+      <DataClassMoniker Name="/linq_pricer_feedsDataContext/pricer_dest_country" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c581a8f-cff0-430d-9cda-2958f75d9e15" absoluteBounds="4.8900000000000006, 1.96, 1.9700000000000002, 0.86484781901041674" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d61559e1-1bab-4faf-af84-497e220b65c0" absoluteBounds="7.875, 1.5, 2, 1.26050048828125">
+      <DataClassMoniker Name="/linq_pricer_feedsDataContext/pricer_dest_final" />
+      <nestedChildShapes>
+        <elementListCompartment Id="613c97b0-9392-48ed-97bc-d6f7bade128f" absoluteBounds="7.8900000000000006, 1.96, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.25 : 2.04807657877604); (4.875 : 2.04807657877604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linq_pricer_feedsDataContext/pricer_origin_point/pricer_origin_point_pricer_dest_country" />
+      <nodes>
+        <classShapeMoniker Id="9d36f13e-7876-47bd-ab56-d8020905b617" />
+        <classShapeMoniker Id="a3cf69f1-1640-446f-8d7b-5877e2a9d9bb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.875 : 2.13025024414063); (7.875 : 2.13025024414063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/linq_pricer_feedsDataContext/pricer_dest_country/pricer_dest_country_pricer_dest_final" />
+      <nodes>
+        <classShapeMoniker Id="a3cf69f1-1640-446f-8d7b-5877e2a9d9bb" />
+        <classShapeMoniker Id="d61559e1-1bab-4faf-af84-497e220b65c0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

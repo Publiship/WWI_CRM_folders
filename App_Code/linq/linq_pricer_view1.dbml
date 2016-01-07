@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Publiship_Pricer" Class="linq_pricer_view1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.gbdns.net;Initial Catalog=Publiship_Pricer;Persist Security Info=False;User ID=pricer_u;Pooling=False;Min Pool Size=5;Network Library=dbmssocn;Packet Size=4096" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Publiship_PricerConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.view_price_client" Member="view_price_clients">
+    <Type Name="view_price_client">
+      <Column Name="quote_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="request_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="book_title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="in_description" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="in_currency" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="in_length" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_width" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_depth" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_weight" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_extent" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_papergsm" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="in_hardback" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="copies_carton" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="origin_name" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="country_name" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="final_name" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="tot_copies" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price_loose" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_client" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_loose_gbp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="price_total_gbp" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ship_via" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="pallet_type" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="request_user_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="request_company_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="price_ex" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="lcl_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="loose_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="client_visible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="order_no" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="printer" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="exworks_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="comments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="due_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sent_by" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="company" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="contact_tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="contact_email" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="publiship_contact" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

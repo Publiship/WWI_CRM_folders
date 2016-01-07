@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.publiship.com/services" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.publiship.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.publiship.com/services">
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResponseResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Dimensions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pallet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Depth" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Carton" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Final_Destination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Copies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="uId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookQuoteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Dimensions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pallet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Depth" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Carton" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Final_Destination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Copies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="uId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartonQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCartonQuoteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaperQuote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Dimensions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pallet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Extent" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="PaperGsm" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Hardback" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Final_Destination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Copies" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="uId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="qId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="testGsm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaperQuoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaperQuoteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuoteCsv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Dimensions" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pallet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="depthOrExtent" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="gsmOrWeight" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="carton" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Hardback" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Origin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Final_Destination" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Copies" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuoteCsvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuoteCsvResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchQuoteCsv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batchfile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchQuoteCsvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchQuoteCsvResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuoteCriteria">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="quoteid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQuoteCriteriaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQuoteCriteriaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCostingSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="quoteid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="costingtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCostingSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCostingSummaryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShipmentSize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="quoteid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShipmentSizeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetShipmentSizeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetResponseSoapIn">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResponseSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookQuoteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBookQuote" />
+  </wsdl:message>
+  <wsdl:message name="GetBookQuoteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookQuoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonQuoteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCartonQuote" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonQuoteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCartonQuoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaperQuoteSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaperQuote" />
+  </wsdl:message>
+  <wsdl:message name="GetPaperQuoteSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaperQuoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCsvSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQuoteCsv" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCsvSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQuoteCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchQuoteCsvSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBatchQuoteCsv" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchQuoteCsvSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBatchQuoteCsvResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCriteriaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQuoteCriteria" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCriteriaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQuoteCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCostingSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCostingSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetCostingSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCostingSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentSizeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShipmentSize" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentSizeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShipmentSizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResponseHttpGetIn">
+    <wsdl:part name="Name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetResponseHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBookQuoteHttpGetIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="Depth" type="s:string" />
+    <wsdl:part name="Weight" type="s:string" />
+    <wsdl:part name="Carton" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="cId" type="s:string" />
+    <wsdl:part name="uId" type="s:string" />
+    <wsdl:part name="qId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBookQuoteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonQuoteHttpGetIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="Depth" type="s:string" />
+    <wsdl:part name="Weight" type="s:string" />
+    <wsdl:part name="Carton" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="cId" type="s:string" />
+    <wsdl:part name="uId" type="s:string" />
+    <wsdl:part name="qId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonQuoteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPaperQuoteHttpGetIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="Extent" type="s:string" />
+    <wsdl:part name="PaperGsm" type="s:string" />
+    <wsdl:part name="Hardback" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="cId" type="s:string" />
+    <wsdl:part name="uId" type="s:string" />
+    <wsdl:part name="qId" type="s:string" />
+    <wsdl:part name="testGsm" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPaperQuoteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCsvHttpGetIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="depthOrExtent" type="s:string" />
+    <wsdl:part name="gsmOrWeight" type="s:string" />
+    <wsdl:part name="carton" type="s:string" />
+    <wsdl:part name="Hardback" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="reference" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCsvHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchQuoteCsvHttpGetIn">
+    <wsdl:part name="batchfile" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchQuoteCsvHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCriteriaHttpGetIn">
+    <wsdl:part name="quoteid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCriteriaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCostingSummaryHttpGetIn">
+    <wsdl:part name="quoteid" type="s:string" />
+    <wsdl:part name="costingtype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCostingSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentSizeHttpGetIn">
+    <wsdl:part name="quoteid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentSizeHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetResponseHttpPostIn">
+    <wsdl:part name="Name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetResponseHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBookQuoteHttpPostIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="Depth" type="s:string" />
+    <wsdl:part name="Weight" type="s:string" />
+    <wsdl:part name="Carton" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="cId" type="s:string" />
+    <wsdl:part name="uId" type="s:string" />
+    <wsdl:part name="qId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBookQuoteHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonQuoteHttpPostIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="Depth" type="s:string" />
+    <wsdl:part name="Weight" type="s:string" />
+    <wsdl:part name="Carton" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="cId" type="s:string" />
+    <wsdl:part name="uId" type="s:string" />
+    <wsdl:part name="qId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCartonQuoteHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPaperQuoteHttpPostIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="Extent" type="s:string" />
+    <wsdl:part name="PaperGsm" type="s:string" />
+    <wsdl:part name="Hardback" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="cId" type="s:string" />
+    <wsdl:part name="uId" type="s:string" />
+    <wsdl:part name="qId" type="s:string" />
+    <wsdl:part name="testGsm" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPaperQuoteHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCsvHttpPostIn">
+    <wsdl:part name="Dimensions" type="s:string" />
+    <wsdl:part name="Currency" type="s:string" />
+    <wsdl:part name="Pallet" type="s:string" />
+    <wsdl:part name="Title" type="s:string" />
+    <wsdl:part name="Length" type="s:string" />
+    <wsdl:part name="Width" type="s:string" />
+    <wsdl:part name="depthOrExtent" type="s:string" />
+    <wsdl:part name="gsmOrWeight" type="s:string" />
+    <wsdl:part name="carton" type="s:string" />
+    <wsdl:part name="Hardback" type="s:string" />
+    <wsdl:part name="Origin" type="s:string" />
+    <wsdl:part name="Country" type="s:string" />
+    <wsdl:part name="Final_Destination" type="s:string" />
+    <wsdl:part name="Copies" type="s:string" />
+    <wsdl:part name="reference" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCsvHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchQuoteCsvHttpPostIn">
+    <wsdl:part name="batchfile" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="passWord" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchQuoteCsvHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCriteriaHttpPostIn">
+    <wsdl:part name="quoteid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQuoteCriteriaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCostingSummaryHttpPostIn">
+    <wsdl:part name="quoteid" type="s:string" />
+    <wsdl:part name="costingtype" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCostingSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentSizeHttpPostIn">
+    <wsdl:part name="quoteid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetShipmentSizeHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Publiship_PricerSoap">
+    <wsdl:operation name="GetResponse">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call can be used for testing for a web service response.</wsdl:documentation>
+      <wsdl:input message="tns:GetResponseSoapIn" />
+      <wsdl:output message="tns:GetResponseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given book details.</wsdl:documentation>
+      <wsdl:input message="tns:GetBookQuoteSoapIn" />
+      <wsdl:output message="tns:GetBookQuoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given carton details.</wsdl:documentation>
+      <wsdl:input message="tns:GetCartonQuoteSoapIn" />
+      <wsdl:output message="tns:GetCartonQuoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given paper size and extent.</wsdl:documentation>
+      <wsdl:input message="tns:GetPaperQuoteSoapIn" />
+      <wsdl:output message="tns:GetPaperQuoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given dimensions returning  a csv string</wsdl:documentation>
+      <wsdl:input message="tns:GetQuoteCsvSoapIn" />
+      <wsdl:output message="tns:GetQuoteCsvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given dimensions sent in csv format returning 1 price for each csv record</wsdl:documentation>
+      <wsdl:input message="tns:GetBatchQuoteCsvSoapIn" />
+      <wsdl:output message="tns:GetBatchQuoteCsvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the quote criteria for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetQuoteCriteriaSoapIn" />
+      <wsdl:output message="tns:GetQuoteCriteriaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the costing summary for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetCostingSummarySoapIn" />
+      <wsdl:output message="tns:GetCostingSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the shipment size for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetShipmentSizeSoapIn" />
+      <wsdl:output message="tns:GetShipmentSizeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Publiship_PricerHttpGet">
+    <wsdl:operation name="GetResponse">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call can be used for testing for a web service response.</wsdl:documentation>
+      <wsdl:input message="tns:GetResponseHttpGetIn" />
+      <wsdl:output message="tns:GetResponseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given book details.</wsdl:documentation>
+      <wsdl:input message="tns:GetBookQuoteHttpGetIn" />
+      <wsdl:output message="tns:GetBookQuoteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given carton details.</wsdl:documentation>
+      <wsdl:input message="tns:GetCartonQuoteHttpGetIn" />
+      <wsdl:output message="tns:GetCartonQuoteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given paper size and extent.</wsdl:documentation>
+      <wsdl:input message="tns:GetPaperQuoteHttpGetIn" />
+      <wsdl:output message="tns:GetPaperQuoteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given dimensions returning  a csv string</wsdl:documentation>
+      <wsdl:input message="tns:GetQuoteCsvHttpGetIn" />
+      <wsdl:output message="tns:GetQuoteCsvHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given dimensions sent in csv format returning 1 price for each csv record</wsdl:documentation>
+      <wsdl:input message="tns:GetBatchQuoteCsvHttpGetIn" />
+      <wsdl:output message="tns:GetBatchQuoteCsvHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the quote criteria for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetQuoteCriteriaHttpGetIn" />
+      <wsdl:output message="tns:GetQuoteCriteriaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the costing summary for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetCostingSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetCostingSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the shipment size for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetShipmentSizeHttpGetIn" />
+      <wsdl:output message="tns:GetShipmentSizeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Publiship_PricerHttpPost">
+    <wsdl:operation name="GetResponse">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call can be used for testing for a web service response.</wsdl:documentation>
+      <wsdl:input message="tns:GetResponseHttpPostIn" />
+      <wsdl:output message="tns:GetResponseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given book details.</wsdl:documentation>
+      <wsdl:input message="tns:GetBookQuoteHttpPostIn" />
+      <wsdl:output message="tns:GetBookQuoteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given carton details.</wsdl:documentation>
+      <wsdl:input message="tns:GetCartonQuoteHttpPostIn" />
+      <wsdl:output message="tns:GetCartonQuoteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given paper size and extent.</wsdl:documentation>
+      <wsdl:input message="tns:GetPaperQuoteHttpPostIn" />
+      <wsdl:output message="tns:GetPaperQuoteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given dimensions returning  a csv string</wsdl:documentation>
+      <wsdl:input message="tns:GetQuoteCsvHttpPostIn" />
+      <wsdl:output message="tns:GetQuoteCsvHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get a price per copy and total price for the given dimensions sent in csv format returning 1 price for each csv record</wsdl:documentation>
+      <wsdl:input message="tns:GetBatchQuoteCsvHttpPostIn" />
+      <wsdl:output message="tns:GetBatchQuoteCsvHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the quote criteria for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetQuoteCriteriaHttpPostIn" />
+      <wsdl:output message="tns:GetQuoteCriteriaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the costing summary for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetCostingSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetCostingSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method call will get the shipment size for a given quote number</wsdl:documentation>
+      <wsdl:input message="tns:GetShipmentSizeHttpPostIn" />
+      <wsdl:output message="tns:GetShipmentSizeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Publiship_PricerSoap" type="tns:Publiship_PricerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetResponse">
+      <soap:operation soapAction="http://www.publiship.com/services/GetResponse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <soap:operation soapAction="http://www.publiship.com/services/GetBookQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <soap:operation soapAction="http://www.publiship.com/services/GetCartonQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <soap:operation soapAction="http://www.publiship.com/services/GetPaperQuote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <soap:operation soapAction="http://www.publiship.com/services/GetQuoteCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <soap:operation soapAction="http://www.publiship.com/services/GetBatchQuoteCsv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <soap:operation soapAction="http://www.publiship.com/services/GetQuoteCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <soap:operation soapAction="http://www.publiship.com/services/GetCostingSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <soap:operation soapAction="http://www.publiship.com/services/GetShipmentSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Publiship_PricerSoap12" type="tns:Publiship_PricerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetResponse">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetResponse" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetBookQuote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetCartonQuote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetPaperQuote" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetQuoteCsv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetBatchQuoteCsv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetQuoteCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetCostingSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <soap12:operation soapAction="http://www.publiship.com/services/GetShipmentSize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Publiship_PricerHttpGet" type="tns:Publiship_PricerHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetResponse">
+      <http:operation location="/GetResponse" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <http:operation location="/GetBookQuote" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <http:operation location="/GetCartonQuote" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <http:operation location="/GetPaperQuote" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <http:operation location="/GetQuoteCsv" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <http:operation location="/GetBatchQuoteCsv" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <http:operation location="/GetQuoteCriteria" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <http:operation location="/GetCostingSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <http:operation location="/GetShipmentSize" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Publiship_PricerHttpPost" type="tns:Publiship_PricerHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetResponse">
+      <http:operation location="/GetResponse" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookQuote">
+      <http:operation location="/GetBookQuote" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartonQuote">
+      <http:operation location="/GetCartonQuote" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaperQuote">
+      <http:operation location="/GetPaperQuote" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCsv">
+      <http:operation location="/GetQuoteCsv" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchQuoteCsv">
+      <http:operation location="/GetBatchQuoteCsv" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQuoteCriteria">
+      <http:operation location="/GetQuoteCriteria" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCostingSummary">
+      <http:operation location="/GetCostingSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShipmentSize">
+      <http:operation location="/GetShipmentSize" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Publiship_Pricer">
+    <wsdl:port name="Publiship_PricerSoap" binding="tns:Publiship_PricerSoap">
+      <soap:address location="http://localhost:2387/WWI_CRM_folders/services/Service_Pricer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Publiship_PricerSoap12" binding="tns:Publiship_PricerSoap12">
+      <soap12:address location="http://localhost:2387/WWI_CRM_folders/services/Service_Pricer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Publiship_PricerHttpGet" binding="tns:Publiship_PricerHttpGet">
+      <http:address location="http://localhost:2387/WWI_CRM_folders/services/Service_Pricer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Publiship_PricerHttpPost" binding="tns:Publiship_PricerHttpPost">
+      <http:address location="http://localhost:2387/WWI_CRM_folders/services/Service_Pricer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

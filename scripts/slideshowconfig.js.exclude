@@ -1,0 +1,14 @@
+﻿var mygallery = new fadeSlideShow({
+    wrapperid: "fadeshow1", //ID of blank DIV on page to house Slideshow
+    dimensions: [760, 250], //width/height of gallery in pixels. Should reflect dimensions of largest image
+    imagearray: [
+		["images/intros/intro1b.jpg", "", "", "Specialist logistics for the printing and publishing industry."],
+		["images/intros/intro2b.jpg", "", "", "On-line shipment tracking."],
+		["images/intros/intro3b.jpg", "", "_new", "Sea, Air and Road freight"] //<--no trailing comma after very last image element!
+	],
+    displaymode: { type: 'auto', pause: 2500, cycles: 0, wraparound: false },
+    persist: false, //remember last viewed slide and recall within same session?
+    fadeduration: 2000, //transition duration (milliseconds)
+    descreveal: "peekaboo",
+    togglerid: ""
+})

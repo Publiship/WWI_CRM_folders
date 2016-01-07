@@ -1,0 +1,76 @@
+body{
+margin:0;
+padding:0;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 13px;
+line-height: 150%;
+color: #595959;
+position: relative;
+background: #FAFBFC; 
+border-top: 3px solid #333435;
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+#topsection{
+background: #ffffff;
+margin: 0px 10px 30px 10px;
+padding: 0px 0px 0px 0px;
+position: relative;
+z-index: 0;
+clear: both;
+}
+
+#topsection h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#contentwrapper{
+float: left;
+width: 100%;
+}
+
+#contentcolumn{
+margin: 0 40px 0 40px; /*Margins for content column. Should be "0 RightColumnWidth 0 LeftColumnWidth*/
+}
+
+#leftcolumn{
+float: left;
+width: 40px; /*Width of left column*/
+margin-left: -100%;
+background: #fff;
+}
+
+#rightcolumn{
+float: left;
+width: 40px; /*Width of right column*/
+margin-left: -40px; /*Set left marginto -(RightColumnWidth)*/
+background: #fff;
+}
+
+#footer{
+clear: both;
+font-size: 10px;
+background: #FFF;
+text-align: center;
+position: relative;
+margin: 20px 10px 0px 10px;
+padding: 20px 0px 20px 0px;
+border-top: 5px solid #333435;
+    top: 0px;
+    left: 0px;
+}
+
+
+.innertube{
+margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+margin-top: 0;
+}
+
+.mod
+{
+min-height: 18px;
+padding: 0px 10px 0px 10px; 
+}

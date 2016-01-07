@@ -1,0 +1,25 @@
+<SlideshowBox>
+	<items>
+		<item>
+			<thumbnailPath>images/intros/intro1_thumb.jpg</thumbnailPath>
+			<largeImagePath>images/intros/intro1.jpg</largeImagePath>
+			<fullScreenImagePath>images/intros/intro1.jpg</fullScreenImagePath>
+			<title><![CDATA[Welcome to Publiship]]></title>
+			<description><![CDATA[Specialist logistics for the printing and publishing industry]]></description>
+		</item>
+		<item>
+			<thumbnailPath>images/intros/intro2_thumb.jpg</thumbnailPath>
+			<largeImagePath>images/intros/intro2.jpg</largeImagePath>
+			<fullScreenImagePath>images/intros/intro2.jpg</fullScreenImagePath>
+			<title><![CDATA[Welcome to Publiship]]></title>
+			<description><![CDATA[On-line shipment tracking]]></description>
+		</item>
+	<item>
+			<thumbnailPath>images/intros/intro3_thumb.jpg</thumbnailPath>
+			<largeImagePath>images/intros/intro3.jpg</largeImagePath>
+			<fullScreenImagePath>images/intros/intro3.jpg</fullScreenImagePath>
+			<title><![CDATA[Welcome to Publiship]]></title>
+			<description><![CDATA[Providing logistics for 25 years]]></description>
+		</item>
+	</items>
+</SlideshowBox>

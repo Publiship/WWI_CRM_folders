@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.publiship.com/services" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.publiship.com/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.publiship.com/services">
+      <s:element name="runReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="report" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runReportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runReportDateFiltered">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="credentials" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="report" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sdate1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sdate2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="runReportDateFilteredResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="runReportDateFilteredResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="runReportSoapIn">
+    <wsdl:part name="parameters" element="tns:runReport" />
+  </wsdl:message>
+  <wsdl:message name="runReportSoapOut">
+    <wsdl:part name="parameters" element="tns:runReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="runReportDateFilteredSoapIn">
+    <wsdl:part name="parameters" element="tns:runReportDateFiltered" />
+  </wsdl:message>
+  <wsdl:message name="runReportDateFilteredSoapOut">
+    <wsdl:part name="parameters" element="tns:runReportDateFilteredResponse" />
+  </wsdl:message>
+  <wsdl:message name="runReportHttpGetIn">
+    <wsdl:part name="credentials" type="s:string" />
+    <wsdl:part name="report" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportDateFilteredHttpGetIn">
+    <wsdl:part name="credentials" type="s:string" />
+    <wsdl:part name="report" type="s:string" />
+    <wsdl:part name="sdate1" type="s:string" />
+    <wsdl:part name="sdate2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportDateFilteredHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportHttpPostIn">
+    <wsdl:part name="credentials" type="s:string" />
+    <wsdl:part name="report" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportDateFilteredHttpPostIn">
+    <wsdl:part name="credentials" type="s:string" />
+    <wsdl:part name="report" type="s:string" />
+    <wsdl:part name="sdate1" type="s:string" />
+    <wsdl:part name="sdate2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="runReportDateFilteredHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service_ReportsSoap">
+    <wsdl:operation name="runReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a restricted method</wsdl:documentation>
+      <wsdl:input message="tns:runReportSoapIn" />
+      <wsdl:output message="tns:runReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a restricted method</wsdl:documentation>
+      <wsdl:input message="tns:runReportDateFilteredSoapIn" />
+      <wsdl:output message="tns:runReportDateFilteredSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service_ReportsHttpGet">
+    <wsdl:operation name="runReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a restricted method</wsdl:documentation>
+      <wsdl:input message="tns:runReportHttpGetIn" />
+      <wsdl:output message="tns:runReportHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a restricted method</wsdl:documentation>
+      <wsdl:input message="tns:runReportDateFilteredHttpGetIn" />
+      <wsdl:output message="tns:runReportDateFilteredHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service_ReportsHttpPost">
+    <wsdl:operation name="runReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a restricted method</wsdl:documentation>
+      <wsdl:input message="tns:runReportHttpPostIn" />
+      <wsdl:output message="tns:runReportHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This is a restricted method</wsdl:documentation>
+      <wsdl:input message="tns:runReportDateFilteredHttpPostIn" />
+      <wsdl:output message="tns:runReportDateFilteredHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service_ReportsSoap" type="tns:Service_ReportsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="runReport">
+      <soap:operation soapAction="http://www.publiship.com/services/runReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <soap:operation soapAction="http://www.publiship.com/services/runReportDateFiltered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_ReportsSoap12" type="tns:Service_ReportsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="runReport">
+      <soap12:operation soapAction="http://www.publiship.com/services/runReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <soap12:operation soapAction="http://www.publiship.com/services/runReportDateFiltered" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_ReportsHttpGet" type="tns:Service_ReportsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="runReport">
+      <http:operation location="/runReport" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <http:operation location="/runReportDateFiltered" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service_ReportsHttpPost" type="tns:Service_ReportsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="runReport">
+      <http:operation location="/runReport" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="runReportDateFiltered">
+      <http:operation location="/runReportDateFiltered" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service_Reports">
+    <wsdl:port name="Service_ReportsSoap" binding="tns:Service_ReportsSoap">
+      <soap:address location="http://localhost:2682/WWI_CRM/services/Service_Reports.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_ReportsSoap12" binding="tns:Service_ReportsSoap12">
+      <soap12:address location="http://localhost:2682/WWI_CRM/services/Service_Reports.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_ReportsHttpGet" binding="tns:Service_ReportsHttpGet">
+      <http:address location="http://localhost:2682/WWI_CRM/services/Service_Reports.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service_ReportsHttpPost" binding="tns:Service_ReportsHttpPost">
+      <http:address location="http://localhost:2682/WWI_CRM/services/Service_Reports.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

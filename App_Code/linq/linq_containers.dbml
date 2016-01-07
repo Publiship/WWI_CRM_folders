@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="PublishipSQL" Class="linq_containersDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=WWISQL;Initial Catalog=PublishipSQL;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PublishipSQLConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.view_containers" Member="view_containers">
+    <Type Name="view_container">
+      <Column Name="ContainerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ContainerNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContainerType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VesselName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VoyageNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="LoadedOnBoard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Delivered" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Devanned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="DevanWarehouse" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContainerStatus" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

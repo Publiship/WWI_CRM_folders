@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Web Developer Express 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WWI_CRM", ".", "{160005EF-E1C2-4F76-858C-1AF88D54913E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/WWI_CRM"
+		Debug.AspNetCompiler.PhysicalPath = "..\WWI_CRM\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WWI_CRM\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WWI_CRM"
+		Release.AspNetCompiler.PhysicalPath = "..\WWI_CRM\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WWI_CRM\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3213"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{160005EF-E1C2-4F76-858C-1AF88D54913E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160005EF-E1C2-4F76-858C-1AF88D54913E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

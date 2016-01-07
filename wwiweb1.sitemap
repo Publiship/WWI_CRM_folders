@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Default.aspx" title="startnode"  description="start node not shown" roles="*">
+    <siteMapNode url="http://www.publiship.com" title="HOME"  description="Go to Publiship home page" roles ="*"/>
+    <siteMapNode url="tracking/dashboard.aspx" title="DASHBOARD"  description="Your system dashboard" roles ="secure">
+      <siteMapNode url="pricer/pricer_reports.aspx" title="Reporting"  description="Select and process a report" roles ="secure,intra"/>
+    </siteMapNode>
+    <siteMapNode url="tracking/shipment_tracking.aspx" title="SHIPMENT TRACKING" description="Track and trace your shipments" roles ="*">
+      <siteMapNode url="tracking/not_shipped_tracking.aspx" title="Not yet shipped"  description="Track orders not yet shipped" roles ="secure, deliveries"/>
+      <siteMapNode url="tracking/delivery_tracking.aspx" title="Delivery tracking"  description="Track deliveries" roles ="secure, deliveries"/>
+      <siteMapNode url="tracking/container_tracking.aspx" title="Container tracking"  description="Track containers" roles ="secure, deliveries"/>
+      <siteMapNode url="tracking/client_shipments.aspx" title="Shipments by client"  description="Shipments by client" roles ="secure, deliveries"/>
+      <siteMapNode url="https://onedrive.live.com/redir?resid=7F09563CA13C8785%21139" title="Downloads"  description="Downloads" roles ="secure, deliveries"/>
+      <siteMapNode url="tracking/shipment_search_history.aspx" title="Previous searches"  description="View and re-use previous searches" roles ="secure"/>
+      <siteMapNode url="tracking/file_manager.aspx" title="Document Management"  description="Manage online documents" roles ="secure, intra"/>
+      <siteMapNode url="tracking/test_page.aspx" title="Testing only" description="Test form" roles ="secure, intra"/>
+      <siteMapNode url="despatch_notes/despatch_note_search.aspx" title="Consignment notes" description="Consignment notes" roles ="secure, intra"/>
+    </siteMapNode>
+      <siteMapNode url="pricer/price_quote.aspx" title="PRICER"  description="Get a quote using our pricer service" roles ="secure">
+          <siteMapNode url="pricer/quote_history.aspx" title="Previous quotes"  description="View and re-use your previous quotes" roles ="secure"/>
+          <siteMapNode url="pricer/price_audit.aspx" title="Search quotes"  description="Search all quotes" roles ="secure, intra"/>
+      </siteMapNode>
+      <siteMapNode url="publiship_advance/advance_request.aspx" title="PUBLISHIP ADVANCE"  description="Create a Publiship advance order" roles ="secure">
+          <siteMapNode url="publiship_advance/advance_history.aspx" title="Previous consigments"  description="View your previous consigments" roles ="secure"/>
+          <siteMapNode url="publiship_advance/advance_audit.aspx" title="Previous consigments"  description="View advance consigments" roles ="secure, intra"/>
+      </siteMapNode>
+      <siteMapNode url="lists/customer_target.aspx" title="CUSTOMER TARGET LIST"  description="Customer target details and history" roles ="secure, intra">
+      </siteMapNode>
+      <siteMapNode url="shipment_orders/order_search.aspx" title="SHIPMENT MANAGEMENT - ORDERS"  description="Search orders" roles ="secure, intra">
+          <siteMapNode url="system_templates/order_template_search.aspx" title="Order templates"  description="Order templates" roles ="secure, intra"/>
+          <siteMapNode url="shipment_bol/housebl_search.aspx" title="Bill of lading and manifests"  description="Bill of lading" roles ="secure, intra"/>
+          <siteMapNode url="shipment_containers/container_search.aspx" title="Containers"  description="Containers menu" roles ="secure, intra"/>
+          <siteMapNode url="shipment_voyage/voyage_search.aspx" title="Voyage and vessels"  description="Voyage and vessels" roles ="secure, intra"/>
+      </siteMapNode>
+      <siteMapNode url="default.aspx" title="DATA ADMIN"  description="data admin" roles ="secure, intra">
+          <siteMapNode url="data_admin/company_search.aspx" title="Companies"  description="Company list" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/company_type_search.aspx" title="Company types"  description="Company types" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/contact_search.aspx" title="Contacts"  description="Contact list" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/country_search.aspx" title="Countries"  description="Country list" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/department_search.aspx" title="Departments"  description="Departments" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/employee_search.aspx" title="Employees"  description="Employees" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/package_type_search.aspx" title="Package types"  description="Package types" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/place_search.aspx" title="Places"  description="Places list" roles ="secure, intra"/>
+          <siteMapNode url="data_admin/port_search.aspx" title="Ports"  description="Port list" roles ="secure, intra"/>
+      </siteMapNode>
+  </siteMapNode>
+</siteMap>

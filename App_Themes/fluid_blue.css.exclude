@@ -1,0 +1,468 @@
+﻿/* content divs fixed width?*/
+/* ------- */
+.wcontentblock760
+{
+padding: 5px;
+float: left;
+width: 100%;
+background-color: #ffffff;
+}
+
+.wcontentblock480
+{
+padding: 5px;
+float: left;
+width: 480px;
+background-color: #ffffff;
+}
+
+.lbcontentblock
+{
+padding: 5px;
+float:right;
+width: 250px;
+color: #ffffff;
+background-color: #146DB6;
+background-image: url(../Images/lbfade.png) ;
+background-repeat: repeat-x;
+}
+
+.dbcontentblock
+{
+float:right;
+width: 250px;
+background-color: #0B3153;
+color: #ffffff;
+}
+/* end content blocks*/
+/* ------- */
+
+/* ------- */
+/* ---- #footerdb a link: {text-decoration: none; color: #ffffff;}
+#footerdb a visited: {text-decoration: none; color: #ffffff;}
+#footerdb a hover: {text-decoration: underline; color: #ffffff;}   
+#footerdb a active: {text-decoration: none; color: #ffffff;} ---- */
+
+
+
+/* ------- */
+/* simple white text menu with pipe seperator*/
+.wblockmenu {
+padding: 5px;
+margin-bottom: 5px;
+}
+
+.wblockmenu li {
+margin-left: 0;
+padding: 3px 10px;
+border-left: 1px solid #3046a4;
+list-style: none;
+display: inline;
+}
+	
+
+.wblockmenu li.first {
+margin-left: 0;
+border-left: none;
+list-style: none;
+display: inline;
+}
+
+.wblockmenu li a
+{
+text-decoration: none;
+color: #ffffff;
+text-transform:uppercase;
+letter-spacing:2px; 
+}
+
+.wblockmenu li a:hover
+{
+text-decoration: underline; 
+color: #ffffff;
+}
+/* end simple menu*/
+
+/* ------- */
+.loginblock
+{
+position: absolute;
+top: 10px;
+left: 360px;    
+clear:both;
+float:left;
+height: 20px;
+}
+
+.usernameblock
+{
+clear:both; /*forces div to stack underneath login block*/
+float: left;
+padding:1px 10px 0 0;
+height: 20px;
+}
+/* simple dark grey text menu with pipe seperator*/
+.gblockmenu 
+{
+height:15px;
+float:left;
+padding: 5px 5px 5px 5px;
+margin-bottom: 5px;
+overflow: hidden;
+}
+
+.gblockmenu li {
+margin-left: 0;
+padding: 3px 10px;
+border-left: 1px solid #333333;
+list-style: none;
+display: inline;
+}
+	
+
+.gblockmenu li.first {
+margin-left: 0;
+border-left: none;
+list-style: none;
+display: inline;
+}
+
+.gblockmenu li a
+{
+text-decoration: none;
+color: #333333;
+}
+
+.gblockmenu li a:hover
+{
+text-decoration: underline; 
+}
+/* end grey menu*/
+
+/* simple links*/
+.linkblockmenu {
+padding: 5px;
+margin-bottom: 5px;
+color: #333333;
+}
+
+.lblblockmenu {
+padding: 5px;
+margin-bottom: 5px;
+color: #6a8ccb;
+}
+
+/* ------- */
+/* inner tubes */
+
+.innertubefxh{
+/*Margins for inner DIV inside each column (to provide padding) fixed height*/
+margin-top: 0;
+min-height: 400px;
+    width: 1271px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.innertubefxhw
+{
+margin: 10px Auto -1px Auto; /* center the div */
+/*margin: 10px Auto; /*Margins for inner DIV inside each column (to provide padding) fixed width*/
+margin-top: 0;
+width: 760px;
+min-height: 400px;
+}
+
+.innertubefxw
+{
+min-height: 250px;
+margin: 10px Auto -1px Auto; /* center the div */
+/*margin: 10px Auto; /*Margins for inner DIV inside each column (to provide padding) fixed width*/
+margin-top: 0;
+width: 760px;
+}
+
+.innertubefxwb
+{
+min-height: 250px;
+margin: 10px Auto -1px Auto; /* center the div */
+/*margin: 10px Auto; /*Margins for inner DIV inside each column (to provide padding) fixed width*/
+margin-top: 0;
+width: 760px;
+background-color: #ffffff;
+}
+
+.innertubefxwc
+{
+min-height: 250px;
+margin: 10px Auto -1px auto;
+margin-top: 0;
+width: 760px;
+background-color: #ffffff;    
+}
+
+.innertubefxwd
+{
+margin: 10px Auto -1px auto;
+margin-top: 0;
+width: 760px;
+background-color: #ffffff;    
+}
+   
+.innertube{
+margin: 0 0 10px 0; /*Margins for inner DIV inside each column (to provide padding) scaling*/
+width: 100%;
+}
+
+.innercenterrblue
+{
+margin: Auto Auto;    
+background-color: #eceff6;
+border: 1px solid #d4dae8;
+color: #333333;
+padding: 10px;
+font-size: 13px;
+font-weight:normal;    
+}
+
+.innercentererror
+{
+margin: Auto Auto;    
+background-color: #ffebe8;
+border: 1px solid #dd3c10;
+color: #333333;
+padding: 10px;
+font-size: 13px;
+font-weight:normal;
+}
+
+.padhr /*centered horizontal line can be used as a container box*/
+{
+width: 100%; margin: 3px Auto 3px 0px; padding: 3px 0 3px 0; background-color: #ffffff; height: 36px; /*border-top: 1px solid #aecaf0*/
+}
+
+.padhrarrow /*centered horizontal line can be used as a container box*/
+{
+width: 100%; margin: 1px Auto; height: 22px;   border-bottom:5px solid #ffffff; background-color: #ffffff;
+/*background-image: url(../Images/blockarrow.bmp);
+background-position: center center;
+background-repeat: no-repeat;*/
+}
+
+.padhrinner110 /*boxes can be added to padhr to build up 'columns' */
+{
+background-color: #ffffff;
+float: left; width: 110px; padding: 2px; margin: 2px;    
+}
+
+.padhrinner120 /*boxes can be added to padhr to build up 'columns' */
+{
+background-color: #ffffff;
+float: left; width: 120px;padding: 2px;  margin: 2px;       
+}
+
+.padhrinner145
+{
+background-color: #ffffff;
+float: left; width: 145px;padding: 2px; margin: 2px;   
+}
+/* ------- */
+
+/* ------- */
+/* 4 column section */
+.fxw4coll /* fixed width column left 1*/
+{
+/*border: solid 1px #5B7AAF;*/
+margin: 0 0 0 0;
+float: left;
+width: 253px /*188px; 188 is good for 4 columns*/
+}
+
+.fxw4coll li /* fixed width column left 1*/
+{
+margin-left:  10px;
+padding-left: 10px;
+}
+
+.fxw4co1r /* fixed width column right 1*/
+{
+/*border: solid 1px #5B7AAF;*/
+margin: 0 0 0 0;
+float: right;
+width: 253px /*188px; 188 is good for 4 columns*/
+}
+
+.fxw4colr li /* fixed width column left 1*/
+{
+margin-left:  10px;
+padding-left: 10px;
+}
+
+.fxw4colspacer
+{
+margin-left: 10px;
+height:1px;
+width: 160px;
+border-top: solid 1px #ffffff;
+}
+/* ------- */
+
+
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+.commentbox
+{
+background-color: #edf2f9; /*#ececec;*/
+text-align:center; 
+font-size: larger;
+width:740px;
+padding: 10px;
+}
+
+.commentfooter{
+background: url(../Images/arrow.png) 20px 0 no-repeat; /*20px 0 equals horizontal and vertical position of arrow. Adjust as desired (ie: 20px -5px).*/
+padding-left: 58px;
+padding-top: 20px; /*make sure there is enough gap here to show the whole image!*/
+margin-bottom: 1em;
+font-size: 90%;
+color: #b9babf;
+}
+
+.commentboxmid
+{
+background-color: #edf2f9; /*#ececec;*/
+text-align:center; 
+font-size: larger;
+width:95%;
+padding: 5px;
+}
+
+.commentfootermid{
+background: url(../Images/arrow.png)  50% 0 no-repeat; /*20px 0 equals horizontal and vertical position of arrow. Adjust as desired (ie: 20px -5px).*/
+width:90%;
+padding-left: 0px;
+padding-top: 20px; /*make sure there is enough gap here to show the whole image!*/
+margin-bottom: 1em;
+font-size: 90%;
+color: #4A4A4A;
+}
+/* ------- */
+
+.lbls
+{
+font-family: "lucida grande" ,tahoma,verdana,arial,sans-serif;
+font-size: 11px;
+color: #333333;   
+}
+
+.slideshows
+{
+margin-top: 50px;
+height:250px;
+width:760px;
+background-color: #ffffff;
+background-image: url(../Images/intro1b.jpg);
+}
+
+.whiteblock
+{
+border: solid 10px #ffffff;
+text-align:center; 
+font-size: larger;
+width:740px;
+background-color: #ffffff;
+}
+
+
+.captionwrapper
+{
+margin: 5px auto;
+padding-top: 5px;
+width: 100%;
+float: left;
+}
+
+.center760
+{
+width: 760px; margin: 10px Auto; text-align: left;    
+}
+
+.center760 a
+{
+    background-color: #ffffff;
+    
+}
+.center760input
+{
+width: 760px; margin: 0 Auto 10px; padding-bottom: 5px; height: 250px;    
+}
+
+.center760inputl
+{
+float: left; width: 453px; margin: 8px Auto 8px 8px; height: auto; padding: 8px; /*height:225px*/
+border: 1px solid #aecaf0;
+background-color: #ffffff;    
+}
+
+.center760inputr
+{
+float: right; width: 253px; margin: 8px Auto 8px 8px; height: 225px; padding: 8px 0 8px 0;
+background-color: #edf2f9;text-align: left;
+border-top: solid 1px #6a8ccb;
+border-bottom: solid 1px #6a8ccb;
+}
+
+.center760inputrb
+{
+float: right; width: 253px; margin: 0px Auto 8px 8px; height: 225px; padding: 0 0 0 0;
+text-align: left;
+}
+
+.inputheaderl
+{
+float: left; width: 100%; height: 25px; padding-top: 5px; background-color: #ffffff; border-bottom: solid 1px #aecaf0; margin-bottom: 5px; text-align:center;
+}
+
+.inputheaderr
+{
+float: left; width: 100%; height: 25px; padding-top: 5px; background-color: #edf2f9; border-bottom: solid 1px #6a8ccb; margin-bottom: 5px; text-align:center;
+}
+
+.inputfooterr
+{
+float: left; width: 100%; height: 25px; padding-top: 5px; background-color: #edf2f9; border-top: solid 1px #6a8ccb; margin-top: 5px; text-align:center;
+}
+
+/******************/
+/* columns for search form */
+.inputlcol1
+{
+float: left; width: 190px; padding: 4px; border: 2px; height:23px;    
+}
+
+.inputlcol2
+{
+float: right; width: 234px; padding: 4px; border: 2px; height:23px;    
+}
+
+.inputlcol2b
+{
+float: right; width: 234px; padding: 4px; border: 2px; height:auto;    
+}
+
+.inputlcol3
+{
+float:left; width: 168px; padding: 4px; border: 2px; height:23px; margin-left: 12px; 
+}
+
+.inputlcol4
+{
+float: right; width: 50px; padding: 4px; border: 2px; height:23px;    
+}
+
+.inputrpanel
+{
+float: left; width: 240px; padding: 0 0 0 8px; background-color: #edf2f9;
+}
+/******************/

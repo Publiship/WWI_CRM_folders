@@ -1,0 +1,198 @@
+using System;
+using System.Data;
+using System.Configuration;
+using System.Data.SqlClient; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Linq.Dynamic;  
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using SubSonic;
+using DAL.Logistics;
+using DevExpress.Web.ASPxGridView;
+using ParameterPasser;
+
+public partial class dashboard : System.Web.UI.Page
+{
+    
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        try
+        {
+            this.dxpnldasherr.Visible = false;
+
+            //foreach (DevExpress.Web.ASPxDocking.ASPxDockPanel panel in this.dxdockManager.Panels)
+            //{
+            //    panel.Styles.Content.HorizontalAlign = HorizontalAlign.Center;
+            //    panel.Styles.Content.VerticalAlign =  VerticalAlign.Middle;
+            //    panel.ShowFooter = true;
+            //}
+
+            if (!Page.IsPostBack) //should make sure the last search session is cleared after browser has been closed then reopened
+            {
+                
+            }
+          
+        }
+        catch (Exception ex)
+        {
+            //Response.Write(ex.Message.ToString());  
+            this.dxlbldasherr.Text += "Error : " + ex.Message.ToString();
+            this.dxpnldasherr.Visible = true;
+        }
+    }
+
+    protected string GetClientButtonClickHandler(RepeaterItem container)
+    {
+        return string.Format("function(s, e) {{ ShowWidgetPanel('{0}') }}", ((System.Data.DataRowView)container.DataItem)["name"]);
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        //when adding panels make sure they are added to the repeater on page load
+        //by PanelUID (case sensitive!) or they do not dock properly and might not be visible
+        //string[] widgetNames = { "Clock", "Calendar", "Recent orders", "Recent searches", "ETA this month", "ETA this week", "Total open orders", "Recent prices" };
+        //this.dxlookupWidget.DataSource = widgetNames;
+        //this.dxlookupWidget.DataBind();
+        if (Page.Session["user"] != null)
+        {
+            if (!Page.IsPostBack)
+            {
+                //reset_hidden();
+            }
+
+            if (!Page.ClientScript.IsClientScriptBlockRegistered("lg_key"))
+            {
+                register_client_scripts();
+            }
+
+            bind_widget_groups();
+            //new linq databinding 
+            //this method of using linq does not run in server mode, you MUST use a LinqServerModeDataSource
+            //bind_linq_datasource(); 
+            //running in server mode
+            //this.LinqServerModeOrders.Selecting += new EventHandler<DevExpress.Data.Linq.LinqServerModeDataSourceSelectEventArgs>(LinqServerModeOrders_Selecting);
+        }
+        else
+        {
+            Response.Redirect("../user_accounts/signin.aspx?" + "rp=" + wwi_security.EncryptString("tracking/dashboard", "publiship"));
+        }
+    }
+
+    protected void reset_hidden()
+    {
+        //this.dxhfMethod.Set("mode", -1);
+    }
+
+   
+    protected void register_client_scripts()
+    {
+        // Gets a reference to a Label control that not in 
+        // a ContentPlaceHolder
+        DevExpress.Web.ASPxEditors.ASPxLabel mpLabel = (DevExpress.Web.ASPxEditors.ASPxLabel)Master.FindControl("lblResult");
+        string _script = "";
+
+        if (mpLabel != null)
+        {
+            _script = string.Format(@"function verify_user(){{
+                    var us = document.getElementById('{0}').innerHTML; 
+                    return us;
+                    }}", mpLabel.ClientID);
+
+            Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "lg_key", _script, true);
+
+            //25/10/2011 why do we have to keep registering this script or we lose the menu items when e.g. cboclosedyn posts pack!?
+            //09/08/2011 re-initialise menu 
+            Page.ClientScript.RegisterStartupScript(GetType(), "LBL_MNU", "window.parent.setMenu();", true);
+                
+        }
+    }
+
+    /// <summary>
+    /// find widget groups from xml file
+    /// group definitions are flagged as value=0 
+    /// </summary>
+    protected void bind_widget_groups()
+    {
+        string _path = AppDomain.CurrentDomain.BaseDirectory;
+        _path += "xml\\widgets.xml";
+
+        // pass _qryFilter to have keyword-filter RSS Feed
+        // i.e. _qryFilter = XML -> entries with XML will be returned
+        DataSet _ds = new DataSet();
+        _ds.ReadXml(_path);
+        DataView _dv = _ds.Tables[0].DefaultView;
+        _dv.RowFilter = "value ='1'";
+
+        this.rptwidgetgroup.DataSource = _dv;
+        this.rptwidgetgroup.DataBind();
+    }
+    //end bind widget groups
+
+    /// <summary>
+    /// bind widget types to grid look up
+    /// </summary>
+    protected void bind_widget_lookup()
+    {
+        try
+        {
+            //using a rsource does not work with the path when it's compiled 
+            //string[] res = GetType().Assembly.GetManifestResourceNames();
+            //string _path = AppDomain.CurrentDomain.BaseDirectory;
+            //_path += "App_globalResources\\pricer_currency.resx";
+            //System.Resources.ResXResourceReader _rx = new System.Resources.ResXResourceReader(_path);
+            //foreach (System.Collections.DictionaryEntry _d in _rx)
+            //{
+            //    this.dxcbocurrency.Items.Add(_d.Value.ToString(), _d.Value.ToString());    
+            //}
+            
+            string _path = AppDomain.CurrentDomain.BaseDirectory;
+            _path += "xml\\widgets.xml";
+
+            // pass _qryFilter to have keyword-filter RSS Feed
+            // i.e. _qryFilter = XML -> entries with XML will be returned
+            DataSet _ds = new DataSet();
+            _ds.ReadXml(_path);
+            DataView _dv = _ds.Tables[0].DefaultView;
+            _dv.RowFilter = "value ='0'";
+
+            //DevExpress.Web.ASPxEditors.ASPxListBox _lst = this.dxcheckwidget.FindControl("dxlistwidget") as DevExpress.Web.ASPxEditors.ASPxListBox;
+            //if (_lst != null) 
+            //{ 
+            //   _lst.DataSource = _dv;
+            //   _lst.TextField = "name";
+            //   _lst.ValueField = "value";
+            //   _lst.DataBind();
+            //}
+
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.ToString());
+        }
+    }
+    //end bind currency type    
+   
+    //returns the IP address of the user requesting a page 
+    protected string userRequestingIP()
+    {
+        string strIpAddress;
+
+        strIpAddress = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+        if (strIpAddress == null)
+
+            strIpAddress = Request.ServerVariables["REMOTE_ADDR"];
+
+
+        return strIpAddress;
+    }
+
+  
+  
+    
+}
+

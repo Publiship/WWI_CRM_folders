@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<companylist>
+    <company>
+      <id>1865</id>
+      <visibleitems>
+        <item>
+          <itemid>1865</itemid>
+          <itemname>Education Development Corporation</itemname>
+        </item>
+        <item>
+          <itemid>1167</itemid>
+          <itemname>Usborne Publishing Limited</itemname>
+          <destinationid>5</destinationid>
+          <destinationid></destinationid>
+        </item>
+        <item>
+          <itemid>22848</itemid>
+          <itemname>Kane Miller Book Publishers</itemname>
+        </item>
+      </visibleitems>  
+    </company>
+  <company>
+    <id>21854</id>
+    <visibleitems>
+      <item>
+        <itemid>21854</itemid>
+        <itemname>Nobel Franquias Sa</itemname>
+      </item>
+    </visibleitems>
+  </company>
+  <company>
+    <id>8827</id>
+    <visibleitems>
+      <item>
+        <itemid>8827</itemid>
+        <itemname>Editora Melhoramentos Ltda</itemname>
+      </item>
+    </visibleitems>
+  </company>
+  <company>
+    <id>17671</id>
+    <visibleitems>
+      <item>
+        <itemid>17671</itemid>
+        <itemname>Elsevier Editoria Ltde</itemname>
+      </item>
+    </visibleitems>
+  </company>
+  <company>
+    <id>20004</id>
+    <visibleitems>
+      <item>
+        <itemid>20004</itemid>
+        <itemname>Empresa Folha Da Manha S/a</itemname>
+      </item>
+    </visibleitems>
+  </company>
+    <company>
+        <id>27</id>
+        <visibleitems>
+            <item>
+                <itemid>27</itemid>
+                <itemname>Walker Books Ltd</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>47</itemid>
+                <itemname>Candlewick Press</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>4486</itemid>
+                <itemname>Walker Books, Australia Pty Ltd</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>4486</id>
+        <visibleitems>
+            <item>
+                <itemid>4486</itemid>
+                <itemname>Walker Books, Australia Pty Ltd</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>27</itemid>
+                <itemname>Walker Books Ltd</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>13711</id>
+        <visibleitems>
+            <item>
+                <itemid>13711</itemid>
+                <itemname>Elsevier - Hong Kong</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>9209</itemid>
+                <itemname>Elsevier Limited (widnes)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>10359</itemid>
+                <itemname>Elsevier (Germany)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>10440</itemid>
+                <itemname>Elsevier GmbH</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11062</itemid>
+                <itemname>Elsevier Masson S.R.L. (Italy)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11064</itemid>
+                <itemname>Elsevier ITALIA</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11088</itemid>
+                <itemname>Elsevier Inc</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11369</itemid>
+                <itemname>Elsevier Limited (Scotland)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11378</itemid>
+                <itemname>Elsevier Masson</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>13278</itemid>
+                <itemname>Elsevier Ltd.</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>14519</itemid>
+                <itemname>Elsevier Limited c/o dhl Exel Europe PLC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>15887</itemid>
+                <itemname>Elsevier Taiwan LLC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>15922</itemid>
+                <itemname>Elsevier Espana, S. A</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>16189</itemid>
+                <itemname>Elsevier G</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>17393</itemid>
+                <itemname>elsevier Brazil</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>17671</itemid>
+                <itemname>Elsevier Editoria Ltde</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>11088</id>
+        <visibleitems>
+            <item>
+                <itemid>13711</itemid>
+                <itemname>Elsevier - Hong Kong</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>9209</itemid>
+                <itemname>Elsevier Limited (widnes)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>10359</itemid>
+                <itemname>Elsevier (Germany)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>10440</itemid>
+                <itemname>Elsevier GmbH</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11062</itemid>
+                <itemname>Elsevier Masson S.R.L. (Italy)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11064</itemid>
+                <itemname>Elsevier ITALIA</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11088</itemid>
+                <itemname>Elsevier Inc</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11369</itemid>
+                <itemname>Elsevier Limited (Scotland)</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>11378</itemid>
+                <itemname>Elsevier Masson</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>13278</itemid>
+                <itemname>Elsevier Ltd.</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>14519</itemid>
+                <itemname>Elsevier Limited c/o dhl Exel Europe PLC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>15887</itemid>
+                <itemname>Elsevier Taiwan LLC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>15922</itemid>
+                <itemname>Elsevier Espana, S. A</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>16189</itemid>
+                <itemname>Elsevier G</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>17393</itemid>
+                <itemname>elsevier Brazil</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>17671</itemid>
+                <itemname>Elsevier Editoria Ltde</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>26048</id>
+        <visibleitems>
+            <item>
+                <itemid>18894</itemid>
+                <itemname>Frances Lincoln</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>26048</itemid>
+                <itemname>Aurum Press</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>18894</id>
+        <visibleitems>
+            <item>
+                <itemid>18894</itemid>
+                <itemname>Frances Lincoln</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>26048</itemid>
+                <itemname>Aurum Press</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>4603</itemid>
+                <itemname>Quarto Publishing PLC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>23252</itemid>
+                <itemname>Quarto Publishing Usa</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>27041</id>
+        <visibleitems>
+            <item>
+                <itemid>27041</itemid>
+                <itemname>Quarto Publishing Group USA INC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>23252</itemid>
+                <itemname>Quarto Publishing Usa</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>23252</id>
+        <visibleitems>
+            <item>
+                <itemid>27041</itemid>
+                <itemname>Quarto Publishing Group USA INC</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>23252</itemid>
+                <itemname>Quarto Publishing Usa</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>19628</id>
+        <visibleitems>
+            <item>
+                <itemid>1194</itemid>
+                <itemname>Quadrille Publishing Ltd</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>19628</itemid>
+                <itemname>Hardie Grant</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>1194</id>
+        <visibleitems>
+            <item>
+                <itemid>19628</itemid>
+                <itemname>Hardie Grant</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>1194</itemid>
+                <itemname>Quadrille Publishing Ltd</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>23626deactivated</id>
+        <visibleitems>
+            <item>
+                <itemid>23626</itemid>
+                <itemname>Hardie Grant Australia</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>19628</itemid>
+                <itemname>Hardie Grank UK</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+    <company>
+        <id>19628deactivated</id>
+        <visibleitems>
+            <item>
+                <itemid>23626</itemid>
+                <itemname>Hardie Grant Australia</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+            <item>
+                <itemid>19628</itemid>
+                <itemname>Hardie Grank UK</itemname>
+                <companyonly>-1</companyonly>
+            </item>
+        </visibleitems>
+    </company>
+</companylist>

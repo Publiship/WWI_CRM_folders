@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="cargo_updated" xml:space="preserve">
+    <value>SELECT     OrderTable.CargoUpdateId AS hf1, OrderTable.OrderID AS hf2, OrderTable.CustomersRef AS [Your Ref], ItemTable.Title, 
+                      order_cargo_update_log.pre_cargoready AS [Old Cargo Ready], order_cargo_update_log.pre_estpallets AS [Old Estimated Pallets], 
+                      order_cargo_update_log.pre_estweight AS [Old Estimated Weight], order_cargo_update_log.pre_estvolume AS [Old Estimated Volume], 
+                      OrderTable.CargoReady AS [New Cargo Ready], OrderTable.EstPallets AS [New Estimated Pallets], OrderTable.EstWeight AS [New Estimated Weight], 
+                      OrderTable.EstVolume AS [New Estimated volume], ContactTable.ContactName AS [Updated By], NameAndAddressBook.CompanyName AS Company, 
+                      EmployeesTable.Name AS [Order Controller], NameAndAddressBook.MainEmail AS hf3, EmployeesTable.EmailAddress AS hf4, 
+                      order_cargo_update_log.orderid AS hf5
+FROM         order_cargo_update_log INNER JOIN
+                      OrderTable ON order_cargo_update_log.cargoupdateid = OrderTable.CargoUpdateId LEFT OUTER JOIN
+                      NameAndAddressBook ON order_cargo_update_log.companyid = NameAndAddressBook.CompanyID LEFT OUTER JOIN
+                      ContactTable ON order_cargo_update_log.userid = ContactTable.ContactID LEFT OUTER JOIN
+                      ItemTable ON OrderTable.OrderNumber = ItemTable.OrderNumber LEFT OUTER JOIN
+                      EmployeesTable ON OrderTable.OperationsControllerID = EmployeesTable.EmployeeID
+WHERE     (order_cargo_update_log.updguid = @qryguid);</value>
+  </data>
+  <data name="cargo_updated_table" xml:space="preserve">
+    <value>font-family: Lucida Sans Unicode,Lucida Grande, Sans-Serif; font-size: 12px; margin: 45px; width: 100%; text-align: left; border-collapse: collapse;</value>
+  </data>
+  <data name="cargo_updated_td" xml:space="preserve">
+    <value>padding: 4px; background: #e8edff;border-bottom: 1px solid #fff; color: #669; border-top: 1px solid transparent;</value>
+  </data>
+  <data name="cargo_updated_th" xml:space="preserve">
+    <value>font-size: 13px; font-weight: normal;padding: 4px; background: #b9c9fe;border-top: 4px solid #aabcfe; border-bottom: 1px solid #fff;color: #039;</value>
+  </data>
+  <data name="octopuspublishinggroup" xml:space="preserve">
+    <value>jenna@publiship.com</value>
+    <comment>temporary fix til we change database</comment>
+  </data>
+  <data name="pricer_pallet_type" xml:space="preserve">
+    <value>Standard;EuroPallet;HarperCollins</value>
+  </data>
+  <data name="simonschuster" xml:space="preserve">
+    <value>wendy@publiship.com</value>
+    <comment>temporary fix til we change database</comment>
+  </data>
+  <data name="web_site_location" xml:space="preserve">
+    <value>online</value>
+    <comment>can be local, online, online-test</comment>
+  </data>
+  <data name="anovabooks" xml:space="preserve">
+    <value>mark@publiship.com</value>
+    <comment>temporary fix til we change database</comment>
+  </data>
+  <data name="advance_email" xml:space="preserve">
+    <value>helen@publiship.com;services@publiship-online.com;mandylo@publiship.com.hk;kimberley@publiship.com</value>
+  </data>
+  <data name="advance_finish" xml:space="preserve">
+    <value>Your consigment request has been emailed to Publiship:::You will also receive a copy of the consignment request via email:::Please check your email inbox, if you don't find the email in your inbox make sure it hasn't been moved to your junk folder:::You can click the print button below to print your labels</value>
+  </data>
+  <data name="html_table_body" xml:space="preserve">
+    <value>&lt;p&gt;&lt;table cellpadding='5px' style='border-color: #669'&gt;{0}&lt;/table&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="html_table_tr" xml:space="preserve">
+    <value>&lt;tr&gt;&lt;td bgcolor='#e8edff' valign='middle' width='230px'&gt;{0}&lt;/td&gt;&lt;td width='350px'&gt;{1}&lt;/td&gt;&lt;td width='350px'&gt;{2}&lt;/td&gt;&lt;/tr&gt;</value>
+  </data>
+  <data name="discrepancies" xml:space="preserve">
+    <value>SELECT OrderTable.OrderNumber, OrderTable.CompanyID AS [hfCompanyID], NameAndAddressBook.CompanyName AS Company, OrderTable.ShippedOnBoard as SOB, OrderTable.JobClosed, DeliverySubTable.CurrentStatusID as hfCurrentStatusID, CurrentStatus.Field1 AS [Current status], OrderTable.ExWorksDate, OrderTable.ETA, OrderTable.ETS, OrderTable.OrderControllerID as hfControllerID, EmployeesTable.EmployeeID as hfControllerID, EmployeesTable.Name AS Controller, EmployeesTable.EmailAddress as hfEmail, PortTable.PortName AS [Origin port], PortTable_1.PortName AS [Destination port], OrderTable.RemarksToCustomer FROM         EmployeesTable INNER JOIN OrderTable INNER JOIN NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID INNER JOIN PortTable ON OrderTable.PortID = PortTable.PortID INNER JOIN DeliverySubTable ON OrderTable.OrderNumber = DeliverySubTable.OrderNumber INNER JOIN PortTable AS PortTable_1 ON OrderTable.DestinationPortID = PortTable_1.PortID ON EmployeesTable.EmployeeID = OrderTable.OrderControllerID INNER JOIN CurrentStatus ON DeliverySubTable.CurrentStatusID = CurrentStatus.ID WHERE     (OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.ShippedOnBoard = 1) AND (OrderTable.JobClosed = 0) AND (DeliverySubTable.CurrentStatusID = 12 OR DeliverySubTable.CurrentStatusID = 14) OR (OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.ShippedOnBoard = 0) AND (OrderTable.JobClosed = 0) AND (NameAndAddressBook.CompanyName &lt;&gt; N'Usborne Publishing Limited') AND (OrderTable.ExWorksDate &gt; CONVERT(DATETIME, '2010-05-01 00:00:00', 102)) AND (OrderTable.ExWorksDate &lt; DATEADD(dd, - 10, CONVERT(varchar, GETDATE(), 102))) OR (OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.JobClosed = 0) AND (DeliverySubTable.CurrentStatusID = 1 OR DeliverySubTable.CurrentStatusID = 12) AND (OrderTable.ETA &gt; CONVERT(DATETIME, '2010-05-01 00:00:00', 102)) AND (OrderTable.ETA &lt; DATEADD(dd, - 10, CONVERT(varchar, GETDATE(), 102))) OR (OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.ShippedOnBoard = - 1) AND (OrderTable.JobClosed = 0) AND (OrderTable.ExWorksDate &gt; OrderTable.ETS) AND (OrderTable.CompanyID &lt;&gt; 5234) AND (OrderTable.CompanyID &lt;&gt; 9712) ORDER BY Controller, [hfCompanyID], OrderTable.OrderNumber;</value>
+    <comment>deprecated</comment>
+  </data>
+  <data name="post_shipment" xml:space="preserve">
+    <value>SELECT OrderTable.OrderNumber, OrderTable.ExWorksDate, NameAndAddressBook.CompanyName, OrderTable.ContactID, EmployeesTable.Name
+FROM (OrderTable INNER JOIN NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID) INNER JOIN EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE (((OrderTable.OrderNumber)&lt;1000000) AND ((OrderTable.ExWorksDate)&gt;#10/1/2008#) AND ((OrderTable.ContactID) Is Null));</value>
+    <comment>deprecated</comment>
+  </data>
+  <data name="pre_shipment" xml:space="preserve">
+    <value>OrderTable.ExWorksDate, OrderTable.JobClosed, EmployeesTable.Name
+FROM ((OrderTable LEFT JOIN DeliverySubTable ON OrderTable.OrderNumber = DeliverySubTable.OrderNumber) INNER JOIN NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID) INNER JOIN EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE (((OrderTable.OrderNumber)&lt;1000000) AND ((OrderTable.ExWorksDate)&gt;#10/1/2008#) AND ((OrderTable.JobClosed)=0) AND ((DeliverySubTable.OrderNumber) Is Null));</value>
+    <comment>deprecated</comment>
+  </data>
+  <data name="Check_Delivery_Status" xml:space="preserve">
+    <value>SELECT DeliverySubTable.OrderNumber, NameAndAddressBook.CompanyName, DeliverySubTable.CurrentStatusID as hfCurrentStatusID,  CurrentStatus.Field1 as [Current Status], EmployeesTable.Name as Controller, EmployeesTable.EmployeeID as hfControllerID,  EmployeesTable.EmailAddress as hfEmailAddress, DeliverySubTable.CurrentStatusDate
+FROM NameAndAddressBook INNER JOIN (EmployeesTable INNER JOIN ((DeliverySubTable INNER JOIN CurrentStatus ON  DeliverySubTable.CurrentStatusID = CurrentStatus.ID) INNER JOIN OrderTable ON DeliverySubTable.OrderNumber = OrderTable.OrderNumber)  ON EmployeesTable.EmployeeID = OrderTable.OperationsControllerID) ON NameAndAddressBook.CompanyID = OrderTable.CompanyID
+WHERE (((DeliverySubTable.CurrentStatusID)=4) AND ((DeliverySubTable.CurrentStatusDate)&gt;=CONVERT(DATETIME, '@inputdate1 00:00:00',  102) And (DeliverySubTable.CurrentStatusDate)&lt;=CONVERT(DATETIME, '@inputdate2 00:00:00', 102)));</value>
+    <comment>discrepancy report 5</comment>
+  </data>
+  <data name="Discrepancies_Report_Post_Shipment" xml:space="preserve">
+    <value>SELECT     OrderTable.OrderNumber, OrderTable.CompanyID AS hfCompanyID, NameAndAddressBook.CompanyName AS Company, 
+OrderTable.ShippedOnBoard AS SOB, OrderTable.JobClosed, DeliverySubTable.CurrentStatusID AS hfCurrentStatusID, 
+CurrentStatus.Field1 AS [Current status], OrderTable.ExWorksDate, OrderTable.ETA, OrderTable.ETS, OrderTable.OrderControllerID AS  hfControllerID, 
+EmployeesTable.Name AS Controller, EmployeesTable.EmailAddress AS hfEmail, PortTable.PortName AS [Origin port], 
+PortTable_1.PortName AS [Destination port], OrderTable.RemarksToCustomer
+FROM         OrderTable INNER JOIN
+DeliverySubTable ON OrderTable.OrderNumber = DeliverySubTable.OrderNumber INNER JOIN
+CurrentStatus ON DeliverySubTable.CurrentStatusID = CurrentStatus.ID INNER JOIN
+NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID INNER JOIN
+PortTable ON OrderTable.PortID = PortTable.PortID INNER JOIN
+PortTable AS PortTable_1 ON OrderTable.DestinationPortID = PortTable_1.PortID INNER JOIN
+EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE (OrderTable.JobClosed=0) AND ((OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.JobClosed = 0) AND (DeliverySubTable.CurrentStatusID = 1 OR
+DeliverySubTable.CurrentStatusID = 12) AND (OrderTable.ETA &gt;= CONVERT(DATETIME, '2010-05-01 00:00:00', 102)) AND 
+(OrderTable.ETA &lt; DATEADD(dd, - 1, CONVERT(varchar, GETDATE(), 102))) OR
+(OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.JobClosed = 0) AND (DeliverySubTable.CurrentStatusID = 12 OR
+DeliverySubTable.CurrentStatusID = 14) AND (OrderTable.ShippedOnBoard = 0) AND (OrderTable.ETS &gt; CONVERT(DATETIME, '2010-05-01  00:00:00', 102)) AND (OrderTable.ETS &lt; DATEADD(dd, - 3, CONVERT(varchar, GETDATE(), 102))) OR (OrderTable.OrderNumber &lt; 1000000) AND  (OrderTable.JobClosed = 0) AND (DeliverySubTable.CurrentStatusID &lt;&gt; 7) AND 
+(OrderTable.ETA &gt;= CONVERT(DATETIME, '2011-05-01 00:00:00', 102)) AND (OrderTable.ETA &lt; DATEADD(dd, - 7, CONVERT(varchar, GETDATE(),  102))) 
+AND (OrderTable.ShippedOnBoard = 1) AND (DeliverySubTable.CurrentStatusID &lt;&gt; 3) OR
+(OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.ETS &gt;= CONVERT(DATETIME, '2011-11-01 00:00:00', 102)) AND (OrderTable.ETS &lt;  DATEADD(dd, - 7, CONVERT(varchar, GETDATE(), 102))) AND (OrderTable.HouseBLNUmber IS NULL));</value>
+    <comment>discrepancy report 4</comment>
+  </data>
+  <data name="Discrepancies_Report_Pre_Shipment" xml:space="preserve">
+    <value>SELECT     OrderTable.OrderNumber, OrderTable.CompanyID AS hfCompanyID, NameAndAddressBook.CompanyName AS Company, 
+                      OrderTable.ShippedOnBoard AS SOB, OrderTable.JobClosed, DeliverySubTable.CurrentStatusID AS hfCurrentStatusID, 
+                      CurrentStatus.Field1 AS [Current status], OrderTable.ExWorksDate, OrderTable.ETA, OrderTable.ETS, OrderTable.OrderControllerID AS hfControllerID, 
+                      EmployeesTable.Name AS Controller, EmployeesTable.EmailAddress AS hfEmail, PortTable.PortName AS [Origin port], 
+                      PortTable_1.PortName AS [Destination port], OrderTable.RemarksToCustomer
+FROM (((((OrderTable INNER JOIN DeliverySubTable ON OrderTable.OrderNumber = DeliverySubTable.OrderNumber) INNER JOIN CurrentStatus ON DeliverySubTable.CurrentStatusID = CurrentStatus.ID) INNER JOIN NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID) INNER JOIN PortTable ON OrderTable.PortID = PortTable.PortID) INNER JOIN PortTable AS PortTable_1 ON OrderTable.DestinationPortID = PortTable_1.PortID) INNER JOIN EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE (((OrderTable.OrderNumber)&lt;1000000) AND ((OrderTable.ShippedOnBoard)=1) AND ((OrderTable.JobClosed)=0) AND ((DeliverySubTable.CurrentStatusID)=12 Or (DeliverySubTable.CurrentStatusID)=14)) OR (((OrderTable.OrderNumber)&lt;1000000) AND ((OrderTable.CompanyID)&lt;&gt;1167) AND ((OrderTable.ShippedOnBoard)=0) AND ((OrderTable.JobClosed)=0) AND ((OrderTable.ExWorksDate)&gt;CONVERT(DATETIME, '2010-05-01 00:00:00', 102) And (OrderTable.ExWorksDate)&lt;DATEADD(dd, - 5, CONVERT(varchar, 
+                      GETDATE(), 102)))) OR (((OrderTable.OrderNumber)&lt;1000000) AND ((OrderTable.CompanyID)&lt;&gt;5234 And (OrderTable.CompanyID)&lt;&gt;9712) AND ((OrderTable.ShippedOnBoard)=1) AND ((OrderTable.JobClosed)=0) AND ((OrderTable.ExWorksDate)&gt;[ETS]));</value>
+    <comment>discrepancy report 3</comment>
+  </data>
+  <data name="Orders_With_No_Delivery_Details" xml:space="preserve">
+    <value>SELECT     OrderTable.OrderNumber, NameAndAddressBook.CompanyName, OrderTable.CompanyID as [hfCompanyID], OrderTable.OrderControllerID as hfControllerID, OrderTable.ExWorksDate, 
+                      OrderTable.JobClosed, EmployeesTable.Name as Controller
+FROM         OrderTable LEFT OUTER JOIN
+                      DeliverySubTable ON OrderTable.OrderNumber = DeliverySubTable.OrderNumber INNER JOIN
+                      NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID INNER JOIN
+                      EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE     (OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.ExWorksDate &gt; CONVERT(DATETIME, '10/1/2008 00:00:00', 102)) AND 
+                      (OrderTable.JobClosed = 0) AND (DeliverySubTable.OrderNumber IS NULL)</value>
+    <comment>discrepancy report 1</comment>
+  </data>
+  <data name="Orders_Without_Customer_Contact" xml:space="preserve">
+    <value>SELECT OrderTable.OrderNumber, OrderTable.ExWorksDate, NameAndAddressBook.CompanyName, OrderTable.ContactID as hfContactID, EmployeesTable.Name as Controller, OrderTable.OrderControllerID AS hfControllerID
+FROM (OrderTable INNER JOIN NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID) INNER JOIN EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE (((OrderTable.OrderNumber)&lt;1000000) AND ((OrderTable.ExWorksDate)&gt;CONVERT(DATETIME, '10/1/2008 00:00:00', 102)) AND ((OrderTable.ContactID) Is Null));</value>
+    <comment>discrepancy report 2</comment>
+  </data>
+  <data name="Usborne_ExWorks_Date_Overdue_Report" xml:space="preserve">
+    <value>SELECT     OrderTable.OrderNumber, OrderTable.CompanyID AS hfCompanyID, NameAndAddressBook.CompanyName AS Company, 
+OrderTable.ShippedOnBoard AS SOB, OrderTable.JobClosed, DeliverySubTable.CurrentStatusID AS hfCurrentStatusID, 
+CurrentStatus.Field1 AS [Current status], OrderTable.ExWorksDate, OrderTable.ETA, OrderTable.ETS, OrderTable.OrderControllerID AS  hfControllerID, 
+EmployeesTable.Name AS Controller, EmployeesTable.EmailAddress AS hfEmail, PortTable.PortName AS [Origin port], 
+PortTable_1.PortName AS [Destination port], OrderTable.RemarksToCustomer, OrderTable.Remarks
+FROM         OrderTable INNER JOIN
+DeliverySubTable ON OrderTable.OrderNumber = DeliverySubTable.OrderNumber INNER JOIN
+CurrentStatus ON DeliverySubTable.CurrentStatusID = CurrentStatus.ID INNER JOIN
+NameAndAddressBook ON OrderTable.CompanyID = NameAndAddressBook.CompanyID INNER JOIN
+PortTable ON OrderTable.PortID = PortTable.PortID INNER JOIN
+PortTable AS PortTable_1 ON OrderTable.DestinationPortID = PortTable_1.PortID INNER JOIN
+EmployeesTable ON OrderTable.OrderControllerID = EmployeesTable.EmployeeID
+WHERE     (OrderTable.OrderNumber &lt; 1000000) AND (OrderTable.CompanyID = 1167) AND (OrderTable.ShippedOnBoard = 0) AND  (OrderTable.JobClosed = 0) 
+AND (OrderTable.ExWorksDate &gt; CONVERT(DATETIME, '2010-05-01 00:00:00', 102)) AND (OrderTable.ExWorksDate &lt; DATEADD(dd, - 5,  CONVERT(varchar, GETDATE(), 102)));</value>
+    <comment>discrepancy report 6</comment>
+  </data>
+  <data name="Discrepancies_Report_Post_Shipment_Note" xml:space="preserve">
+    <value>Looks for: ETS = 3 days but not Shipped on Board, ETA more than 1 day with no updated status, ETA more than 10 days but not Delivered or Handed to Consignee</value>
+  </data>
+  <data name="Discrepancies_Report_Pre_Shipment_Note" xml:space="preserve">
+    <value>Looks for: ExWorks more than 5 days but not Shipped on Board,  Ex-Works later than Sailing date</value>
+  </data>
+  <data name="Usborne_ExWorks_Date_Overdue_Report_Note" xml:space="preserve">
+    <value>Looks for: ExWorks more than 5 days but not Shipped on Board,  Ex-Works later than Sailing date</value>
+  </data>
+  <data name="Usborne_ExWorks_Date_Overdue_Report_Schedule" xml:space="preserve">
+    <value>Tuesday</value>
+    <comment>report only needed on tuesday</comment>
+  </data>
+  <data name="pricer_email" xml:space="preserve">
+    <value>services@publiship-online.com</value>
+  </data>
+  <data name="laurenceking" xml:space="preserve">
+    <value>philliphiggins@publiship.com</value>
+    <comment>temporary fix til we change database</comment>
+  </data>
+</root>

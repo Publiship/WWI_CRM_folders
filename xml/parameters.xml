@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+    <parameter>
+        <name>startETS</name>
+        <value>2015/03/20</value>
+    </parameter>
+    <parameter>
+        <name>startExWorks</name>
+        <value>2015/03/10</value>
+    </parameter>
+     <parameter>
+        <name>excelDownload</name>
+        <value>Excel file</value>
+    </parameter>
+    <parameter>
+        <name>jobClosed</name>
+        <value>0</value>
+    </parameter>
+    <parameter>
+        <name>ASNfilename</name>
+        <value>PU</value>
+    </parameter>
+    <parameter>
+        <name>ASNfilename</name>
+        <value>ASN</value>
+    </parameter>
+    <parameter>
+        <name>ASNfilename</name>
+        <value>5</value>
+    </parameter>
+    <parameter>
+        <name>ASNftp</name>
+        <value>vJG27SuLD3SFvI0ClUKDMc4MS8iiPGKflc9GIbYerLCT9K6wVdncbw==</value>
+    </parameter>
+    <parameter>
+        <name>ASNftpfolder</name>
+        <value>out</value>
+    </parameter>
+    <parameter>
+        <name>ASNftpfolder</name>
+        <value>output_asn</value>
+    </parameter>
+    <parameter>
+        <name>pearsonstartETS</name>
+        <value>1950/01/01</value>
+    </parameter>
+</parameters>
+

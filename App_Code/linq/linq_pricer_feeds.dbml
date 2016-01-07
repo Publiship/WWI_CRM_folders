@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Publiship_Pricer" Class="linq_pricer_feedsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=mssql.gbdns.net;Initial Catalog=Publiship_Pricer;User ID=pricer_u" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Publiship_PricerConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.pricer_origin_point" Member="pricer_origin_points">
+    <Type Name="pricer_origin_point">
+      <Column Name="origin_point_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="origin_point" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="pricer_origin_point_pricer_dest_country" Member="pricer_dest_countries" ThisKey="origin_point_ID" OtherKey="origin_point_ID" Type="pricer_dest_country" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pricer_dest_country" Member="pricer_dest_countries">
+    <Type Name="pricer_dest_country">
+      <Column Name="dest_country_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="origin_point_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="country_name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="country_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="pricer_dest_country_pricer_dest_final" Member="pricer_dest_finals" ThisKey="country_id" OtherKey="dest_country_ID" Type="pricer_dest_final" />
+      <Association Name="pricer_origin_point_pricer_dest_country" Member="pricer_origin_point" ThisKey="origin_point_ID" OtherKey="origin_point_ID" Type="pricer_origin_point" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pricer_dest_final" Member="pricer_dest_finals">
+    <Type Name="pricer_dest_final">
+      <Column Name="dest_final_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="dest_country_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dest_final" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="pricer_dest_country_pricer_dest_final" Member="pricer_dest_country" ThisKey="dest_country_ID" OtherKey="country_id" Type="pricer_dest_country" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

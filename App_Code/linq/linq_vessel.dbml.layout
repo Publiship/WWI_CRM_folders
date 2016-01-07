@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="linq_vessel">
+  <DataContextMoniker Name="/linq_vesselDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fd179064-0a09-4eef-bebc-13a1116dead9" absoluteBounds="4, 2.875, 2, 1.26050048828125">
+      <DataClassMoniker Name="/linq_vesselDataContext/VesselTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cc023621-8760-45de-858b-42eb38cb60b4" absoluteBounds="4.015, 3.335, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

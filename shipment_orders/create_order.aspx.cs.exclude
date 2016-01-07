@@ -1,0 +1,784 @@
+﻿using System;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DAL.Logistics;
+using DevExpress.Web.ASPxEditors;
+using SubSonic;
+using Db4objects.Db4o;
+using Db4objects.Db4o.Config;
+using Db4objects.Db4o.Query;
+
+public partial class create_order : System.Web.UI.Page
+{
+    static string _yapfile = Path.Combine(
+                               Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                               "{0}_order.yap");  
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if(isLoggedIn())
+        {
+            if (!Page.IsPostBack && !Page.IsCallback)
+            {
+                //get userid to identify unique yap file name 
+                string _userid = Page.Session["user"] != null ? ((UserClass)Page.Session["user"]).UserId.ToString() : "";
+                
+                //on initial load delete any old db4object yap files 
+                string _yap = string.Format(_yapfile, _userid);  
+                File.Delete(_yapfile);
+
+                bind_commands();
+                set_visible_command(this.dxpgOrder.ActiveTabIndex);
+            }
+        }
+        else
+        {
+            Response.Redirect("../user_accounts/signin.aspx?" + "rp=" + wwi_security.EncryptString("shipment_orders/order_search", "publiship"));
+        }
+    }
+
+    #region form binding
+    /// <summary>
+    /// bind commands from xml
+    /// </summary>
+    protected void bind_commands()
+    {
+        string _path = AppDomain.CurrentDomain.BaseDirectory;
+        _path += "xml\\order_commands.xml";
+
+        XmlDataSource _xml = new XmlDataSource();
+        _xml.DataFile = _path;
+        _xml.XPath = "//item[@Filter='Create']"; //you need this or tab will not databind!
+        _xml.DataBind();
+        //Run time population of GridViewDataComboBoxColumn column with data
+
+        //DevExpress.Web.ASPxMenu.ASPxMenu _mnu = (DevExpress.Web.ASPxMenu.ASPxMenu)this.FindControl("dxmnuCommand");
+        //if (_mnu != null)
+        //{
+        //    _mnu.DataSource = _xml;
+        //    _mnu.DataBind();
+        //}
+        this.dxmnuCommand.DataSource = _xml;
+        this.dxmnuCommand.DataBind();
+
+    }
+    /// <summary>
+    /// set visible command based on visible page
+    /// </summary>
+    /// <param name="pageindex"></param>
+    protected void set_visible_command(int pageindex)
+    {
+        //step through command items
+        for (int _ix = 0; _ix < this.dxmnuCommand.Items.Count; _ix++)
+        {
+            string _name = string.Format("jsCreate{0}", _ix.ToString());
+            if (this.dxmnuCommand.Items[_ix].Name.ToString() != _name) 
+                { this.dxmnuCommand.Items[_ix].ClientVisible = false;}
+            else
+            { this.dxmnuCommand.Items[_ix].ClientVisible = true; }
+        }
+    }
+    #endregion
+
+    #region db4objects persistence
+    protected void store_order_details()
+    { 
+        //using ordertable class but saving to db4o
+        OrderTable _t = new OrderTable();
+
+        _t.OrderNumber = new Random().Next(int.MinValue, int.MaxValue);
+        //dlls
+        int? _intnull = null;
+        ASPxComboBox _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboController");
+        if (_cb != null) { _t.OrderControllerID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboOps");
+        if (_cb != null) { _t.OperationsControllerID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboCompany");
+        if (_cb != null) { _t.CompanyID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboCountry");
+        if (_cb != null) { _t.CountryID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboOrigin");
+        if (_cb != null) { _t.OriginPointID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboOriginPort");
+        if (_cb != null) { _t.PortID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboDestPort");
+        if (_cb != null) { _t.DestinationPortID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboFinal");
+        if (_cb != null) { _t.FinalDestinationID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboClientContact");
+        if (_cb != null) { _t.ContactID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboPrinter");
+        if (_cb != null) { _t.PrinterID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboAgentAtOrigin");
+        if (_cb != null) { _t.AgentAtOriginID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        _cb = (ASPxComboBox)this.dxpgOrder.FindControl("dxcboOriginController");
+        if (_cb != null) { _t.OriginPortControllerID = _cb.Value != null ? wwi_func.vint(_cb.Value.ToString()) : _intnull; }
+
+        //dates
+        DateTime? _dtnull = null; //default for nullable datetimes
+        ASPxDateEdit _dt = (ASPxDateEdit)this.dxpgOrder.FindControl("dxdtExWorks");
+        if (_dt != null) { _t.ExWorksDate = _dt.Value != null ? wwi_func.vdatetime(_dt.Value.ToString()) : _dtnull; }
+
+        _dt = (ASPxDateEdit)this.dxpgOrder.FindControl("dxdtCargoReady");
+        if (_dt != null) { _t.CargoReady = _dt.Value != null ? wwi_func.vdatetime(_dt.Value.ToString()) : _dtnull; }
+
+        _dt = (ASPxDateEdit)this.dxpgOrder.FindControl("dxdtWarehouse");
+        if (_dt != null) { _t.WarehouseDate = _dt.Value != null ? wwi_func.vdatetime(_dt.Value.ToString()) : _dtnull; }
+
+        _dt = (ASPxDateEdit)this.dxpgOrder.FindControl("dxdtBookingReceived");
+        if (_dt != null) { _t.BookingReceived = _dt.Value != null ? wwi_func.vdatetime(_dt.Value.ToString()) : _dtnull; }
+
+        _dt = (ASPxDateEdit)this.dxpgOrder.FindControl("dxdtDocsApproved");
+        if (_dt != null) { _t.DocsApprovedDate = _dt.Value != null ? wwi_func.vdatetime(_dt.Value.ToString()) : _dtnull; }
+
+        //checkboxes
+        ASPxCheckBox _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditJobPubliship");
+        if (_ck != null) { _t.PublishipOrder = _ck.Checked; }
+
+        //job closed not visible on this form
+        //_ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckJobClosed");
+        //if (_ck != null)
+        //{
+        //    //check if job has been closed in this append
+        //    if (_t.JobClosed == false && _ck.Checked == true) { _t.JobClosureDate = DateTime.Now; }
+        //    _t.JobClosed = _ck.Checked;
+        //}
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditJobHot");
+        if (_ck != null) { _t.HotJob = _ck.Checked; }
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditPalletised");
+        if (_ck != null) { _t.Palletise = _ck.Checked ? -1 : 0; }
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditDocsAppr");
+        if (_ck != null) { _t.DocsRcdAndApproved = _ck.Checked; }
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditIssueDl");
+        if (_ck != null) { _t.ExpressBL = _ck.Checked; }
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditFumigation");
+        if (_ck != null) { _t.FumigationCert = _ck.Checked; }
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditGSP");
+        if (_ck != null) { _t.GSPCert = _ck.Checked; }
+
+        _ck = (ASPxCheckBox)this.dxpgOrder.FindControl("dxckEditPacking");
+        if (_ck != null) { _t.PackingDeclaration = _ck.Checked; }
+
+        //memos
+        ASPxMemo _mo = (ASPxMemo)this.dxpgOrder.FindControl("dxmemoRemarksToCustomer");
+        if (_mo != null) { _t.RemarksToCustomer = _mo.Text.ToString(); }
+
+        _mo = (ASPxMemo)this.dxpgOrder.FindControl("dxmemoRemarksToAgent");
+        if (_mo != null) { _t.Remarks = _mo.Text.ToString(); }
+
+        _mo = (ASPxMemo)this.dxpgOrder.FindControl("dxmemoDocs");
+        if (_mo != null) { _t.OtherDocsRequired = _mo.Text.ToString(); }
+
+        //text boxes
+        ASPxTextBox _tx = (ASPxTextBox)this.dxpgOrder.FindControl("dxtxtCustomersRef");
+        if (_tx != null) { _t.CustomersRef = _tx.Text.ToString(); }
+
+        _tx = (ASPxTextBox)this.dxpgOrder.FindControl("dxtxtSellingRate");
+        if (_tx != null) { _t.Sellingrate = _tx.Text.ToString(); }
+
+        _tx = (ASPxTextBox)this.dxpgOrder.FindControl("dxtxtSellingAgent");
+        if (_tx != null) { _t.SellingrateAgent = _tx.Text.ToString(); }
+
+        //save to yap file
+        //get userid to identify unique yap file name 
+        string _userid = Page.Session["user"] != null ? ((UserClass)Page.Session["user"]).UserId.ToString() : "";
+        string _yap = string.Format(_yapfile, _userid);
+
+        //Db4objects.Db4o classes
+        using (IObjectContainer _db = Db4oEmbedded.OpenFile(_yap))
+        {
+            _db.Store(_t); 
+        }
+        //end object
+    }
+#endregion
+
+    #region callback events
+
+    /// <summary>
+    /// client contact callback fires when company id is changed
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxcboContact_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+    {
+        bind_client_contact(e.Parameter);
+    }
+
+    /// <summary>
+    /// fires when origin agent is changed
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxcboOriginController_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+    {
+        bind_origin_controller(e.Parameter);
+    }
+
+    /// <summary>
+    /// callback for origin group
+    /// we have to use a callback panel because we need to be able to reset the cascading combos 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxcbkOriginGroup_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+    {
+        //int _group = wwi_func.get_company_group();
+
+        int _ix = wwi_func.vint(e.Parameter.ToString());
+        //bind_origin_combos(_ix);  no point passing parameter as we have to rebind all 3 combos anyway because they are multicolumn and do not cache
+        bind_origin_combos(-1);
+    }
+    //end callback group 
+    /// <summary>
+    /// callbacks for origin and origin port as we aree not using a callback panel
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void dxcboOrigin_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+    {
+        bind_origin_combos(1);
+    }
+
+
+    protected void dxcboOriginPort_Callback(object sender, DevExpress.Web.ASPxClasses.CallbackEventArgsBase e)
+    {
+        bind_origin_combos(2);
+    }
+    #endregion
+
+    #region combobox binding
+    protected void bind_company_combos(int officeid)
+    {
+        //order controller & operations controller
+        bind_employee_names(officeid);
+
+        //client contact name
+        ASPxComboBox _dxcboCompany = (ASPxComboBox)this.formOrder.FindControl("dxcboCompany");
+        if (_dxcboCompany != null)
+        {
+            bind_client_contact(_dxcboCompany.Value != null ? _dxcboCompany.Value.ToString() : "");
+        }
+
+        ASPxComboBox _cboAgentAtOrigin = (ASPxComboBox)this.formOrder.FindControl("dxcboAgentAtOrigin");
+        if (_cboAgentAtOrigin != null)
+        {
+            bind_origin_controller(_cboAgentAtOrigin.Value != null ? _cboAgentAtOrigin.Value.ToString() : "");
+        }
+    }
+
+
+    /// <summary>
+    /// origin combos
+    /// if select combo == -1 bind all combs otherwisde bind combo identified by selectcombo
+    /// </summary>
+    /// <param name="selectcombo">int</param>
+    protected void bind_origin_combos(int selectcombo)
+    {
+        //070113 we are not using a callback panel just combo box built in callback
+        //DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel _call = (DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel)this.formOrder.FindControl("dxcbkOriginGroup");
+        //if (_call != null)
+        //{
+        if (selectcombo == -1 || selectcombo == 0)
+        {
+            //country id
+            bind_countries();
+        }
+
+        if (selectcombo == -1 || selectcombo == 1)
+        {
+            //origin point id
+            //ASPxComboBox _dxcboCountry = (ASPxComboBox)_call.FindControl("dxcboCountry");
+            ASPxComboBox _dxcboCountry = (ASPxComboBox)this.formOrder.FindControl("dxcboCountry");
+            if (_dxcboCountry != null)
+            {
+                bind_origin(_dxcboCountry.Value != null ? _dxcboCountry.Value.ToString() : "");
+            }
+        }
+
+        if (selectcombo == -1 || selectcombo == 2)
+        {
+            //060512 origin port is not filtered in Access database?
+            bind_origin_port("");
+
+            //origin port
+            //ASPxComboBox _dxcboOrigin = (ASPxComboBox)_call.FindControl("dxcboOrigin");
+            //ASPxComboBox _dxcboOrigin = (ASPxComboBox)this.formOrder.FindControl("dxcboOrigin");
+            //if (_dxcboOrigin != null)
+            //{
+            //    bind_origin_port(_dxcboOrigin.Value != null ? _dxcboOrigin.Value.ToString() : "");
+            //}
+        }
+        //}
+    }
+    protected void bind_dest_combos()
+    {
+        //destination port
+        bind_dest_port();
+
+        //final destination not filtered in access database?
+        bind_final_dest();
+    }
+    //end bind combos
+
+    protected void bind_employee_names(int officeid)
+    {
+        string[] _cols = { "EmployeeID, Name" };
+        string[] _order = { "Name" };
+
+
+        //order controller employee must be live and in office where order is created
+        //int _officeid = this.dxhfOfficeID.Contains("officeid") ? wwi_func.vint(this.dxhfOfficeID.Get("officeid").ToString()) : 0;
+        SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.EmployeesTable).Where("OfficeID").IsEqualTo(officeid).And("Live").IsEqualTo(true).OrderAsc(_order);
+        ASPxComboBox _dxcboController = (ASPxComboBox)this.formOrder.FindControl("dxcboController");
+        if (_dxcboController != null)
+        {
+            IDataReader _rd1 = _qry.ExecuteReader();
+            _dxcboController.DataSource = _rd1;
+            _dxcboController.ValueField = "EmployeeID";
+            _dxcboController.ValueType = typeof(int);
+            _dxcboController.TextField = "Name";
+            _dxcboController.DataBindItems();
+        }
+
+        _qry = new Select(_cols).From(DAL.Logistics.Tables.EmployeesTable).Where("Live").IsEqualTo(true).OrderAsc(_order);
+        //operations controller
+        ASPxComboBox _dxcboOps = (ASPxComboBox)this.formOrder.FindControl("dxcboOps");
+        if (_dxcboOps != null)
+        {
+            IDataReader _rd2 = _qry.ExecuteReader();
+            _dxcboOps.DataSource = _rd2;
+            _dxcboOps.ValueField = "EmployeeID";
+            _dxcboOps.ValueType = typeof(int);
+            _dxcboOps.TextField = "Name";
+            _dxcboOps.DataBindItems();
+        }
+
+    }
+    //end bind employees
+    protected void bind_countries()
+    {
+        //DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel _call = (DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel)this.formOrder.FindControl("dxcbkOriginGroup");
+        //if (_call != null)
+        //{
+        //ASPxComboBox _dxcboCountry = (ASPxComboBox)_call.FindControl("dxcboCountry");
+        ASPxComboBox _dxcboCountry = (ASPxComboBox)this.formOrder.FindControl("dxcboCountry");
+        if (_dxcboCountry != null)
+        {
+            string[] _cols = { "CountryID, CountryName" };
+            string[] _order = { "CountryName" };
+            SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.CountryTable).OrderAsc(_order);
+            IDataReader _rd1 = _qry.ExecuteReader();
+            _dxcboCountry.DataSource = _rd1;
+            _dxcboCountry.ValueField = "CountryID";
+            _dxcboCountry.ValueType = typeof(int);
+            _dxcboCountry.TextField = "CountryName";
+            _dxcboCountry.DataBindItems();
+        }
+        //}
+    }
+    //end bind country
+    protected void bind_origin(string countryID)
+    {
+        //DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel _call = (DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel)this.formOrder.FindControl("dxcbkOriginGroup");
+        //if (_call != null)
+        //{
+        //ASPxComboBox _dxcboOrigin = (ASPxComboBox)_call.FindControl("dxcboOrigin");
+        ASPxComboBox _dxcboOrigin = (ASPxComboBox)this.formOrder.FindControl("dxcboOrigin");
+        if (_dxcboOrigin != null)
+        {
+            string[] _cols = { "PlaceID, PlaceName" };
+            string[] _order = { "PlaceName" };
+            SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.PlacesTable).OrderAsc(_order);
+
+            int _filter = -1;
+            if (!string.IsNullOrEmpty(countryID))
+            {
+                _filter = wwi_func.vint(countryID);
+                if (_filter > 0) { _qry.Where("CountryID").IsEqualTo(_filter); }
+            }
+
+            IDataReader _rd1 = _qry.ExecuteReader();
+            _dxcboOrigin.DataSource = _rd1;
+            _dxcboOrigin.ValueField = "PlaceID";
+            _dxcboOrigin.ValueType = typeof(int);
+            _dxcboOrigin.TextField = "PlaceName";
+            _dxcboOrigin.DataBindItems();
+        }
+        //}
+    }
+    //end bind origin
+    protected void bind_origin_port(string originID)
+    {
+        //DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel _call = (DevExpress.Web.ASPxCallbackPanel.ASPxCallbackPanel)this.formOrder.FindControl("dxcbkOriginGroup");
+        //if (_call != null)
+        //{
+        //ASPxComboBox _dxcboOriginPort = (ASPxComboBox)_call.FindControl("dxcboOriginPort");
+        ASPxComboBox _dxcboOriginPort = (ASPxComboBox)this.formOrder.FindControl("dxcboOriginPort");
+
+        if (_dxcboOriginPort != null)
+        {
+            string[] _cols = { "PortID, PortName" };
+            string[] _order = { "PortName" };
+            SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.PortTable).OrderAsc(_order);
+
+            int _filter = -1;
+            if (!string.IsNullOrEmpty(originID))
+            {
+                _filter = wwi_func.vint(originID);
+                if (_filter > 0) { _qry.Where("PortID").IsEqualTo(_filter); }
+            }
+
+            IDataReader _rd1 = _qry.ExecuteReader();
+            _dxcboOriginPort.DataSource = _rd1;
+            _dxcboOriginPort.ValueField = "PortID";
+            _dxcboOriginPort.ValueType = typeof(int);
+            _dxcboOriginPort.TextField = "PortName";
+            _dxcboOriginPort.DataBindItems();
+        }
+        //}
+    }
+    //end bind origin port
+    protected void bind_dest_port()
+    {
+        ASPxComboBox _dxcboDestPort = (ASPxComboBox)this.formOrder.FindControl("dxcboDestPort");
+        if (_dxcboDestPort != null)
+        {
+            string[] _cols = { "PortID, PortName" };
+            string[] _order = { "PortName" };
+            SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.PortTable).OrderAsc(_order);
+
+            IDataReader _rd1 = _qry.ExecuteReader();
+            _dxcboDestPort.DataSource = _rd1;
+            _dxcboDestPort.ValueField = "PortID";
+            _dxcboDestPort.ValueType = typeof(int);
+            _dxcboDestPort.TextField = "PortName";
+            _dxcboDestPort.DataBindItems();
+        }
+    }
+    //end bind destination port
+    protected void bind_final_dest()
+    {
+        ASPxComboBox _dxcboFinal = (ASPxComboBox)this.formOrder.FindControl("dxcboFinal");
+        if (_dxcboFinal != null)
+        {
+            string[] _cols = { "PlaceID, PlaceName", "CountryID" };
+            string[] _order = { "PlaceName" };
+            SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.PlacesTable).OrderAsc(_order);
+
+            IDataReader _rd1 = _qry.ExecuteReader();
+            _dxcboFinal.DataSource = _rd1;
+            _dxcboFinal.ValueField = "PlaceID";
+            _dxcboFinal.ValueType = typeof(int);
+            _dxcboFinal.TextField = "PlaceName";
+            _dxcboFinal.DataBindItems();
+        }
+    }
+
+    protected void bind_client_contact(string companyID)
+    {
+        //must have a filter or display nothing
+        if (!string.IsNullOrEmpty(companyID))
+        {
+            ASPxComboBox _dxcboContact = (ASPxComboBox)this.formOrder.FindControl("dxcboClientContact");
+            if (_dxcboContact != null)
+            {
+
+                string[] _cols = { "ContactID, ContactName", "Email" };
+                string[] _order = { "ContactName" };
+                SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.ContactTable).OrderAsc(_order);
+
+                int _filter = -1;
+                if (!string.IsNullOrEmpty(companyID))
+                {
+                    _filter = wwi_func.vint(companyID);
+                    if (_filter > 0) { _qry.Where("CompanyID").IsEqualTo(_filter); }
+                }
+
+                IDataReader _rd1 = _qry.ExecuteReader();
+                _dxcboContact.DataSource = _rd1;
+                _dxcboContact.ValueField = "ContactID";
+                _dxcboContact.ValueType = typeof(int);
+                _dxcboContact.TextField = "ContactName";
+                _dxcboContact.DataBindItems();
+            }
+        }
+    }
+    //end bind client contact
+    protected void bind_origin_controller(string originAgentID)
+    {
+        //260211 some older jobs have an origin controller but no origin agent in those cases don't display the origin controller
+        //must have a filter or display nothing
+        if (!string.IsNullOrEmpty(originAgentID))
+        {
+            ASPxComboBox _dxcboController = (ASPxComboBox)this.formOrder.FindControl("dxcboOriginController");
+            if (_dxcboController != null)
+            {
+
+                string[] _cols = { "EmployeesTable.EmployeeID, EmployeesTable.Name", "EmployeesTable.DepartmentID", "OfficeTable.OfficeID", " NameAndAddressBook.CompanyID" };
+                string[] _order = { "Name" };
+                SqlQuery _qry = new Select(_cols).From(DAL.Logistics.Tables.EmployeesTable).
+                    InnerJoin(DAL.Logistics.OfficeTable.OfficeIDColumn, DAL.Logistics.EmployeesTable.OfficeIDColumn).
+                    InnerJoin(DAL.Logistics.NameAndAddressBook.CountryIDColumn, DAL.Logistics.OfficeTable.CountryIDColumn);
+
+                if (!string.IsNullOrEmpty(originAgentID))
+                {
+                    int _filter = wwi_func.vint(originAgentID);
+                    if (_filter > 0) { _qry.Where("CompanyID").IsEqualTo(_filter); }
+                }
+
+                _qry.And(DAL.Logistics.EmployeesTable.LiveColumn).IsEqualTo(true).OrderAsc(_order);
+
+                IDataReader _rd1 = _qry.ExecuteReader();
+                _dxcboController.DataSource = _rd1;
+                _dxcboController.ValueField = "EmployeeID";
+                _dxcboController.ValueType = typeof(int);
+                _dxcboController.TextField = "Name";
+                _dxcboController.DataBindItems();
+            }
+        }
+    }
+    //end bind origin port controller
+    #endregion
+
+    #region incremental filtering for large combobox datasets
+    //incremental filtering for large datasets on combos
+    /// <summary>
+    /// incremental filtering and partial loading of name and address book for speed
+    /// both ItemsRequestedByFilterCondition and ItemRequestedByValue must be set up for this to work
+    /// company name is only available to publiship users
+    /// </summary>
+    /// <param name="source"></param>
+    /// <param name="e"></param>
+    protected void dxcbocompany_ItemsRequestedByFilterCondition(object source, DevExpress.Web.ASPxEditors.ListEditItemsRequestedByFilterConditionEventArgs e)
+    {
+        DevExpress.Web.ASPxEditors.ASPxComboBox _combo = (DevExpress.Web.ASPxEditors.ASPxComboBox)source;
+
+        //if (Page.Session["user"] != null) //if publiship user allow filter to be used otherwise filter null
+        //{
+        //    Int32 _companyid = wwi_func.vint(((UserClass)Page.Session["user"]).CompanyId.ToString());
+        //    if (_companyid == -1)
+        //    {
+        string _filter = !string.IsNullOrEmpty(e.Filter) ? e.Filter : "";
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "CompanyID, CompanyName", "Address1", "Address2", "Address3", "CountryName", "TelNo", "Customer" };
+
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).Paged(e.BeginIndex + 1, e.EndIndex + 1, "CompanyID").WhereExpression("CompanyName").Like(string.Format("%{0}%", e.Filter.ToString()));
+        SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From("view_delivery_address").Paged(e.BeginIndex + 1, e.EndIndex + 1, "CompanyID").WhereExpression("CompanyName").Like(string.Format("{0}%", e.Filter.ToString()));
+
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "CompanyID";
+        _combo.ValueType = typeof(int);
+        _combo.TextField = "CompanyName";
+        _combo.DataBindItems();
+        //    }
+        //}
+    }
+    protected void dxcbocompany_ItemRequestedByValue(object source, DevExpress.Web.ASPxEditors.ListEditItemRequestedByValueEventArgs e)
+    {
+        DevExpress.Web.ASPxEditors.ASPxComboBox _combo = (DevExpress.Web.ASPxEditors.ASPxComboBox)source;
+
+        Int32 _id = 0;
+        //if (Page.Session["user"] != null) //if publiship user allow filter to be used otherwise filter null
+        //{
+        //    Int32 _companyid = wwi_func.vint(((UserClass)Page.Session["user"]).CompanyId.ToString());
+        //    if (_companyid == -1)
+        //    {
+        if (e.Value != null) { _id = wwi_func.vint(e.Value.ToString()); }
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "CompanyID, CompanyName", "Address1", "Address2", "Address3", "CountryName", "TelNo", "Customer" };
+
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).WhereExpression("CompanyID").IsEqualTo(_id);
+        SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From("view_delivery_address").WhereExpression("CompanyID").IsEqualTo(_id);
+
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "CompanyID";
+        _combo.ValueType = typeof(int);
+        _combo.TextField = "CompanyName";
+        _combo.DataBindItems();
+        //  }
+        //}
+    }
+    //end incremental filtering of company name
+
+    //printer
+    protected void dxcboprinter_ItemsRequestedByFilterCondition(object source, DevExpress.Web.ASPxEditors.ListEditItemsRequestedByFilterConditionEventArgs e)
+    {
+        DevExpress.Web.ASPxEditors.ASPxComboBox _combo = (DevExpress.Web.ASPxEditors.ASPxComboBox)source;
+
+        //if (Page.Session["user"] != null) //if publiship user allow filter to be used otherwise filter null
+        //{
+        //    Int32 _companyid = wwi_func.vint(((UserClass)Page.Session["user"]).CompanyId.ToString());
+        //    if (_companyid == -1)
+        //    {
+        string _filter = !string.IsNullOrEmpty(e.Filter) ? e.Filter : "";
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "CompanyID, PrinterName", "PrinterAdd1", "PrinterAdd2", "PrinterAdd3", "PrinterCountry", "PrinterTel" };
+
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).Paged(e.BeginIndex + 1, e.EndIndex +1, "CompanyID").WhereExpression("CompanyName").Like(string.Format("%{0}%", e.Filter.ToString())).And("Customer").IsEqualTo(true) ;
+        SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From("PrinterNameView").Paged(e.BeginIndex + 1, e.EndIndex + 1, "CompanyID").WhereExpression("PrinterName").Like(string.Format("{0}%", e.Filter.ToString()));
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "CompanyID";
+        _combo.ValueType = typeof(int);
+        _combo.TextField = "PrinterName";
+        _combo.DataBindItems();
+        //    }
+        //}
+    }
+    protected void dxcboprinter_ItemRequestedByValue(object source, DevExpress.Web.ASPxEditors.ListEditItemRequestedByValueEventArgs e)
+    {
+        DevExpress.Web.ASPxEditors.ASPxComboBox _combo = (DevExpress.Web.ASPxEditors.ASPxComboBox)source;
+
+        Int32 _id = 0;
+        //if (Page.Session["user"] != null) //if publiship user allow filter to be used otherwise filter null
+        //{
+        //    Int32 _companyid = wwi_func.vint(((UserClass)Page.Session["user"]).CompanyId.ToString());
+        //    if (_companyid == -1)
+        //    {
+        if (e.Value != null) { _id = wwi_func.vint(e.Value.ToString()); }
+
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "CompanyID, PrinterName", "PrinterAdd1", "PrinterAdd2", "PrinterAdd3", "PrinterCountry", "PrinterTel" };
+
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).WhereExpression("CompanyID").IsEqualTo(_id);
+        SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From("PrinterNameView").WhereExpression("CompanyID").IsEqualTo(_id);
+
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "CompanyID";
+        _combo.ValueType = typeof(int);
+        _combo.TextField = "PrinterName";
+        _combo.DataBindItems();
+        //  }
+        //}
+    }
+    //end incremental filtering of agentatorigin
+    //printer
+    protected void dxcboagentatorigin_ItemsRequestedByFilterCondition(object source, DevExpress.Web.ASPxEditors.ListEditItemsRequestedByFilterConditionEventArgs e)
+    {
+        DevExpress.Web.ASPxEditors.ASPxComboBox _combo = (DevExpress.Web.ASPxEditors.ASPxComboBox)source;
+
+        //if (Page.Session["user"] != null) //if publiship user allow filter to be used otherwise filter null
+        //{
+        //    Int32 _companyid = wwi_func.vint(((UserClass)Page.Session["user"]).CompanyId.ToString());
+        //    if (_companyid == -1)
+        //    {
+        string _filter = !string.IsNullOrEmpty(e.Filter) ? e.Filter : "";
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "OriginAgentID", "OriginAgent", "OriginAgentAddress1", "OriginAgentAddress2", "OriginAgentAddress3", "OriginAgentCountry", "OriginAgentTel" };
+
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).Paged(e.BeginIndex + 1, e.EndIndex +1, "CompanyID").WhereExpression("CompanyName").Like(string.Format("%{0}%", e.Filter.ToString())).And("Customer").IsEqualTo(true) ;
+        SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From("OriginAgentView").Paged(e.BeginIndex + 1, e.EndIndex + 1, "OriginAgentID").WhereExpression("OriginAgent").Like(string.Format("{0}%", e.Filter.ToString()));
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "OriginAgentID";
+        _combo.ValueType = typeof(int);
+        _combo.TextField = "OriginAgent";
+        _combo.DataBindItems();
+        //    }
+        //}
+    }
+    //agent at origin
+    protected void dxcboagentatorigin_ItemRequestedByValue(object source, DevExpress.Web.ASPxEditors.ListEditItemRequestedByValueEventArgs e)
+    {
+        DevExpress.Web.ASPxEditors.ASPxComboBox _combo = (DevExpress.Web.ASPxEditors.ASPxComboBox)source;
+
+        Int32 _id = 0;
+        //if (Page.Session["user"] != null) //if publiship user allow filter to be used otherwise filter null
+        //{
+        //    Int32 _companyid = wwi_func.vint(((UserClass)Page.Session["user"]).CompanyId.ToString());
+        //    if (_companyid == -1)
+        //    {
+        if (e.Value != null) { _id = wwi_func.vint(e.Value.ToString()); }
+
+        //use datareaders - much faster than loading into collections
+        string[] _cols = { "OriginAgentID", "OriginAgent", "OriginAgentAddress1", "OriginAgentAddress2", "OriginAgentAddress3", "OriginAgentCountry", "OriginAgentTel" };
+
+        //SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From(DAL.Logistics.Tables.NameAndAddressBook).WhereExpression("CompanyID").IsEqualTo(_id);
+        SubSonic.SqlQuery _query = DAL.Logistics.DB.Select(_cols).From("OriginAgentView").WhereExpression("OriginAgentID").IsEqualTo(_id);
+
+        IDataReader _rd = _query.ExecuteReader();
+        _combo.DataSource = _rd;
+        _combo.ValueField = "OriginAgentID";
+        _combo.ValueType = typeof(int);
+        _combo.TextField = "OriginAgent";
+        _combo.DataBindItems();
+        //  }
+        //}
+    }
+    //end incremental filtering agentarorigin
+
+    #endregion
+   
+    #region functions
+
+    /// return string value from named token 
+    /// checking hidden fields first then cookies if value not found
+    /// </summary>
+    /// <param name="namedtoken">name of token</param>
+    /// <returns></returns>
+    protected string get_token(string namedtoken)
+    {
+        string _value = this.dxhfOrder.Contains(namedtoken) ? this.dxhfOrder.Get(namedtoken).ToString() : null;
+
+        if (string.IsNullOrEmpty(_value))
+        {
+            _value = Page.Request[namedtoken] != null ? HttpUtility.UrlDecode(Page.Request[namedtoken].ToString(), System.Text.Encoding.Default) : null;
+        }
+
+        //don't decrypt it here
+        //if (_value != null) { _value = wwi_security.DecryptString(_value, "publiship"); }
+        return _value;
+    }
+    //end get saved token
+    /// <summary>
+    /// some formating functions for Evals  this does not work with Bind you can't enclose Bind with functions
+    /// </summary>
+    /// <param name="testvalue">object to check</param>
+    /// <returns>empty string if null or object value</returns>
+    public string nullValue(object testvalue)
+    {
+        if (testvalue == null)
+            return "";
+        return testvalue.ToString();
+
+    }
+
+    protected static bool isLoggedIn()
+    {
+        // TODO: Your custom logic here
+        return HttpContext.Current.Session["user"] != null;
+    }
+    #endregion
+}

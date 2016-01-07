@@ -1,0 +1,192 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="test_titles.aspx.cs" Inherits="test_titles" %>
+
+<%@ Register assembly="DevExpress.Web.ASPxGridView.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+        <title></title> 
+        <link rel="stylesheet" href="App_Themes/960gs_flex.css" type="text/css" />
+        <link rel="stylesheet" href="App_Themes/custom.css" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="container_16">
+                <!-- messages -->
+        <div class="grid_16 pad_bottom">
+           <dx:ASPxPanel ID="dxpnlErr" ClientInstanceName="pnlErr" ClientVisible ="false" 
+                    runat="server">
+                <PanelCollection>
+                    <dx:PanelContent ID="pnlErr">
+                        <div class="alert"> 
+                            <dx:ASPxLabel ID="dxlblErr" ClientInstanceName="lblErr" runat="server" Text="" 
+                                CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                                CssPostfix="Office2010Blue">
+                            </dx:ASPxLabel> 
+                        </div>
+                    </dx:PanelContent> 
+                </PanelCollection> 
+            </dx:ASPxPanel>
+            <dx:ASPxPanel ID="dxpnlMsg" ClientInstanceName="pnlMsg" ClientVisible ="false" 
+                    runat="server">
+                <PanelCollection>
+                 <dx:PanelContent ID="pnlMsg">
+                        <div class="info"> 
+                            <dx:ASPxLabel ID="dxlblInfo" ClientInstanceName="lblInfo" runat="server" 
+                                Text="" CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                                CssPostfix="Office2010Blue">
+                            </dx:ASPxLabel> 
+                        </div>
+                    </dx:PanelContent> 
+                </PanelCollection> 
+            </dx:ASPxPanel> 
+        </div> 
+        <div class="clear"></div>
+        <div class="grid_16">
+             <dx:ASPxGridView ID="dxgridTitles" runat="server" AutoGenerateColumns="False" 
+                            ClientInstanceName="gridTitles" 
+                            CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                            CssPostfix="Office2010Blue" 
+                            KeyFieldName="TitleID" width="100%" 
+                             onrowinserting="dxgridTitles_RowInserting" 
+                             onrowupdating="dxgridTitles_RowUpdating" 
+                             onafterperformcallback="dxgridTitles_AfterPerformCallback" 
+                             onstartrowediting="dxgridTitles_StartRowEditing" 
+                             onrowdeleting="dxgridTitles_RowDeleting">
+                            <SettingsBehavior EnableRowHotTrack="True" ConfirmDelete="True" />
+                            <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                                CssPostfix="Office2010Blue">
+                                <Header ImageSpacing="5px" SortingImageSpacing="5px">
+                                </Header>
+                                <LoadingPanel ImageSpacing="5px">
+                                </LoadingPanel>
+                            </Styles>
+                            <SettingsPager NumericButtonCount="25" PageSize="25">
+                            </SettingsPager>
+                            <ImagesFilterControl>
+                                <LoadingPanel Url="~/App_Themes/Office2010Blue/GridView/Loading.gif">
+                                </LoadingPanel>
+                            </ImagesFilterControl>
+                            <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                                <LoadingPanelOnStatusBar Url="~/App_Themes/Office2010Blue/GridView/Loading.gif">
+                                </LoadingPanelOnStatusBar>
+                                <LoadingPanel Url="~/App_Themes/Office2010Blue/GridView/Loading.gif">
+                                </LoadingPanel>
+                            </Images>
+                            <SettingsEditing Mode="Inline" />
+                            <Columns>
+                                <dx:GridViewCommandColumn VisibleIndex="0" Width="100px" Name="colCommand" 
+                                    ButtonType="Image">
+                                    <EditButton Visible="True">
+                                          <Image AlternateText="Edit" ToolTip="Edit" Height="18px" 
+                                            Url="~/Images/icons/metro/22x18/edit18.png" Width="22px">
+                                        </Image>
+                                    </EditButton>
+                                    <NewButton Visible="True">
+                                          <Image AlternateText="New" ToolTip="New" Height="18px" 
+                                            Url="~/Images/icons/metro/22x18/add_row18.png" Width="22px">
+                                        </Image>
+                                    </NewButton>
+                                    <DeleteButton Visible="True">
+                                          <Image AlternateText="Delete" ToolTip="Delete" Height="18px" 
+                                            Url="~/Images/icons/metro/22x18/delete_row18.png" Width="22px">
+                                        </Image>
+                                    </DeleteButton>
+                                    <UpdateButton Visible="True">
+                                          <Image AlternateText="Update" ToolTip="Update" Height="18px" 
+                                                Url="~/Images/icons/metro/22x18/save18.png" Width="22px">
+                                            </Image>
+                                    </UpdateButton> 
+                                     <CancelButton Visible="True">
+                                          <Image AlternateText="Cancel" ToolTip="Cancel" Height="18px" 
+                                                Url="~/Images/icons/metro/22x18/cancel18.png" Width="22px">
+                                            </Image>
+                                    </CancelButton> 
+                                </dx:GridViewCommandColumn>
+                                <dx:GridViewDataTextColumn FieldName="TitleID" ReadOnly="True" Visible="False" 
+                                    VisibleIndex="1" Width="0px" Caption="ID" Name="colID">
+                                    <Settings AllowAutoFilter="False" />
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="OrderNumber" VisibleIndex="26" 
+                                    Caption="Order no." Visible="False" Width="0px" Name="colOrderNo">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataComboBoxColumn FieldName="Title" VisibleIndex="2" Width="225px" 
+                                    Caption="Title" Name="colTitle" >
+                                <PropertiesComboBox Spacing="0"></PropertiesComboBox>
+                                     <EditItemTemplate>
+                                        <dx:ASPxComboBox ID="dxcbotitle" runat="server" Width="225px" DropDownStyle="DropDown" 
+                                            OnItemRequestedByValue="dxcbotitle_ItemRequestedByValue" 
+                                            OnItemsRequestedByFilterCondition="dxcbotitle_ItemsRequestedByFilterCondition" 
+                                            CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                                            CssPostfix="Office2010Blue" 
+                                            SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css" 
+                                            CallbackPageSize="30" EnableCallbackMode="True"  
+                                            IncrementalFilteringMode="StartsWith" TextField="Title"  
+                                            ValueField="TitleID" ValueType="System.Int32" 
+                                            ondatabound="dxcbotitle_DataBound" 
+                                            Spacing="0">
+                                            <ButtonStyle Width="13px">
+                                            </ButtonStyle>
+                                            <ClientSideEvents ButtonClick="onComboButtonClick" />
+                                            <Buttons>
+                                            </Buttons> 
+                                            <LoadingPanelStyle ImageSpacing="5px">
+                                            </LoadingPanelStyle>
+                                            <LoadingPanelImage Url="~/App_Themes/Office2010Blue/Editors/Loading.gif">
+                                            </LoadingPanelImage>
+                                        </dx:ASPxComboBox>
+                                    </EditItemTemplate>
+                                </dx:GridViewDataComboBoxColumn>
+                                <dx:GridViewDataTextColumn FieldName="ISBN" VisibleIndex="4" Width="150px" 
+                                    Caption="ISBN" Name="colISBN">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="SSRNo" VisibleIndex="9" Caption="SSR no." 
+                                    Width="100px" Name="colSSRNo">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataDateColumn FieldName="SSRDate" VisibleIndex="10" 
+                                    Caption="SSR date" Width="110px" Name="colSSRDate">
+                                    <PropertiesDateEdit Spacing="0">
+                                    </PropertiesDateEdit>
+                                </dx:GridViewDataDateColumn>
+                                <dx:GridViewDataTextColumn FieldName="Impression" VisibleIndex="5" 
+                                    Width="125px" Caption="Impression" Name="colImpression">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="PONumber" VisibleIndex="6" 
+                                    Caption="PO Number" Width="125px" Name="colPONumber">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="OtherRef" VisibleIndex="7" 
+                                    Caption="Other ref" Width="125px" Name="colOtherRef">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="Copies" VisibleIndex="3" Width="75px" 
+                                    Caption="Copies" Name="colCopies">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="PerCopy" VisibleIndex="11" 
+                                    Caption="Per copy" Width="100px" Name="colPerCopy">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="TotalValue" VisibleIndex="8" 
+                                    Caption="Total value" Width="100px" Name="colTotalValue">
+                                </dx:GridViewDataTextColumn>
+                            </Columns>
+                            <StylesPager>
+                                <PageNumber ForeColor="#3E4846">
+                                </PageNumber>
+                                <Summary ForeColor="#1E395B">
+                                </Summary>
+                            </StylesPager>
+                            <Settings ShowFilterRow="True" ShowHorizontalScrollBar="True" ShowHeaderFilterButton="True" 
+                                VerticalScrollableHeight="350" />
+                            <StylesEditors ButtonEditCellSpacing="0">
+                                <ProgressBar Height="21px">
+                                </ProgressBar>
+                            </StylesEditors>
+                        </dx:ASPxGridView>
+
+        
+        </div> 
+        <div class="clear"></div>
+    </div>
+    </form>
+</body>
+</html>

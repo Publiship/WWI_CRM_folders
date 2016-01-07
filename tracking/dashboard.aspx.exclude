@@ -1,0 +1,349 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="dashboard.aspx.cs" MasterPageFile="~/WWI_m1.master" Inherits="dashboard" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxGridView.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridLookup" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxDocking" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxFileManager" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxSiteMapControl" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxObjectContainer" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallbackPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxGridView.v11.1.Export, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView.Export" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxTabControl" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxGridView.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.ASPxEditors.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+
+<%@ Register assembly="System.Web.Entity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" namespace="System.Web.UI.WebControls" tagprefix="asp" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxClasses" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPager" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHiddenField" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxCallback" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.Web.v11.1.Linq, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Data.Linq" tagprefix="dx" %>
+
+
+     
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxDataView" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxHeadline" tagprefix="dx" %>
+
+
+     
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxNavBar" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTitleIndex" tagprefix="dx" %>
+
+
+     
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTimer" tagprefix="dx" %>
+
+
+
+<%@ Register assembly="DevExpress.Web.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGlobalEvents" tagprefix="dx" %>
+
+<%@ Register Src="~/usercontrols/Sys_DateTime.ascx" TagName="DateTime" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Sys_Calendar.ascx" TagName="Calendar" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Pod_Order_Top.ascx" TagName="OrderLastN" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Pod_Search_Top.ascx" TagName="SearchLastN" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Pod_ETA_Month.ascx" TagName="PodEtaMonth" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Pod_ETA_Week.ascx" TagName="PodEtaWeek" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Pod_Count_Open.ascx" TagName="CountOpenOrders" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/Wbs_Pricer_Top.ascx" TagName="PricerLastN" TagPrefix="widget" %>
+<%@ Register Src="~/usercontrols/weights_shipped.ascx" TagName="TodayShipments" TagPrefix="widget" %>
+
+<%@ Register assembly="DevExpress.Web.ASPxGauges.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGauges" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxGauges.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGauges.Gauges" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxGauges.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGauges.Gauges.Linear" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxGauges.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGauges.Gauges.Circular" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxGauges.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGauges.Gauges.State" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxGauges.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGauges.Gauges.Digital" tagprefix="dx" %>
+
+<%@ Register assembly="DevExpress.XtraCharts.v11.1.Web, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts.Web" tagprefix="dxchartsui" %>
+<%@ Register assembly="DevExpress.XtraCharts.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraCharts" tagprefix="cc1" %>
+
+<asp:Content ID="content_default" ContentPlaceHolderID="ContentPlaceHolderM1" runat="server">
+
+    <script type="text/javascript">
+        // <![CDATA[
+        function ShowWidgetPanel(widgetPanelUID) {
+            var panel = dockManager.GetPanelByUID(widgetPanelUID);
+            panel.Show();
+        }
+        function SetWidgetButtonVisible(widgetName, visible) {
+            var button = ASPxClientControl.GetControlCollection().GetByName('widgetButton_' + widgetName);
+            button.GetMainElement().className = visible ? '' : 'disabled';
+        }
+        
+        // ]]>
+    </script>
+
+        
+       <dx:ASPxDockManager runat="server" ID="dxdockManager" 
+    ClientInstanceName="dockManager" SaveStateToCookies="True" 
+    SaveStateToCookiesID="dockmngr">
+        <ClientSideEvents
+            PanelShown="function(s, e) { SetWidgetButtonVisible(e.panel.panelUID, false) }"
+            PanelCloseUp="function(s, e) { SetWidgetButtonVisible(e.panel.panelUID, true) }"/>
+        </dx:ASPxDockManager>
+        
+         <!-- just a container div --> 
+        <div class="innertube">  
+                <div class="panel-padded">
+                <dx:ASPxPanel ID="dxpnldasherr" ClientInstanceName="pnldasherr" runat="server" Visible="false">
+                    <PanelCollection>
+                        <dx:PanelContent ID="msgdash1"> 
+                        <dx:ASPxLabel ID="dxlbldasherr" ClientInstanceName="lbldasherr" runat="server" 
+                                Font-Size="Large" ForeColor="#CC0000" Text="[Error message]"> 
+                                        </dx:ASPxLabel>
+                        </dx:PanelContent>
+                    </PanelCollection>
+                </dx:ASPxPanel>
+              </div>
+             <!-- begin drop down for widget selection --> 
+             
+             
+              <!-- end widget selection -- >  
+                <!-- centered box for header -->
+                
+                <!-- docking panel -->
+                
+        <!-- when adding panels make sure they arE added to the repeater on page load
+            by PanelUID or they do not dock properly and might not be visible -->
+            
+          <dx:ASPxDockPanel runat="server" ID="dxDateTimePanel" PanelUID="Clock" HeaderText="Date & Time"
+        Height="120px" Left="820" Top="220" ClientInstanceName="dateTimePanel" 
+                    OwnerZoneUID="zone2" EnableHotTrack="False" SaveStateToCookies="True" 
+                    SaveStateToCookiesID="wwidash">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+                <widget:DateTime ID="DateTimeWidget" runat="server" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+              <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                  CssPostfix="Office2010Blue">
+                  <LoadingPanel ImageSpacing="5px">
+                  </LoadingPanel>
+              </Styles>
+              <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                  <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                  </LoadingPanel>
+              </Images>
+    </dx:ASPxDockPanel>
+    
+              <dx:ASPxDockPanel runat="server" ID="dxCalendarPanel" PanelUID="Calendar" HeaderText="Calendar"
+        Height="120px" ClientInstanceName="calendarPanel" 
+                    OwnerZoneUID="zone2" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:Calendar runat="server" ID="CalendarWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel>
+    
+      <dx:ASPxDockPanel runat="server" ID="dxTopOrders" PanelUID="Recent orders" HeaderText="Most recent orders"
+         ClientInstanceName="topOrdersPanel" 
+                    OwnerZoneUID="zone0" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:OrderLastN runat="server" ID="OrderLastNWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel>
+    
+                 <dx:ASPxDockPanel runat="server" ID="dxOrderMonthEta" PanelUID="ETA this month" HeaderText="Orders by ETA this month"
+         ClientInstanceName="orderETAMonthPanel" 
+                    OwnerZoneUID="zone2" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:PodEtaMonth runat="server" ID="PodEtaMonthWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel>
+    
+    <dx:ASPxDockPanel runat="server" ID="dxOrderWeekEta" PanelUID="ETA this week" HeaderText="Orders by ETA this week"
+         ClientInstanceName="orderETAWeekPanel" 
+                    OwnerZoneUID="zone2" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:PodEtaWeek runat="server" ID="PodEtaWeekWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel>
+    
+      <dx:ASPxDockPanel runat="server" ID="dxorderCountOpen" PanelUID="Open orders" HeaderText="Total open orders"
+        Height="120px" ClientInstanceName="orderCountOpen" 
+                    OwnerZoneUID="zone3" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:CountOpenOrders runat="server" ID="CountOpenOrdersWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel>
+    
+         <dx:ASPxDockPanel runat="server" ID="dxTopSearches" PanelUID="Recent searches" HeaderText="Most recent searches"
+         ClientInstanceName="topSearchesPanel" 
+                    OwnerZoneUID="zone1" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:SearchLastN runat="server" ID="SearchLastNWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel>
+    
+     <!-- disable this control in widgets.xml when running on localhost as pricer database can't be connected prevents page load --> 
+    <dx:ASPxDockPanel runat="server" ID="dxTopPrices" PanelUID="Recent prices" HeaderText="Most recent prices"
+         ClientInstanceName="topPricesPanel" 
+                    OwnerZoneUID="zone1" EnableHotTrack="False" SaveStateToCookies="True">
+        <ContentCollection>
+            <dx:PopupControlContentControl>
+               <widget:PricerLastN runat="server" ID="PricerLastNWidget" />
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+                  <Styles CssFilePath="~/App_Themes/Office2010Blue/{0}/styles.css" 
+                      CssPostfix="Office2010Blue">
+                      <LoadingPanel ImageSpacing="5px">
+                      </LoadingPanel>
+                  </Styles>
+                  <Images SpriteCssFilePath="~/App_Themes/Office2010Blue/{0}/sprite.css">
+                      <LoadingPanel Url="~/App_Themes/Office2010Blue/Web/Loading.gif">
+                      </LoadingPanel>
+                  </Images>
+    </dx:ASPxDockPanel> 
+   
+    
+    <div class="widgetPanel">
+        <asp:Repeater runat="server" ID="rptwidgetgroup">
+            <ItemTemplate>
+                <dx:ASPxImage ID="dximgwidget" runat="server" ImageUrl='<%# string.Format("~/Images/icons/widget/{0}.png", ((System.Data.DataRowView)Container.DataItem)["name"]) %>' Cursor="pointer"
+                    ClientInstanceName='<%# "widgetButton_" + ((System.Data.DataRowView)Container.DataItem)["name"] %>' ToolTip='<%# "Show " + ((System.Data.DataRowView)Container.DataItem)["name"] %>'
+                    ClientSideEvents-Click='<%# GetClientButtonClickHandler(Container) %>'>
+                </dx:ASPxImage>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+          <div style="width: 960px; margin: 0px Auto">
+            <div style="width: 960px; margin-bottom: 8px">
+            <dx:ASPxDockZone runat="server" ID="dockZone0" ClientInstanceName="zone0" Width="960px" 
+                ZoneUID="zone0" PanelSpacing="8px">
+            </dx:ASPxDockZone>
+            </div> 
+            <div style="width: 310px; float: left">
+            <dx:ASPxDockZone runat="server" ID="dockZone1" ClientInstanceName="zone1" Width="310px" PanelSpacing="8px"
+                ZoneUID="zone1">
+            </dx:ASPxDockZone>
+            </div>
+             <div style="width: 310px; margin-left: 15px; float: left">
+            <dx:ASPxDockZone runat="server" ID="dockZone2" ClientInstanceName="zone2" Width="310px" PanelSpacing="8px"
+                ZoneUID="zone2">
+            </dx:ASPxDockZone>
+            </div>
+            <div style="width: 310px; float: right">
+            <dx:ASPxDockZone runat="server" ID="dockZone3" ClientInstanceName="zone3"  Width="310px" PanelSpacing="8px"
+                ZoneUID="zone3">
+            </dx:ASPxDockZone>
+            </div>
+        </div>
+        
+                 <div >
+                     <asp:XmlDataSource ID="XmlDataSource1" runat="server" 
+                         DataFile="~/xml/widgets.xml"></asp:XmlDataSource>
+                 </div>
+                <div class="bottom-panel"></div>
+                
+                <!-- start grid options -->
+            <!-- end grid options -->
+            
+            <!-- grid --->
+            <!-- <div> -->
+         <!-- </div> --> <!-- end grid wrapper -->       
+     </div>  <!-- end content div -->
+ 
+                            
+     </asp:Content> 
+
+
